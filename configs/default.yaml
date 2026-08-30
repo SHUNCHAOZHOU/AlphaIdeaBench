@@ -1,0 +1,47 @@
+# Language of the agent-facing prompts and rubric (prompts/ is English).
+language: en
+
+# AlphaIdeaBench 只做评价：idea 由外部 idea agent 生成，这里只负责打分。
+# Chat 与 embedding 默认都走 OpenRouter（一把 OPENROUTER_API_KEY）。
+# 模型 ID 用 OpenRouter slug，例如 google/gemini-2.5-flash、anthropic/claude-sonnet-4、openai/gpt-4o。
+llm:
+  provider: openrouter
+  model: deepseek/deepseek-v4-flash-0731
+  api_key_env: OPENROUTER_API_KEY
+  base_url: https://openrouter.ai/api/v1
+  base_url_env: OPENROUTER_BASE_URL
+  timeout_s: 180
+  max_retries: 4
+  json_mode: false
+  http_referer: https://github.com/alphaideabench
+  app_title: AlphaIdeaBench
+
+embedding:
+  provider: openrouter
+  model: google/gemini-embedding-2
+  api_key_env: OPENROUTER_API_KEY
+  base_url: https://openrouter.ai/api/v1
+  base_url_env: OPENROUTER_BASE_URL
+  output_dim: 768
+  task_prefix: "task: sentence similarity | query: "
+  http_referer: https://github.com/alphaideabench
+  app_title: AlphaIdeaBench
+
+agents:
+  judge:
+    name: dimension_judge
+    system_prompt: prompts/judge_system.md
+    user_prompt: prompts/judge_user.md
+    tools:
+      - load_topic
+      - load_budget
+      - load_idea
+      - load_rubric
+    temperature: 0.3
+    max_rounds: 6
+    repeats: 3
+    workers: 1   # Track 1 并行维度数；CLI --workers 可覆盖。13 维互不通信，可设为 13
+    # model: anthropic/claude-sonnet-4   # 可选：Judge 用更强模型
+
+track2:
+  taus: [0.85, 0.90]

@@ -1,0 +1,350 @@
+groups:
+  validity:
+    name: Validity
+    description: >-
+      Whether the idea reads the context correctly, states a clear problem,
+      proposes a method that answers its own motivation, and makes claims that
+      can be tested.
+    dimensions:
+      - context_grounding
+      - problem_formulation
+      - motivation_method_consistency
+      - testability
+  novelty:
+    name: Novelty
+    description: >-
+      Whether the problem, method, scenario, and insight are new relative to the
+      prior work given in the context.
+    dimensions:
+      - problem_novelty
+      - method_novelty
+      - scenario_novelty
+      - insight_novelty
+  feasibility:
+    name: Feasibility
+    description: >-
+      Whether the technical plan, data, budget, and verification can actually be
+      carried out under real constraints.
+    dimensions:
+      - technical_feasibility
+      - data_feasibility
+      - budget_feasibility
+      - verification_feasibility
+  readiness:
+    name: Research Readiness
+    description: >-
+      Whether the surrounding research ecosystem is mature enough to support
+      reliable work on this idea. An independent holistic judgement, not an
+      average of the other dimensions.
+    dimensions:
+      - research_readiness
+
+dimensions:
+  context_grounding:
+    index: 1
+    group: validity
+    name: Context Grounding
+    question: >-
+      Does the idea correctly understand and use the given research background,
+      prior papers, and research direction?
+    scores:
+      "1": Largely detached from the given context, or contains serious factual errors; the problem is unrelated to the given direction
+      "2": Superficially related to the context, but clearly misreads prior work, research goals, or limitations
+      "3": Broadly understands the context, but only uses the general theme and does not use the key papers or research gaps accurately
+      "4": Correctly understands prior work and identifies a research gap consistent with the context
+      "5": Deeply and accurately synthesises the papers, limitations, and background in the context; the idea follows naturally from that context
+    checklist:
+      - Is the idea relevant to the given research direction
+      - Are existing methods described accurately
+      - Are the limitations of prior work identified correctly
+      - Is key information from the context actually used
+      - Is a problem already solved by prior work mistaken for an open problem
+      - Are there factual errors about the papers
+      - Does it introduce a key assumption absent from the context without explaining where it comes from
+      - Are there fabricated papers, fabricated results, or incorrect citations
+
+  problem_formulation:
+    index: 2
+    group: validity
+    name: Problem Formulation
+    question: >-
+      Does the idea turn a broad direction into a clear, specific, well-bounded
+      research problem?
+    scores:
+      "1": No clear research problem; only a topic, a slogan, or a wish
+      "2": The general direction is visible, but the subject, conditions, goal, and boundaries are all vague
+      "3": The problem is broadly understandable, but important qualifying conditions or key variables are still missing
+      "4": Problem, subject, applicable conditions, and goal are reasonably clear, and the scope is roughly manageable
+      "5": The research problem is defined precisely, with clear key variables, boundaries, assumptions, and goals; it could almost be turned directly into a formal research question
+    checklist:
+      - Is the object of study stated
+      - Is the phenomenon or failure under study stated
+      - Are the study conditions stated
+      - Are the key variables stated
+      - Is the research goal stated
+      - Is there an explicit research question or hypothesis
+      - Is it merely vague phrasing such as "improve performance", "enhance capability", or "solve robustness"
+      - Are several unrelated problems mixed into one idea
+      - Is the scope of the idea too large
+
+  motivation_method_consistency:
+    index: 3
+    group: validity
+    name: Motivation–Method Consistency
+    question: >-
+      Does the proposed method actually address the research gap identified in
+      the motivation?
+    scores:
+      "1": Method and motivation are essentially unrelated; there is no visible reason the method would solve the problem
+      "2": Method relates to the motivation only superficially and cannot address the core research gap
+      "3": Method broadly responds to the motivation, but a key mechanism or logical link in between is missing
+      "4": Method explicitly targets the core problem in the motivation, with a plausible mechanism of action
+      "5": Motivation, hypothesis, method, and experiments form a closed loop; the method addresses the core bottleneck rather than a peripheral issue
+    checklist:
+      - What bottleneck does the motivation identify
+      - Does the method target that bottleneck directly
+      - Can the method test the key hypothesis
+      - If the method succeeds, would the original problem be alleviated
+      - Is there a "motivation says A, method does B" mismatch
+      - Is the method merely a module related to the problem without actually solving it
+      - Would the planned experiments show that the method really solves the problem in the motivation
+
+  testability:
+    index: 4
+    group: validity
+    name: Testability
+    question: >-
+      Can the core scientific claim of this idea be clearly tested or falsified?
+    scores:
+      "1": No clear way to verify it; the core claim is essentially untestable
+      "2": There is a rough experimental direction, but no clear variables, metrics, or decision criteria
+      "3": A preliminary test is possible, but strong baselines, controls, or clear falsification criteria are missing
+      "4": Clear hypothesis, experimental setup, evaluation metrics, and comparison targets
+      "5": Rigorous falsifiable hypothesis, controlled variables, control conditions, success criteria, and analysis of alternative explanations
+    checklist:
+      - Is there an explicit hypothesis
+      - Are there observable variables
+      - Is there a measurable outcome
+      - Is there a baseline
+      - Is there a control condition
+      - Is there an explicit success criterion
+      - Could the results support or overturn the core claim
+      - Can competing explanations be distinguished
+      - Is "the model gets better" turned into a measurable metric
+      - Are there untestable strong claims such as "truly understands" or "achieves general intelligence"
+
+  problem_novelty:
+    index: 5
+    group: novelty
+    name: Problem Novelty
+    question: >-
+      Is the research problem, phenomenon, failure mode, hypothesis, or research
+      perspective new relative to prior work?
+    scores:
+      "1": The problem has already been explicitly posed and largely solved by prior work
+      "2": Only a minor variation of an existing problem, dataset, model, or experimental setup
+      "3": Somewhat new problem setting or research perspective, but clearly close to existing work
+      "4": Poses a distinctly different and meaningful problem, phenomenon, failure mode, or hypothesis
+      "5": Poses a non-obvious, important problem or mechanistic hypothesis that has essentially not been studied before
+    checklist:
+      - Has this problem already been studied directly
+      - Is it only a change of dataset, model, or experimental setup
+      - Does it identify a new failure mode
+      - Does it identify a new contradiction
+      - Does it pose a new research question
+      - Does it propose a new problem boundary or object of study
+      - What is the substantive difference from the closest prior work
+
+  method_novelty:
+    index: 6
+    group: novelty
+    name: Method Novelty
+    question: >-
+      Is the algorithm, model, training procedure, experimental method, or
+      theoretical tool used to solve the problem new?
+    scores:
+      "1": The method essentially restates or directly adopts an existing method
+      "2": Only substitution of model, dataset, hyperparameters, prompt, or standard modules
+      "3": Some methodological modification, but the core mechanism stays close to existing work
+      "4": Contains a clear, meaningful, problem-specific new method design
+      "5": Proposes a non-obvious, substantive new mechanism, algorithm, training procedure, experimental method, or theoretical tool
+    checklist:
+      - Does the method already appear in existing papers
+      - Is it only a backbone swap
+      - Is it only a change of dataset or prompt
+      - Is it only the addition of a common module
+      - Does it change the core solving mechanism
+      - Does the method contain a non-obvious new design
+      - Is the new method built for the specific problem of this idea
+      - If it is a combination of methods, does that combination already have precedent
+
+  scenario_novelty:
+    index: 7
+    group: novelty
+    name: Scenario Novelty
+    question: >-
+      Does the idea introduce a new domain, task, modality, data distribution,
+      deployment environment, or real-world constraint, and does that give rise
+      to a meaningful new research problem?
+    scores:
+      "1": The scenario completely follows existing work, or is only renamed
+      "2": Only the dataset, application domain, or input format changes; the research problem is essentially unchanged
+      "3": Introduces a new task, domain, or constraint, but mostly transfers existing methods directly
+      "4": The new scenario creates clear new challenges that require targeted adaptation or method redesign
+      "5": The new scenario itself opens important, non-obvious research questions and creates new method or evaluation requirements
+    checklist:
+      - Is it a new domain
+      - Is it a new task
+      - Is it a new modality
+      - Is it a new data distribution
+      - Is it a new deployment environment
+      - Is it a new resource or real-world constraint
+      - Does the new scenario change the research problem
+      - Does the new scenario introduce a challenge unique to it
+      - Does the method need targeted modification
+      - Is it just applying an existing method directly to new data
+
+  insight_novelty:
+    index: 8
+    group: novelty
+    name: Insight Novelty
+    question: >-
+      Does the idea offer a new understanding of a phenomenon, failure mode,
+      method behaviour, or causal mechanism?
+    scores:
+      "1": No new explanation; only describes a phenomenon or repeats known conclusions
+      "2": Offers a generic, templated, or undifferentiated explanation
+      "3": Some new observation or mechanistic hypothesis, but close to existing explanations
+      "4": Proposes a clear, specific new mechanism, boundary condition, or causal explanation with evidential potential
+      "5": Reveals a non-obvious, important new mechanism or regularity that could change how the field understands the phenomenon
+    checklist:
+      - Does it propose a new mechanistic explanation
+      - Does it point to specific causal factors
+      - Does it identify a new failure mechanism
+      - Does it disentangle factors previously conflated
+      - Does it propose a new boundary condition
+      - Is it merely renaming an existing phenomenon
+      - Is it substantively different from existing explanations
+      - Can the mechanism be verified experimentally or theoretically
+      - If it holds, would it change how the phenomenon is understood
+
+  technical_feasibility:
+    index: 9
+    group: feasibility
+    name: Technical Feasibility
+    question: Can the technical plan of this idea be implemented?
+    scores:
+      "1": Contains a fundamental technical contradiction, or depends on unobtainable information; essentially not implementable
+      "2": Key technical components are missing; only a conceptual description, hard to implement
+      "3": A simplified version or prototype is implementable, but the core plan still carries clear technical risk
+      "4": The technical path is clear, the required components mostly exist, and it can reasonably be implemented
+      "5": The implementation path is mature and complete, technical risk is low, and prototyping could start immediately
+    checklist:
+      - Do the required algorithms, models, and components exist
+      - Is the method pipeline complete
+      - Are inputs and outputs clearly defined
+      - Does it depend on unobtainable information
+      - Does it require an oracle
+      - Are the training and inference loops closed
+      - Are there self-contradictory assumptions
+      - Can a prototype be built
+      - Does it require solving an unmentioned core technical challenge
+
+  data_feasibility:
+    index: 10
+    group: feasibility
+    name: Data Feasibility
+    question: >-
+      Can the data, labels, ground truth, and data access this idea needs be
+      obtained?
+    scores:
+      "1": The required data does not exist, cannot be obtained, or there is no workable ground truth
+      "2": Major obstacles to obtaining data; requires large-scale collection, expert annotation, or access approval
+      "3": Substitute data or a simplified version is possible, but data quality, scale, or representativeness is limited
+      "4": The required data is largely obtainable, needing only routine cleaning, processing, or limited annotation
+      "5": Data is public, sufficient, of suitable quality, with reliable labels, and can directly support verification
+    checklist:
+      - Does the data exist
+      - Is it publicly available
+      - Does new data need to be collected
+      - Is expert annotation required
+      - Is the amount of data sufficient
+      - Is the data quality sufficient
+      - Are there privacy, copyright, or ethical issues
+      - Is there reliable ground truth
+      - Can train, validation, and test splits be constructed
+      - Could train-test leakage occur
+      - Can the data really support the claim being verified
+
+  budget_feasibility:
+    index: 11
+    group: feasibility
+    name: Budget Feasibility
+    question: >-
+      Can this idea be completed under the compute, time, API, human-effort, and
+      funding constraints specified by the benchmark?
+    scores:
+      "1": Clearly exceeds the stated budget; no meaningful verification is possible as things stand
+      "2": Key resources are severely insufficient; it can only remain conceptual
+      "3": A scaled-down proof-of-concept is possible, but full verification is not
+      "4": Reasonable experiments can be completed within the given compute, time, and funding
+      "5": Resource needs are clearly below budget, the experimental path is clear, and there is ample headroom for baselines, ablations, and repeated runs
+    checklist:
+      - Is GPU/CPU capacity sufficient
+      - Is training time sufficient
+      - Is inference cost affordable
+      - Does the number of API calls exceed the budget
+      - Is the human annotation cost affordable
+      - Is there enough time for data collection and processing
+      - Are special devices or a deployment environment required
+      - Is there enough time for baselines, ablations, and repeated runs
+      - Can a "meaningful verification" be completed within budget, not just a working demo
+
+  verification_feasibility:
+    index: 12
+    group: feasibility
+    name: Verification Feasibility
+    question: >-
+      Under real conditions, can a sufficiently credible experimental or
+      theoretical verification be carried out?
+    scores:
+      "1": Credible verification is essentially impossible; data, metrics, baselines, or observable outcomes are missing
+      "2": Only indirect, insufficient, or highly unreliable evidence can be obtained
+      "3": Preliminary verification is possible, but experiment scale, controls, or measurement capability are limited
+      "4": Clear, executable experimental procedure, baselines, metrics, and basic controls
+      "5": A rigorous, reproducible verification plan that can distinguish alternative explanations and support falsification
+    checklist:
+      - Is there an executable experimental procedure
+      - Is the required data obtainable
+      - Are baselines implemented
+      - Are the evaluation metrics appropriate
+      - Can ablations be carried out
+      - Can key variables be controlled
+      - Can experiments be repeated
+      - Can alternative explanations be ruled out
+      - Can it be completed within the stated budget
+      - Could the results support or refute the core claim
+
+  research_readiness:
+    index: 13
+    group: readiness
+    name: Research Readiness
+    question: >-
+      Is the current research ecosystem mature enough to support reliable
+      research on this idea?
+    scores:
+      "1": Research or verification is essentially impossible today; it depends on key technology, data, or evaluation infrastructure that does not exist
+      "2": Major foundational obstacles; only very indirect or conceptual exploration is possible
+      "3": Some conditions are in place and a scaled-down version is possible, but the full claim cannot be verified
+      "4": Most of the technology, data, tooling, and evaluation conditions are mature, with only routine risk
+      "5": The required technology, data, experimental tooling, and evaluation ecosystem are all mature; reliable research could start immediately
+    checklist:
+      - Does the relevant technical foundation already exist
+      - Do the key dependencies already exist
+      - Can the object of study be observed
+      - Are the data and ground truth mature
+      - Is there a credible evaluation protocol
+      - Is there an existing reproducible baseline
+      - Does the idea depend on technology that does not yet exist
+      - Could a meaningful simplified version be done first
+      - If it cannot be done yet, is the obstacle a resource problem or a foundational one
