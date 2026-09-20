@@ -2,7 +2,5 @@
   {"id": "DemoPaper001", "dimension": "problem_novelty", "score": 3},
   {"id": "DemoPaper001", "dimension": "method_novelty", "score": 2},
   {"id": "DemoPaper001", "dimension": "scenario_novelty", "score": 2},
-  {"id": "DemoPaper001", "dimension": "insight_novelty", "score": 3},
-  {"id": "DemoPaper001", "dimension": "testability", "score": 5},
-  {"id": "DemoPaper001", "dimension": "verification_feasibility", "score": 4}
+  {"id": "DemoPaper001", "dimension": "insight_novelty", "score": 3}
 ]

@@ -1,6 +1,6 @@
 # AlphaIdeaBench
 
-LLM-as-judge code for scoring research ideas on **twelve dimensions**, and for turning **human peer-review comments** into the same scores so the judge can be aligned.
+LLM-as-judge code for scoring research ideas on **twelve dimensions**. The human check in the paper is only on the **four novelty axes**: reviewer comments are turned into 1-5 targets, then compared with a blinded judge.
 
 This repository is judge-only. It does not generate ideas.
 
@@ -13,6 +13,8 @@ This repository is judge-only. It does not generate ideas.
 | Feasibility | Technical feasibility, Data feasibility, Budget feasibility, Verification feasibility |
 
 Overall is the unweighted mean of these twelve scores. Each dimension is an independent judge call with its own rubric and checklist in `prompts/dimensions.yaml`.
+
+Validity and feasibility have no human reference in the paper. They are scored against the written plan and the resource envelope. Only novelty is calibrated against peer review.
 
 ## Install
 
@@ -48,55 +50,37 @@ alphaideabench judge \
 
 `--ideas` can be one JSON file or a directory. The schema is documented below. Outputs go to `outputs/run_<timestamp>/`.
 
-## 2. Map human review comments onto the same 12 dimensions
+## 2. Align novelty with human review comments
 
-The mapper does **not** review the paper. It only reads what human reviewers already wrote and places that judgement on the rubric. Dimensions the reviews never mention come back as `covered: false` with a null score.
+The paper meta-evaluation maps reviewer text onto **problem, method, scenario, and insight novelty only**. Facets the reviews never mention are left missing. The judge is blinded to reviews and sees title and abstract only.
 
-```bash
-# inspect the prompt
-python scripts/map_reviews_to_dimensions.py --limit 1 --print-prompt
-
-# dry run on the bundled sample
-python scripts/map_reviews_to_dimensions.py \
-  --papers examples/reviews/sample_papers.json \
-  --mode review --dry-run \
-  --out outputs/review_mapping/sample
-```
-
-`--mode review` maps each review separately (keeps inter-reviewer spread). `--mode paper` maps all reviews of one paper in one call.
-
-## 3. Align judge scores with the human mapping
-
-After you have judge scores and human-mapped scores:
+Two stages build the human-derived reference, then a third compares the judge:
 
 ```bash
-python scripts/align_judge_to_human.py \
-  --judge examples/alignment/judge_scores.json \
-  --human examples/alignment/human_scores.json
-```
-
-Reported metrics: DistAcc, MAD, within +/- 1, exact agreement, 3-class accuracy, Spearman rho. Uncovered human facets are skipped.
-
-For the four novelty axes used in the paper meta-evaluation, the two-stage pipeline is:
-
-```bash
-# stage 1+2: extract quotes from reviews, then score only from those quotes
+# 1. extract novelty quotes from reviews, then score only from those quotes
 python scripts/novelty_reference.py \
   --papers examples/reviews/sample_papers.json \
   --dry-run --out outputs/novelty_reference/sample
 
-# judge title+abstract only (reviews are never shown to the judge)
+# 2. judge title+abstract only (reviews are never shown)
 python scripts/judge_iclr_novelty.py \
   --papers examples/reviews/sample_papers.json \
   --reference outputs/novelty_reference/sample/papers.json \
   --topic examples/topics/icbinb.md \
   --dry-run --out outputs/judge_iclr_novelty/sample
 
-# coverage of human quotes by judge reasoning (needs embeddings)
+# 3. DistAcc, MAD, within +/- 1, exact agreement, 3-class accuracy, Spearman
+python scripts/align_judge_to_human.py \
+  --judge examples/alignment/judge_scores.json \
+  --human examples/alignment/human_scores.json
+
+# optional: coverage of human quotes by judge reasoning (needs embeddings)
 python scripts/compute_coverage_openai.py \
   --human outputs/novelty_reference/sample/records.jsonl \
   --judge outputs/judge_iclr_novelty/sample/records.jsonl
 ```
+
+`scripts/map_reviews_to_dimensions.py` can project a review onto all twelve rows of the rubric. That is not the paper protocol: validity and feasibility were not human-aligned.
 
 ## Idea JSON
 
@@ -135,12 +119,12 @@ pytest
 
 ```
 src/alphaideabench/   judge agent, 12-dimension rubric loader, Track 1/2
-prompts/              judge and review-mapper prompts; dimensions.yaml
+prompts/              judge and novelty-mapping prompts; dimensions.yaml
 scripts/
-  map_reviews_to_dimensions.py   human comments -> 12-dimension scores
-  novelty_reference.py           extract quotes, then score novelty only
+  novelty_reference.py           extract review quotes, then score novelty
   judge_iclr_novelty.py          judge title+abstract; correlate vs reference
   align_judge_to_human.py        DistAcc / MAD / Spearman
   compute_coverage_openai.py     remark coverage via embeddings
+  map_reviews_to_dimensions.py   optional 12-row projection; not used in the paper
 examples/             topic, idea, sample reviews, alignment fixtures
 ```

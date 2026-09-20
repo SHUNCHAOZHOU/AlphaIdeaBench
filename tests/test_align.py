@@ -18,6 +18,6 @@ def test_example_alignment_files():
     judge = mod.load_score_map(ROOT / "examples/alignment/judge_scores.json")
     human = mod.load_score_map(ROOT / "examples/alignment/human_scores.json")
     summary = mod.align(judge, human)
-    assert summary["n_pairs"] == 6
+    assert summary["n_pairs"] == 4
     assert summary["by_dimension"]["method_novelty"]["mad"] == 0.0
     assert summary["by_dimension"]["scenario_novelty"]["mad"] == 1.0
