@@ -1,0 +1,702 @@
+[
+  {
+    "category": "workshop",
+    "id": "ws_01_llm_reason_and_plan",
+    "title": "Workshop on Reasoning and Planning for Large Language Models",
+    "field": "llm_and_reasoning",
+    "path": "tasks/workshops/ws_01_llm_reason_and_plan.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_02_agentic_ai",
+    "title": "Towards Agentic AI for Science: Hypothesis Generation, Comprehension, Quantification, and Validation",
+    "field": "llm_and_reasoning",
+    "path": "tasks/workshops/ws_02_agentic_ai.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_03_llm4agents",
+    "title": "Large Language Model (LLM) Agents",
+    "field": "llm_and_reasoning",
+    "path": "tasks/workshops/ws_03_llm4agents.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_04_sys2_reasoning",
+    "title": "Workshop on System-2 Reasoning at Scale",
+    "field": "llm_and_reasoning",
+    "path": "tasks/workshops/ws_04_sys2_reasoning.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_05_reasoning_foundation_models",
+    "title": "R0-FoMo:Robustness of Few-shot and Zero-shot Learning in Large Foundation Models",
+    "field": "llm_and_reasoning",
+    "path": "tasks/workshops/ws_05_reasoning_foundation_models.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_06_in_context_learning",
+    "title": "About",
+    "field": "llm_and_reasoning",
+    "path": "tasks/workshops/ws_06_in_context_learning.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_07_instruction_tuning",
+    "title": "Instruction Tuning and Instruction Following",
+    "field": "llm_and_reasoning",
+    "path": "tasks/workshops/ws_07_instruction_tuning.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_08_video_language_models",
+    "title": "Workshop on Video-Language Models",
+    "field": "multimodal_and_cv",
+    "path": "tasks/workshops/ws_08_video_language_models.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_09_world_models_simulation",
+    "title": "Workshop on World Models: Understanding, Modelling and Scaling",
+    "field": "multimodal_and_cv",
+    "path": "tasks/workshops/ws_09_world_models_simulation.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_10_generative_multimodal",
+    "title": "Generative and Experimental Perspectives for Biomolecular Design",
+    "field": "multimodal_and_cv",
+    "path": "tasks/workshops/ws_10_generative_multimodal.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_11_diffusion_models",
+    "title": "Workshop on Diffusion Models",
+    "field": "multimodal_and_cv",
+    "path": "tasks/workshops/ws_11_diffusion_models.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_12_time_space_multimodal",
+    "title": "Workshop on Theoretical Foundations of Foundation Models",
+    "field": "multimodal_and_cv",
+    "path": "tasks/workshops/ws_12_time_space_multimodal.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_13_audio_imagination",
+    "title": "Audio Imagination: AI-Driven Speech, Music, and Sound Generation",
+    "field": "multimodal_and_cv",
+    "path": "tasks/workshops/ws_13_audio_imagination.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_14_physics_for_ml",
+    "title": "Physics for Machine Learning",
+    "field": "ai_for_science",
+    "path": "tasks/workshops/ws_14_physics_for_ml.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_15_ai_for_materials",
+    "title": "About the Workshop",
+    "field": "ai_for_science",
+    "path": "tasks/workshops/ws_15_ai_for_materials.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_16_ai_for_drug_discovery",
+    "title": "AI for New Drug Modalities",
+    "field": "ai_for_science",
+    "path": "tasks/workshops/ws_16_ai_for_drug_discovery.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_17_ai_for_science_general",
+    "title": "AI for Science: Scaling in AI for Scientific Discovery",
+    "field": "ai_for_science",
+    "path": "tasks/workshops/ws_17_ai_for_science_general.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_18_scientific_foundation_models",
+    "title": "Workshop on Open Science for Foundation Models",
+    "field": "ai_for_science",
+    "path": "tasks/workshops/ws_18_scientific_foundation_models.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_19_generative_biology",
+    "title": "Generative AI and Biology (GenBio) Workshop",
+    "field": "ai_for_science",
+    "path": "tasks/workshops/ws_19_generative_biology.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_20_backdoor_attacks_defenses",
+    "title": "Backdoor Attacks and Defenses in Machine Learning",
+    "field": "trustworthy_and_safety",
+    "path": "tasks/workshops/ws_20_backdoor_attacks_defenses.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_21_pluralistic_alignment",
+    "title": "Pluralistic Alignment Workshop",
+    "field": "trustworthy_and_safety",
+    "path": "tasks/workshops/ws_21_pluralistic_alignment.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_22_red_teaming_genai",
+    "title": "Red Teaming GenAI: What Can We Learn from Adversaries?",
+    "field": "trustworthy_and_safety",
+    "path": "tasks/workshops/ws_22_red_teaming_genai.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_23_watermarking_provenance",
+    "title": "Workshop on GenAI Watermarking",
+    "field": "trustworthy_and_safety",
+    "path": "tasks/workshops/ws_23_watermarking_provenance.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_24_model_realignment",
+    "title": "Workshop on Representational Alignment",
+    "field": "trustworthy_and_safety",
+    "path": "tasks/workshops/ws_24_model_realignment.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_25_safe_generative_ai",
+    "title": "Safe Generative AI Workshop",
+    "field": "trustworthy_and_safety",
+    "path": "tasks/workshops/ws_25_safe_generative_ai.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_26_efficient_compression_fm",
+    "title": "Workshop on Machine Learning and Compression",
+    "field": "efficiency_and_systems",
+    "path": "tasks/workshops/ws_26_efficient_compression_fm.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_27_memory_efficient_fm",
+    "title": "Workshop on Mathematical and Empirical Understanding of Foundation Models",
+    "field": "efficiency_and_systems",
+    "path": "tasks/workshops/ws_27_memory_efficient_fm.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_28_ml_for_systems",
+    "title": "Machine Learning for Systems",
+    "field": "efficiency_and_systems",
+    "path": "tasks/workshops/ws_28_ml_for_systems.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_29_real_time_ml",
+    "title": "Trustworthy and Reliable Large-Scale Machine Learning Models",
+    "field": "efficiency_and_systems",
+    "path": "tasks/workshops/ws_29_real_time_ml.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_30_accelerated_ml",
+    "title": "Workshop on Efficient and Accessible Foundation Models for Biological Discovery",
+    "field": "efficiency_and_systems",
+    "path": "tasks/workshops/ws_30_accelerated_ml.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_31_small_language_models",
+    "title": "Deep Dive into Mixture of Experts, Quantization, Hardware, and Inference",
+    "field": "efficiency_and_systems",
+    "path": "tasks/workshops/ws_31_small_language_models.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_32_embodied_ai_manipulation",
+    "title": "Workshop on Embodied Intelligence with Large Language Models In Open City Environment",
+    "field": "robotics_and_rl",
+    "path": "tasks/workshops/ws_32_embodied_ai_manipulation.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_33_robot_learning_foundations",
+    "title": "Robot Learning Workshop: Pretraining, Fine-Tuning, and Generalization with Large Scale Models",
+    "field": "robotics_and_rl",
+    "path": "tasks/workshops/ws_33_robot_learning_foundations.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_34_aligning_reinforcement_learning",
+    "title": "Aligning Reinforcement Learning Experimentalists and Theorists",
+    "field": "robotics_and_rl",
+    "path": "tasks/workshops/ws_34_aligning_reinforcement_learning.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_35_real_world_rl",
+    "title": "Reincarnating RL",
+    "field": "robotics_and_rl",
+    "path": "tasks/workshops/ws_35_real_world_rl.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_36_automated_rl",
+    "title": "Automated Reinforcement Learning: Exploring Meta-Learning, AutoML, and LLMs",
+    "field": "robotics_and_rl",
+    "path": "tasks/workshops/ws_36_automated_rl.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_37_language_and_games",
+    "title": "Language Gamification",
+    "field": "robotics_and_rl",
+    "path": "tasks/workshops/ws_37_language_and_games.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_38_temporal_graph_learning",
+    "title": "Temporal Graph Learning Workshop",
+    "field": "graph_and_geometric_ml",
+    "path": "tasks/workshops/ws_38_temporal_graph_learning.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_39_neural_representations_geometry",
+    "title": "Workshop on Symmetry and Geometry in Neural Representations",
+    "field": "graph_and_geometric_ml",
+    "path": "tasks/workshops/ws_39_neural_representations_geometry.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_40_multimodal_representation_learning",
+    "title": "Multimodal Representation Learning: Perks and Pitfalls",
+    "field": "graph_and_geometric_ml",
+    "path": "tasks/workshops/ws_40_multimodal_representation_learning.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_41_geometric_topological_frontiers",
+    "title": "New Frontiers in Graph Learning",
+    "field": "graph_and_geometric_ml",
+    "path": "tasks/workshops/ws_41_geometric_topological_frontiers.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_42_topology_geometry_ml",
+    "title": "Topology, Algebra, and Geometry in Machine Learning Workshop",
+    "field": "graph_and_geometric_ml",
+    "path": "tasks/workshops/ws_42_topology_geometry_ml.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_43_continual_learning_fm",
+    "title": "Workshop on Scalable Continual Learning for Lifelong Foundation Models",
+    "field": "adaptation_and_continual",
+    "path": "tasks/workshops/ws_43_continual_learning_fm.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_44_distribution_shifts",
+    "title": "Workshop on Distribution Shifts: New Frontiers with Foundation Models",
+    "field": "adaptation_and_continual",
+    "path": "tasks/workshops/ws_44_distribution_shifts.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_45_domain_generalization",
+    "title": "What do we need for successful domain generalization?",
+    "field": "adaptation_and_continual",
+    "path": "tasks/workshops/ws_45_domain_generalization.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_46_scalable_adaptation_tta",
+    "title": "Workshop on Safe & Trustworthy Agents",
+    "field": "adaptation_and_continual",
+    "path": "tasks/workshops/ws_46_scalable_adaptation_tta.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_47_mechanistic_interpretability",
+    "title": "Workshop on Mechanistic Interpretability",
+    "field": "interpretability_and_theory",
+    "path": "tasks/workshops/ws_47_mechanistic_interpretability.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_48_evaluating_evaluations",
+    "title": "Evaluating Evaluations: Examining Best Practices for Measuring Broader Impacts of Generative AI",
+    "field": "interpretability_and_theory",
+    "path": "tasks/workshops/ws_48_evaluating_evaluations.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_49_explainable_trustworthy_ai",
+    "title": "Workshop on Building Trust in Language Models and Applications",
+    "field": "interpretability_and_theory",
+    "path": "tasks/workshops/ws_49_explainable_trustworthy_ai.md"
+  },
+  {
+    "category": "workshop",
+    "id": "ws_50_causal_learning_theory",
+    "title": "Causality and Large Models",
+    "field": "interpretability_and_theory",
+    "path": "tasks/workshops/ws_50_causal_learning_theory.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_01_llm_reasoning_cot",
+    "title": "Towards Reasoning in Large Language Models: A Survey",
+    "field": "llm_and_reasoning",
+    "path": "tasks/surveys/survey_01_llm_reasoning_cot.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_02_vlm_hallucination",
+    "title": "A Survey on Hallucination in Large Vision-Language Models",
+    "field": "multimodal_and_cv",
+    "path": "tasks/surveys/survey_02_vlm_hallucination.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_03_rag_systems",
+    "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
+    "field": "llm_and_reasoning",
+    "path": "tasks/surveys/survey_03_rag_systems.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_04_llm_agent_collaboration",
+    "title": "A Survey on Large Language Model based Autonomous Agents",
+    "field": "llm_and_reasoning",
+    "path": "tasks/surveys/survey_04_llm_agent_collaboration.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_05_mechanistic_interpretability",
+    "title": "A Survey on Mechanistic Interpretability for Large Language Models",
+    "field": "interpretability_and_theory",
+    "path": "tasks/surveys/survey_05_mechanistic_interpretability.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_06_llm_safety_jailbreak",
+    "title": "A Survey on Recent Advances in Jailbreak Attacks and Defenses of Large Language Models",
+    "field": "trustworthy_and_safety",
+    "path": "tasks/surveys/survey_06_llm_safety_jailbreak.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_07_test_time_scaling",
+    "title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Parameters",
+    "field": "llm_and_reasoning",
+    "path": "tasks/surveys/survey_07_test_time_scaling.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_08_kv_cache_compression",
+    "title": "SoK: Key-Value Cache Compression for Large Language Models",
+    "field": "efficiency_and_systems",
+    "path": "tasks/surveys/survey_08_kv_cache_compression.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_09_llm_continual_learning",
+    "title": "A Comprehensive Survey of Continual Learning in the Era of Large Language Models",
+    "field": "adaptation_and_continual",
+    "path": "tasks/surveys/survey_09_llm_continual_learning.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_10_embodied_ai_vla",
+    "title": "A Survey on Vision-Language-Action Models for Embodied AI",
+    "field": "robotics_and_rl",
+    "path": "tasks/surveys/survey_10_embodied_ai_vla.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_11_rlhf_dpo_alignment",
+    "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+    "field": "trustworthy_and_safety",
+    "path": "tasks/surveys/survey_11_rlhf_dpo_alignment.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_12_machine_unlearning",
+    "title": "A Survey of Machine Unlearning",
+    "field": "trustworthy_and_safety",
+    "path": "tasks/surveys/survey_12_machine_unlearning.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_13_ai_for_drug_discovery",
+    "title": "Artificial Intelligence in Drug Discovery and Development: A Comprehensive Review",
+    "field": "ai_for_science",
+    "path": "tasks/surveys/survey_13_ai_for_drug_discovery.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_14_diffusion_3d_generation",
+    "title": "A Survey on 3D Generative Diffusion Models",
+    "field": "multimodal_and_cv",
+    "path": "tasks/surveys/survey_14_diffusion_3d_generation.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_15_pinns_neural_operators",
+    "title": "Physics-Informed Machine Learning: A Survey on Problems and Methods",
+    "field": "ai_for_science",
+    "path": "tasks/surveys/survey_15_pinns_neural_operators.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_16_long_context_llms",
+    "title": "A Survey on Long Context Large Language Models",
+    "field": "llm_and_reasoning",
+    "path": "tasks/surveys/survey_16_long_context_llms.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_17_peft_lora_adapters",
+    "title": "Delta Tuning: Comprehensive Methods and Theory of Parameter-Efficient Fine-Tuning",
+    "field": "efficiency_and_systems",
+    "path": "tasks/surveys/survey_17_peft_lora_adapters.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_18_speculative_decoding",
+    "title": "A Survey on Speculative Decoding: Faster LLM Inference without Quality Loss",
+    "field": "efficiency_and_systems",
+    "path": "tasks/surveys/survey_18_speculative_decoding.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_19_agentic_tool_use",
+    "title": "Tool Learning with Large Language Models: A Survey",
+    "field": "llm_and_reasoning",
+    "path": "tasks/surveys/survey_19_agentic_tool_use.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_20_model_merging_soups",
+    "title": "Model Merging in the Era of Large Language Models: A Survey",
+    "field": "efficiency_and_systems",
+    "path": "tasks/surveys/survey_20_model_merging_soups.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_21_code_intelligence_synthesis",
+    "title": "Code Intelligence: A Survey of Foundation Models for Software Engineering",
+    "field": "llm_and_reasoning",
+    "path": "tasks/surveys/survey_21_code_intelligence_synthesis.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_22_synthetic_data_llms",
+    "title": "A Survey on Synthetic Data for Large Language Models",
+    "field": "llm_and_reasoning",
+    "path": "tasks/surveys/survey_22_synthetic_data_llms.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_23_audio_speech_lm",
+    "title": "Audio Large Language Models: A Survey",
+    "field": "multimodal_and_cv",
+    "path": "tasks/surveys/survey_23_audio_speech_lm.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_24_graph_foundation_models",
+    "title": "A Survey on Graph Foundation Models",
+    "field": "graph_and_geometric_ml",
+    "path": "tasks/surveys/survey_24_graph_foundation_models.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_25_video_understanding_reasoning",
+    "title": "A Survey on Video Large Language Models",
+    "field": "multimodal_and_cv",
+    "path": "tasks/surveys/survey_25_video_understanding_reasoning.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_26_knowledge_editing_llms",
+    "title": "A Comprehensive Survey on Knowledge Editing for Large Language Models",
+    "field": "llm_and_reasoning",
+    "path": "tasks/surveys/survey_26_knowledge_editing_llms.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_27_self_correction_reflection",
+    "title": "Large Language Models Cannot Self-Correct Reasoning Yet",
+    "field": "llm_and_reasoning",
+    "path": "tasks/surveys/survey_27_self_correction_reflection.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_28_ai_watermarking",
+    "title": "A Survey on Watermarking for Generative AI and Foundation Models",
+    "field": "trustworthy_and_safety",
+    "path": "tasks/surveys/survey_28_ai_watermarking.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_29_time_series_foundation_models",
+    "title": "Time Series Foundation Models: A Comprehensive Survey",
+    "field": "ai_for_science",
+    "path": "tasks/surveys/survey_29_time_series_foundation_models.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_30_medical_vlm_healthcare",
+    "title": "Multimodal Foundation Models in Healthcare: A Comprehensive Survey",
+    "field": "ai_for_science",
+    "path": "tasks/surveys/survey_30_medical_vlm_healthcare.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_31_out_of_distribution_robustness",
+    "title": "Towards Out-of-Distribution Generalization: A Survey",
+    "field": "interpretability_and_theory",
+    "path": "tasks/surveys/survey_31_out_of_distribution_robustness.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_32_gaussian_splatting_rendering",
+    "title": "A Survey on 3D Gaussian Splatting",
+    "field": "multimodal_and_cv",
+    "path": "tasks/surveys/survey_32_gaussian_splatting_rendering.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_33_spiking_neural_networks",
+    "title": "Training Spiking Neural Networks Using Lessons From Deep Learning",
+    "field": "efficiency_and_systems",
+    "path": "tasks/surveys/survey_33_spiking_neural_networks.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_34_mathematical_automated_proving",
+    "title": "A Survey on Deep Learning for Theorem Proving",
+    "field": "llm_and_reasoning",
+    "path": "tasks/surveys/survey_34_mathematical_automated_proving.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_35_vision_language_navigation",
+    "title": "A Survey on Vision-Language Navigation",
+    "field": "robotics_and_rl",
+    "path": "tasks/surveys/survey_35_vision_language_navigation.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_36_federated_foundation_models",
+    "title": "A Survey on Federated Learning in the Era of Foundation Models",
+    "field": "adaptation_and_continual",
+    "path": "tasks/surveys/survey_36_federated_foundation_models.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_37_tabular_deep_learning",
+    "title": "Why do tree-based models still outperform deep learning on tabular data?",
+    "field": "interpretability_and_theory",
+    "path": "tasks/surveys/survey_37_tabular_deep_learning.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_38_adversarial_robustness_genai",
+    "title": "RobustBench: a standardized adversarial robustness benchmark",
+    "field": "trustworthy_and_safety",
+    "path": "tasks/surveys/survey_38_adversarial_robustness_genai.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_39_reward_modeling_hacking",
+    "title": "RewardBench: Evaluating Reward Models for Language Modeling",
+    "field": "trustworthy_and_safety",
+    "path": "tasks/surveys/survey_39_reward_modeling_hacking.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_40_dense_neural_retrieval",
+    "title": "A Survey of Neural Information Retrieval with Large Language Models",
+    "field": "llm_and_reasoning",
+    "path": "tasks/surveys/survey_40_dense_neural_retrieval.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_41_quantum_machine_learning",
+    "title": "Variational Quantum Algorithms: A Review",
+    "field": "ai_for_science",
+    "path": "tasks/surveys/survey_41_quantum_machine_learning.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_42_molecular_dynamics_genai",
+    "title": "Generative Diffusion Models for Molecular Conformations: A Survey",
+    "field": "ai_for_science",
+    "path": "tasks/surveys/survey_42_molecular_dynamics_genai.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_43_autonomous_driving_foundation_models",
+    "title": "Planning-oriented Autonomous Driving: A Survey",
+    "field": "multimodal_and_cv",
+    "path": "tasks/surveys/survey_43_autonomous_driving_foundation_models.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_44_cross_lingual_multilingual_llms",
+    "title": "A Survey on Multilingual Large Language Models",
+    "field": "llm_and_reasoning",
+    "path": "tasks/surveys/survey_44_cross_lingual_multilingual_llms.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_45_memory_augmented_agents",
+    "title": "MemGPT: Towards LLMs as Operating Systems",
+    "field": "llm_and_reasoning",
+    "path": "tasks/surveys/survey_45_memory_augmented_agents.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_46_causal_representation_learning",
+    "title": "Toward Causal Representation Learning",
+    "field": "interpretability_and_theory",
+    "path": "tasks/surveys/survey_46_causal_representation_learning.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_47_state_space_models_mamba",
+    "title": "A Survey on State Space Models for Sequence Modeling",
+    "field": "efficiency_and_systems",
+    "path": "tasks/surveys/survey_47_state_space_models_mamba.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_48_active_learning_llm_curation",
+    "title": "A Survey of Deep Active Learning",
+    "field": "efficiency_and_systems",
+    "path": "tasks/surveys/survey_48_active_learning_llm_curation.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_49_few_shot_prompt_adaptation",
+    "title": "A Survey on In-Context Learning",
+    "field": "llm_and_reasoning",
+    "path": "tasks/surveys/survey_49_few_shot_prompt_adaptation.md"
+  },
+  {
+    "category": "survey",
+    "id": "survey_50_scientific_hypothesis_generation",
+    "title": "Scientific Discovery in the Age of Artificial Intelligence",
+    "field": "ai_for_science",
+    "path": "tasks/surveys/survey_50_scientific_hypothesis_generation.md"
+  }
+]

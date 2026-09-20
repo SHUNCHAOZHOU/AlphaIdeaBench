@@ -109,6 +109,25 @@ The topic file is the judge's factual boundary. Novelty is scored against the pr
 
 See `examples/topics/icbinb.md`.
 
+## 100-task suite
+
+The paper uses 50 workshop CFPs and 50 survey open problems, each with a shared academic-lab resource envelope in the YAML frontmatter.
+
+```
+tasks/workshops/     50 workshop CFP markdown files
+tasks/surveys/       50 survey markdown files
+tasks/index.json     id, title, field, and path for all 100
+```
+
+Score one idea against a released task:
+
+```bash
+alphaideabench judge \
+  --topic tasks/workshops/ws_02_agentic_ai.md \
+  --ideas examples/ideas/sample_idea.json \
+  --repeats 1 --skip-track2
+```
+
 ## Tests
 
 ```bash
@@ -126,5 +145,6 @@ scripts/
   align_judge_to_human.py        DistAcc / MAD / Spearman
   compute_coverage_openai.py     remark coverage via embeddings
   map_reviews_to_dimensions.py   optional 12-row projection; not used in the paper
+tasks/                100 paper tasks: 50 workshops + 50 surveys
 examples/             topic, idea, sample reviews, alignment fixtures
 ```
