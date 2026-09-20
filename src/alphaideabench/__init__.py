@@ -1,4 +1,4 @@
-"""AlphaIdeaBench: multi-agent idea generation and multi-dimensional evaluation."""
+"""AlphaIdeaBench: twelve-dimension judge for research ideas."""
 
 from alphaideabench.core.agent import Agent, AgentResult
 from alphaideabench.core.llm import LLMBackend, MockBackend, OpenAIBackend

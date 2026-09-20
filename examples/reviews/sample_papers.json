@@ -1,0 +1,27 @@
+[
+  {
+    "title": "A controlled audit of applied deep learning failures",
+    "abstract": "We re-run three published deep learning pipelines on a shifted split and attribute each drop to leakage, hyperparameter brittleness, or metric mismatch.",
+    "url": "https://openreview.net/forum?id=DemoPaper001",
+    "reviews": [
+      {
+        "review_id": "r1",
+        "rating": 6,
+        "confidence": 4,
+        "summary": "A useful negative-results paper. The problem is clearly stated and the audit protocol is testable.",
+        "strengths": "The method is a straightforward application of existing leakage and shift checks, but the evaluation plan includes baselines and an ablation for each attributed factor.",
+        "weaknesses": "The setting is still the original public benchmarks plus a shifted split, so scenario novelty is limited. Only three pipelines are studied.",
+        "review": ""
+      },
+      {
+        "review_id": "r2",
+        "rating": 4,
+        "confidence": 3,
+        "summary": "The idea is clear but incremental.",
+        "strengths": "The research question is bounded and the claims look falsifiable.",
+        "weaknesses": "Prior work already reported leakage audits. The method does not introduce a new mechanism. Budget looks feasible on public data.",
+        "review": ""
+      }
+    ]
+  }
+]

@@ -43,7 +43,7 @@ def test_map_aiscientist_json_to_research_idea():
 
 
 def test_load_aiscientist_dir_dedupes_by_name(aiscientist_ideas_dir):
-    topic = Topic.from_markdown("data/topics/icbinb.md")
+    topic = Topic.from_markdown("examples/topics/icbinb.md")
     ideas = load_ideas(aiscientist_ideas_dir, topic)
     names = [i.extra["ai_scientist_v2"]["Name"] for i in ideas]
     assert names == [
@@ -257,7 +257,7 @@ def test_load_virtualscientists_raw_team_info(tmp_path):
     not AISCIENTIST_BASELINE.is_dir(), reason="AI-Scientist-v2 baseline not checked out"
 )
 def test_load_real_aiscientist_baseline_ideas():
-    topic = Topic.from_markdown("data/topics/icbinb.md")
+    topic = Topic.from_markdown("examples/topics/icbinb.md")
     ideas = load_ideas(AISCIENTIST_BASELINE, topic)
     assert ideas
     assert all(i.title and i.topic_id == "icbinb" for i in ideas)

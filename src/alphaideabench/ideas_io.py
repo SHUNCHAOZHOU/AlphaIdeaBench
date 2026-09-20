@@ -35,6 +35,20 @@ def _as_text(value: Any) -> str:
     return str(value).strip()
 
 
+def _to_float(val: Any, fallback: float = 0.0) -> float:
+    if val is None:
+        return fallback
+    try:
+        if isinstance(val, (int, float)):
+            return float(val)
+        match = re.search(r"[-+]?(?:\d*\.\d+|\d+)", str(val))
+        if match:
+            return float(match.group(0))
+    except Exception:
+        pass
+    return fallback
+
+
 def _resource_plan_from_topic(topic: Topic) -> ResourcePlan:
     budget = topic.budget
     return ResourcePlan(
@@ -45,6 +59,49 @@ def _resource_plan_from_topic(topic: Topic) -> ResourcePlan:
         calendar_weeks=float(budget.calendar_weeks or 0),
         notes=budget.notes,
     )
+
+
+def _resource_plan_from_raw_and_topic(raw_budget: Any, topic: Topic) -> ResourcePlan:
+    budget = topic.budget
+    if not raw_budget:
+        return _resource_plan_from_topic(topic)
+    if isinstance(raw_budget, dict):
+        gpu = str(raw_budget.get("gpu") or raw_budget.get("GPU") or budget.gpu or "").strip()
+        gpu_hours = _to_float(
+            raw_budget.get("gpu_hours") or raw_budget.get("estimated_gpu_hours") or raw_budget.get("GPU hours"),
+            fallback=float(budget.gpu_hours or 0),
+        )
+        api_usd = _to_float(
+            raw_budget.get("api_usd") or raw_budget.get("estimated_api_usd") or raw_budget.get("API budget (USD)") or raw_budget.get("api_budget"),
+            fallback=float(budget.api_usd or 0),
+        )
+        annotator_hours = _to_float(
+            raw_budget.get("annotator_hours") or raw_budget.get("estimated_human_hours") or raw_budget.get("human_hours"),
+            fallback=float(budget.annotator_hours or 0),
+        )
+        calendar_weeks = _to_float(
+            raw_budget.get("calendar_weeks") or raw_budget.get("estimated_calendar_weeks"),
+            fallback=float(budget.calendar_weeks or 0),
+        )
+        notes = str(raw_budget.get("notes") or budget.notes or "").strip()
+        return ResourcePlan(
+            gpu=gpu,
+            estimated_gpu_hours=gpu_hours,
+            estimated_api_usd=api_usd,
+            estimated_human_hours=annotator_hours,
+            calendar_weeks=calendar_weeks,
+            notes=notes,
+        )
+    if isinstance(raw_budget, str):
+        return ResourcePlan(
+            gpu=budget.gpu,
+            estimated_gpu_hours=float(budget.gpu_hours or 0),
+            estimated_api_usd=float(budget.api_usd or 0),
+            estimated_human_hours=float(budget.annotator_hours or 0),
+            calendar_weeks=float(budget.calendar_weeks or 0),
+            notes=raw_budget.strip(),
+        )
+    return _resource_plan_from_topic(topic)
 
 
 def _title_from_text(text: str, fallback: str = "Untitled idea") -> str:
@@ -63,11 +120,12 @@ def _title_from_text(text: str, fallback: str = "Untitled idea") -> str:
 def idea_from_aiscientist(raw: dict[str, Any], topic: Topic) -> ResearchIdea:
     """Map one AI-Scientist-v2 idea dict onto ``ResearchIdea``.
 
-    The topic budget becomes the resource plan: AI-Scientist-v2 does not emit a
-    structured one, and Budget Feasibility must still be well-defined.
+    If the idea contains a ``Budget`` field, it is parsed into the resource plan;
+    otherwise it falls back to the topic budget constraints.
     """
     hypothesis = _as_text(raw.get("Short Hypothesis"))
     abstract = _as_text(raw.get("Abstract"))
+    budget_raw = raw.get("Budget") or raw.get("budget") or raw.get("Resource Plan") or raw.get("resource_plan")
     return ResearchIdea(
         title=_as_text(raw.get("Title")) or _as_text(raw.get("Name")) or "Untitled idea",
         research_question=hypothesis,
@@ -78,7 +136,7 @@ def idea_from_aiscientist(raw: dict[str, Any], topic: Topic) -> ResearchIdea:
         experiments=_as_text(raw.get("Experiments")),
         related_work=_as_text(raw.get("Related Work")),
         limitations=_as_text(raw.get("Risk Factors and Limitations")),
-        resource_plan=_resource_plan_from_topic(topic),
+        resource_plan=_resource_plan_from_raw_and_topic(budget_raw, topic),
         extra={"generator": "ai-scientist-v2", "ai_scientist_v2": raw},
     )
 

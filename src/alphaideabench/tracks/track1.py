@@ -88,13 +88,14 @@ class Track1Runner:
             if vals:
                 group_means[gid] = sum(vals) / len(vals)
 
-        readiness = by_dimension["research_readiness"].mean if "research_readiness" in by_dimension else 0.0
+        scored = [block.mean for block in by_dimension.values()]
+        overall = sum(scored) / len(scored) if scored else 0.0
         result = Track1Result(
             idea_id=idea.idea_id or "unknown",
             topic_id=topic.id,
             by_dimension=by_dimension,
             group_means=group_means,
-            research_readiness=readiness,
+            overall=overall,
         )
         if out_dir is not None:
             out_dir.mkdir(parents=True, exist_ok=True)

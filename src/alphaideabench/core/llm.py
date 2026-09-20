@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import threading
 import time
 import uuid
@@ -12,7 +13,9 @@ from openai import OpenAI
 from alphaideabench.core.types import ChatResult, LLMBackend, Message, ToolCallRequest
 
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
-_OPENAI_COMPAT = {"openai", "openai_compat", "gemini_openai", "openrouter"}
+_OPENAI_COMPAT = {"openai", "openai_compat", "gemini_openai", "openrouter", "deepseek", "gemini", "google"}
+DEEPSEEK_BASE_URL = "https://api.deepseek.com"
+GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/openai/"
 
 
 class LLMError(RuntimeError):
@@ -66,9 +69,12 @@ def _messages_to_openai(messages: list[Message]) -> list[dict[str, Any]]:
             )
             continue
         item: dict[str, Any] = {"role": msg.role, "content": msg.content}
+        if msg.extra:
+            item.update(msg.extra)
         if msg.role == "assistant" and msg.tool_calls:
-            item["tool_calls"] = [
-                {
+            tc_list = []
+            for tc in msg.tool_calls:
+                tc_data = {
                     "id": tc.id,
                     "type": "function",
                     "function": {
@@ -76,8 +82,10 @@ def _messages_to_openai(messages: list[Message]) -> list[dict[str, Any]]:
                         "arguments": json.dumps(tc.arguments, ensure_ascii=False),
                     },
                 }
-                for tc in msg.tool_calls
-            ]
+                if tc.extra:
+                    tc_data.update(tc.extra)
+                tc_list.append(tc_data)
+            item["tool_calls"] = tc_list
         payload.append(item)
     return payload
 
@@ -144,7 +152,11 @@ class OpenAIBackend(LLMBackend):
                         args = {}
                     if not isinstance(args, dict):
                         args = {}
-                    tool_calls.append(ToolCallRequest(id=tc.id, name=tc.function.name, arguments=args))
+                    tc_extra: dict[str, Any] = {}
+                    extra_content = getattr(tc, "extra_content", None)
+                    if extra_content:
+                        tc_extra["extra_content"] = extra_content
+                    tool_calls.append(ToolCallRequest(id=tc.id, name=tc.function.name, arguments=args, extra=tc_extra))
                 usage = {}
                 if resp.usage:
                     usage = {
@@ -158,12 +170,17 @@ class OpenAIBackend(LLMBackend):
                     f"reasoning_chars={len(reasoning or '')} tokens={usage}",
                     flush=True,
                 )
+                extra: dict[str, Any] = {}
+                extra_content = getattr(message, "extra_content", None)
+                if isinstance(extra_content, dict):
+                    extra["extra_content"] = extra_content
                 return ChatResult(
                     content=message.content,
                     tool_calls=tool_calls,
                     usage=usage,
                     raw=resp.model_dump() if hasattr(resp, "model_dump") else None,
                     reasoning=reasoning,
+                    extra=extra,
                 )
             except Exception as exc:  # noqa: BLE001 — retry then surface
                 last_error = exc
@@ -209,7 +226,6 @@ _MAPPER_DIMENSION_IDS = (
     "data_feasibility",
     "budget_feasibility",
     "verification_feasibility",
-    "research_readiness",
 )
 
 
@@ -258,6 +274,28 @@ def _mock_review_mapping(user_blob: str) -> str:
     )
 
 
+#: Matches the rendered checklist lines, e.g. ``- Is there a baseline  [yes = good]``.
+_MOCK_CHECKLIST_RE = re.compile(r"^- (?P<text>.+?)\s+\[yes = (?:good|problem)\]\s*$")
+
+
+def _mock_checklist_notes(user_blob: str) -> list[dict[str, str]]:
+    """Echo the checklist items found in the prompt, so dry-run passes coverage."""
+    notes: list[dict[str, str]] = []
+    seen: set[str] = set()
+    for line in user_blob.splitlines():
+        match = _MOCK_CHECKLIST_RE.match(line.strip())
+        if not match:
+            continue
+        text = match.group("text").strip()
+        if text in seen:
+            continue
+        seen.add(text)
+        notes.append(
+            {"item": text, "judgment": "partial", "evidence": "Mock judge: not evaluated."}
+        )
+    return notes
+
+
 class MockBackend(LLMBackend):
     """Deterministic backend for dry-run and tests. Never calls a network."""
 
@@ -291,7 +329,7 @@ class MockBackend(LLMBackend):
                         "dimension_id": "mock",
                         "score": 3,
                         "reasoning": "Mock judge: no live LLM was called.",
-                        "checklist_notes": [],
+                        "checklist_notes": _mock_checklist_notes(user_blob),
                         "confidence": 0.2,
                         "flags": ["mock"],
                     },
@@ -333,10 +371,21 @@ def build_backend(settings: Any, dry_run: bool = False) -> LLMBackend:
     llm = settings.llm
     provider = llm.provider
     if provider in _OPENAI_COMPAT:
-        api_key = os.getenv(llm.api_key_env)
+        api_key = (
+            (os.getenv("OPENROUTER_API_KEY") if provider == "openrouter" else None)
+            or os.getenv(llm.api_key_env)
+            or (os.getenv("DEEPSEEK_API_KEY") or os.getenv("deepseek_api_key") if provider == "deepseek" else None)
+            or (os.getenv("Gemini_API_KEY") or os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY") if provider in {"gemini", "google", "gemini_openai"} else None)
+            or os.getenv("OPENROUTER_API_KEY")
+        )
         base_url = resolve_base_url(getattr(llm, "base_url", None), getattr(llm, "base_url_env", None))
-        if provider == "openrouter" and not base_url:
-            base_url = OPENROUTER_BASE_URL
+        if provider == "openrouter":
+            if not base_url or "generativelanguage" in base_url or "deepseek.com" in base_url:
+                base_url = OPENROUTER_BASE_URL
+        elif provider == "deepseek" and not base_url:
+            base_url = DEEPSEEK_BASE_URL
+        elif provider in {"gemini", "google", "gemini_openai"} and not base_url:
+            base_url = GEMINI_BASE_URL
         return OpenAIBackend(
             model=llm.model,
             api_key=api_key,

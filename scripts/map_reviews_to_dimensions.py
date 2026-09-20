@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Map human ICLR peer reviews onto the 13 AlphaIdeaBench dimensions.
+"""Map human ICLR peer reviews onto the 12 AlphaIdeaBench dimensions.
 
 This builds a human-anchored reference for Track 1. The agent here is not a judge:
 it never evaluates a paper itself, it only reads what human reviewers already wrote
@@ -44,7 +44,7 @@ from statistics import median, pstdev
 from typing import Any
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_PAPERS = REPO_ROOT / "ICLR_2026/subset-200.json"
+DEFAULT_PAPERS = REPO_ROOT / "examples/reviews/sample_papers.json"
 DEFAULT_OUT = REPO_ROOT / "outputs/review_mapping"
 
 SYSTEM_PROMPT = "prompts/review_mapper_system.md"
@@ -341,8 +341,16 @@ def _mean(values: list[float]) -> float | None:
     return sum(values) / len(values) if values else None
 
 
-def aggregate(records: list[dict[str, Any]], catalog: Any) -> tuple[dict, dict]:
-    dimension_ids = [d.id for d in catalog.ordered()]
+def aggregate(
+    records: list[dict[str, Any]],
+    catalog: Any,
+    dimension_ids: list[str] | None = None,
+) -> tuple[dict, dict]:
+    # When the run was restricted to a subset of dimensions (e.g. --group novelty),
+    # report only those. Falling back to the full catalog would pad the summary with
+    # 9 dimensions at coverage 0.00 that were never asked about.
+    if dimension_ids is None:
+        dimension_ids = [d.id for d in catalog.ordered()]
 
     by_paper: dict[str, list[dict[str, Any]]] = {}
     for record in records:
@@ -374,8 +382,12 @@ def aggregate(records: list[dict[str, Any]], catalog: Any) -> tuple[dict, dict]:
                 **_agreement(scores),
             }
 
+        # Skip groups with no mapped dimension in this run, so a novelty-only run
+        # does not emit four null group means.
         group_means: dict[str, float | None] = {}
         for gid, group in catalog.groups.items():
+            if not any(d in dims for d in group.dimensions):
+                continue
             vals = [dims[d]["mean"] for d in group.dimensions if dims.get(d, {}).get("mean") is not None]
             group_means[gid] = _mean(vals)
 
@@ -530,6 +542,12 @@ def main() -> int:
         action="store_true",
         help="把 reviewer 的 rating/confidence 也给 agent 看（默认不给，避免锚定）",
     )
+    parser.add_argument(
+        "--group",
+        action="append",
+        default=[],
+        help="只映射指定维度组（可重复），如 --group novelty。默认全部 12 个维度",
+    )
     parser.add_argument("--overwrite", action="store_true", help="忽略已有结果，重跑全部")
     parser.add_argument("--print-prompt", action="store_true", help="打印第一个任务的 prompt 后退出")
     parser.add_argument("--dry-run", action="store_true", help="用 MockBackend 走通流程，不调 API")
@@ -544,7 +562,14 @@ def main() -> int:
     settings = Settings.load(args.config)
     catalog = load_catalog()
     dimensions = catalog.ordered()
+    if args.group:
+        wanted_groups = {g.strip().lower() for g in args.group}
+        dimensions = [d for d in dimensions if (getattr(d, "group", "") or "").lower() in wanted_groups]
+        if not dimensions:
+            available = sorted({getattr(d, "group", "") or "?" for d in catalog.ordered()})
+            raise SystemExit(f"no dimension in group(s) {sorted(wanted_groups)}; available: {available}")
     dimension_ids = [d.id for d in dimensions]
+    print(f"[map] {len(dimension_ids)} dimension(s): {', '.join(dimension_ids)}", flush=True)
 
     out_dir = Path(args.out) if args.out else DEFAULT_OUT / args.mode
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -555,7 +580,7 @@ def main() -> int:
         records = read_jsonl(records_path)
         if not records:
             raise SystemExit(f"no records in {records_path}")
-        papers, summary = aggregate(records, catalog)
+        papers, summary = aggregate(records, catalog, dimension_ids)
         write_json(out_dir / "papers.json", papers)
         write_json(out_dir / "summary.json", summary)
         print(f"[map] aggregated {len(records)} record(s) over {len(papers)} paper(s)")
@@ -649,7 +674,7 @@ def main() -> int:
     if not records:
         print("[map] nothing mapped")
         return 1
-    papers, summary = aggregate(records, catalog)
+    papers, summary = aggregate(records, catalog, dimension_ids)
     write_json(out_dir / "papers.json", papers)
     write_json(out_dir / "summary.json", summary)
 

@@ -9,6 +9,7 @@ class ToolCallRequest:
     id: str
     name: str
     arguments: dict[str, Any]
+    extra: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass
@@ -18,6 +19,7 @@ class ChatResult:
     usage: dict[str, int] = field(default_factory=dict)
     raw: Any = None
     reasoning: str | None = None
+    extra: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass
@@ -27,6 +29,7 @@ class Message:
     name: str | None = None
     tool_call_id: str | None = None
     tool_calls: list[ToolCallRequest] = field(default_factory=list)
+    extra: dict[str, Any] = field(default_factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         data: dict[str, Any] = {"role": self.role, "content": self.content}

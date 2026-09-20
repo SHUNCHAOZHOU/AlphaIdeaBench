@@ -1,0 +1,38 @@
+# Language of the agent-facing prompts and rubric
+language: en
+
+# Native Google Gemini Configuration (Direct official endpoint, no OpenRouter proxy)
+llm:
+  provider: gemini
+  model: gemini-3.7-flash
+  api_key_env: GEMINI_API_KEY
+  base_url: https://generativelanguage.googleapis.com/v1beta/openai/
+  timeout_s: 180
+  max_retries: 4
+  json_mode: false
+
+embedding:
+  provider: openrouter
+  model: google/gemini-embedding-2
+  api_key_env: OPENROUTER_API_KEY
+  base_url: https://openrouter.ai/api/v1
+  output_dim: 768
+  task_prefix: "task: sentence similarity | query: "
+
+agents:
+  judge:
+    name: dimension_judge
+    system_prompt: prompts/judge_system.md
+    user_prompt: prompts/judge_user.md
+    tools:
+      - load_topic
+      - load_budget
+      - load_idea
+      - load_rubric
+    temperature: 0.3
+    max_rounds: 6
+    repeats: 1
+    workers: 4
+
+track2:
+  taus: [0.85, 0.90]

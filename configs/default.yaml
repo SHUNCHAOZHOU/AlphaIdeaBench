@@ -40,7 +40,7 @@ agents:
     temperature: 0.3
     max_rounds: 6
     repeats: 3
-    workers: 1   # Track 1 并行维度数；CLI --workers 可覆盖。13 维互不通信，可设为 13
+    workers: 1   # Track 1 parallel dimensions; CLI --workers can override. The 12 dimensions do not share state.
     # model: anthropic/claude-sonnet-4   # 可选：Judge 用更强模型
 
 track2:

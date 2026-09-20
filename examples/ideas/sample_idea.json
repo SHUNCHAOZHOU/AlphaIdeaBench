@@ -1,0 +1,19 @@
+{
+  "idea_id": "icbinb-failure-audit",
+  "title": "A controlled audit of why applied deep learning fails outside the original benchmark",
+  "research_question": "When a published deep learning pipeline is re-run on a shifted real-world split, which failure modes are caused by the method versus by the evaluation protocol?",
+  "problem": "Applied deep learning papers often report strong benchmark numbers that collapse under distribution shift, missing labels, or deployment constraints. Existing workshops collect anecdotes, but there is no shared protocol that attributes a failure to data, method, or evaluation.",
+  "motivation": "The ICBINB setting asks for transferable failure patterns rather than another leaderboard gain. A shared audit protocol would let negative results be compared across domains.",
+  "method": "Re-implement three published pipelines (vision, tabular, and time series) and evaluate each on the original split plus one shifted split. Attribute each drop to data leakage, hyperparameter brittleness, or metric mismatch using a fixed checklist and one ablation per factor.",
+  "experiments": "Use public datasets only. Report original-split vs shifted-split deltas, then ablate train-time augmentation, early stopping, and the official metric. Include the authors' reported baseline and one simpler linear or tree baseline.",
+  "baselines": "The original paper's official number, a linear or gradient-boosted baseline, and a no-augmentation re-run.",
+  "success_criteria": "A failure is confirmed if the shifted split drops at least 10% relative to the original split and at least one ablation recovers half of that drop.",
+  "related_work": "ICBINB workshop papers on negative results, distribution-shift benchmarks, and leakage audits.",
+  "limitations": "Three pipelines cannot cover every domain. The audit does not train new architectures from scratch.",
+  "resource_plan": {
+    "gpu": "4x A100 40GB (academic lab)",
+    "estimated_gpu_hours": 80,
+    "estimated_api_usd": 0,
+    "estimated_human_hours": 20
+  }
+}

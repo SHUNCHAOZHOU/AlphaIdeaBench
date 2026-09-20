@@ -30,14 +30,6 @@ groups:
       - data_feasibility
       - budget_feasibility
       - verification_feasibility
-  readiness:
-    name: Research Readiness
-    description: >-
-      Whether the surrounding research ecosystem is mature enough to support
-      reliable work on this idea. An independent holistic judgement, not an
-      average of the other dimensions.
-    dimensions:
-      - research_readiness
 
 dimensions:
   context_grounding:
@@ -54,14 +46,22 @@ dimensions:
       "4": Correctly understands prior work and identifies a research gap consistent with the context
       "5": Deeply and accurately synthesises the papers, limitations, and background in the context; the idea follows naturally from that context
     checklist:
-      - Is the idea relevant to the given research direction
-      - Are existing methods described accurately
-      - Are the limitations of prior work identified correctly
-      - Is key information from the context actually used
-      - Is a problem already solved by prior work mistaken for an open problem
-      - Are there factual errors about the papers
-      - Does it introduce a key assumption absent from the context without explaining where it comes from
-      - Are there fabricated papers, fabricated results, or incorrect citations
+      - text: Is the idea relevant to the given research direction
+        polarity: positive
+      - text: Are existing methods described accurately
+        polarity: positive
+      - text: Are the limitations of prior work identified correctly
+        polarity: positive
+      - text: Is key information from the context actually used
+        polarity: positive
+      - text: Is a problem already solved by prior work mistaken for an open problem
+        polarity: negative
+      - text: Are there factual errors about the papers
+        polarity: negative
+      - text: Does it introduce a key assumption absent from the context without explaining where it comes from
+        polarity: negative
+      - text: Are there fabricated papers, fabricated results, or incorrect citations
+        polarity: negative
 
   problem_formulation:
     index: 2
@@ -77,15 +77,24 @@ dimensions:
       "4": Problem, subject, applicable conditions, and goal are reasonably clear, and the scope is roughly manageable
       "5": The research problem is defined precisely, with clear key variables, boundaries, assumptions, and goals; it could almost be turned directly into a formal research question
     checklist:
-      - Is the object of study stated
-      - Is the phenomenon or failure under study stated
-      - Are the study conditions stated
-      - Are the key variables stated
-      - Is the research goal stated
-      - Is there an explicit research question or hypothesis
-      - Is it merely vague phrasing such as "improve performance", "enhance capability", or "solve robustness"
-      - Are several unrelated problems mixed into one idea
-      - Is the scope of the idea too large
+      - text: Is the object of study stated
+        polarity: positive
+      - text: Is the phenomenon or failure under study stated
+        polarity: positive
+      - text: Are the study conditions stated
+        polarity: positive
+      - text: Are the key variables stated
+        polarity: positive
+      - text: Is the research goal stated
+        polarity: positive
+      - text: Is there an explicit research question or hypothesis
+        polarity: positive
+      - text: Is it merely vague phrasing such as "improve performance", "enhance capability", or "solve robustness"
+        polarity: negative
+      - text: Are several unrelated problems mixed into one idea
+        polarity: negative
+      - text: Is the scope of the idea too large
+        polarity: negative
 
   motivation_method_consistency:
     index: 3
@@ -101,13 +110,21 @@ dimensions:
       "4": Method explicitly targets the core problem in the motivation, with a plausible mechanism of action
       "5": Motivation, hypothesis, method, and experiments form a closed loop; the method addresses the core bottleneck rather than a peripheral issue
     checklist:
-      - What bottleneck does the motivation identify
-      - Does the method target that bottleneck directly
-      - Can the method test the key hypothesis
-      - If the method succeeds, would the original problem be alleviated
-      - Is there a "motivation says A, method does B" mismatch
-      - Is the method merely a module related to the problem without actually solving it
-      - Would the planned experiments show that the method really solves the problem in the motivation
+      - text: Is the bottleneck identified by the motivation stated explicitly
+        polarity: positive
+        note: Name that bottleneck in the evidence field.
+      - text: Does the method target that bottleneck directly
+        polarity: positive
+      - text: Can the method test the key hypothesis
+        polarity: positive
+      - text: If the method succeeds, would the original problem be alleviated
+        polarity: positive
+      - text: Is there a "motivation says A, method does B" mismatch
+        polarity: negative
+      - text: Is the method merely a module related to the problem without actually solving it
+        polarity: negative
+      - text: Would the planned experiments show that the method really solves the problem in the motivation
+        polarity: positive
 
   testability:
     index: 4
@@ -122,16 +139,26 @@ dimensions:
       "4": Clear hypothesis, experimental setup, evaluation metrics, and comparison targets
       "5": Rigorous falsifiable hypothesis, controlled variables, control conditions, success criteria, and analysis of alternative explanations
     checklist:
-      - Is there an explicit hypothesis
-      - Are there observable variables
-      - Is there a measurable outcome
-      - Is there a baseline
-      - Is there a control condition
-      - Is there an explicit success criterion
-      - Could the results support or overturn the core claim
-      - Can competing explanations be distinguished
-      - Is "the model gets better" turned into a measurable metric
-      - Are there untestable strong claims such as "truly understands" or "achieves general intelligence"
+      - text: Is there an explicit hypothesis
+        polarity: positive
+      - text: Are there observable variables
+        polarity: positive
+      - text: Is there a measurable outcome
+        polarity: positive
+      - text: Is there a baseline
+        polarity: positive
+      - text: Is there a control condition
+        polarity: positive
+      - text: Is there an explicit success criterion
+        polarity: positive
+      - text: Could the results support or overturn the core claim
+        polarity: positive
+      - text: Can competing explanations be distinguished
+        polarity: positive
+      - text: Is "the model gets better" turned into a measurable metric
+        polarity: positive
+      - text: Are there untestable strong claims such as "truly understands" or "achieves general intelligence"
+        polarity: negative
 
   problem_novelty:
     index: 5
@@ -141,19 +168,27 @@ dimensions:
       Is the research problem, phenomenon, failure mode, hypothesis, or research
       perspective new relative to prior work?
     scores:
-      "1": The problem has already been explicitly posed and largely solved by prior work
-      "2": Only a minor variation of an existing problem, dataset, model, or experimental setup
-      "3": Somewhat new problem setting or research perspective, but clearly close to existing work
-      "4": Poses a distinctly different and meaningful problem, phenomenon, failure mode, or hypothesis
-      "5": Poses a non-obvious, important problem or mechanistic hypothesis that has essentially not been studied before
+      "1": "The problem has already been explicitly posed and largely solved in prior literature"
+      "2": "Minor repackaging, cosmetic re-framing, or routine extension of an existing problem without posing a new fundamental question"
+      "3": "Meaningful new angle or specific failure mode within an existing problem domain, but closely following established research trajectories"
+      "4": "Distinctly new, well-defined research problem, non-obvious failure mode, or mechanistic question that challenges existing assumptions"
+      "5": "Foundational new problem formulation or conceptual paradigm that defines an entirely new research area"
     checklist:
-      - Has this problem already been studied directly
-      - Is it only a change of dataset, model, or experimental setup
-      - Does it identify a new failure mode
-      - Does it identify a new contradiction
-      - Does it pose a new research question
-      - Does it propose a new problem boundary or object of study
-      - What is the substantive difference from the closest prior work
+      - text: Has this problem already been studied or largely solved in existing literature
+        polarity: negative
+      - text: Is it only a cosmetic re-framing or routine change of dataset, model, or benchmark
+        polarity: negative
+      - text: Does it identify a genuinely new failure mode or unexplored bottleneck
+        polarity: positive
+      - text: Does it identify a new contradiction or challenge to existing assumptions
+        polarity: positive
+      - text: Does it pose a distinct, non-obvious research question
+        polarity: positive
+      - text: Does it propose a new problem boundary or object of study
+        polarity: positive
+      - text: Is there a substantive difference from closest prior work
+        polarity: positive
+        note: State that difference explicitly in the evidence field.
 
   method_novelty:
     index: 6
@@ -163,20 +198,29 @@ dimensions:
       Is the algorithm, model, training procedure, experimental method, or
       theoretical tool used to solve the problem new?
     scores:
-      "1": The method essentially restates or directly adopts an existing method
-      "2": Only substitution of model, dataset, hyperparameters, prompt, or standard modules
-      "3": Some methodological modification, but the core mechanism stays close to existing work
-      "4": Contains a clear, meaningful, problem-specific new method design
-      "5": Proposes a non-obvious, substantive new mechanism, algorithm, training procedure, experimental method, or theoretical tool
+      "1": "The method essentially restates, directly adopts, or replicates existing methods with no substantive modification"
+      "2": "Routine combination or minor adaptation: standard stitching of off-the-shelf modules, trivial backbone swap, or straightforward application of existing toolkits"
+      "3": "Solid incremental method: meaningful procedural or architectural modification tailored to the problem, but the core mechanism remains within established paradigms"
+      "4": "Non-obvious, substantive new method design: introduces a distinct, well-formulated new algorithmic formulation, loss objective, mechanism, or theoretical tool"
+      "5": "Foundational or paradigm-shifting methodological breakthrough that establishes a fundamentally new computing, modeling, or learning principle"
     checklist:
-      - Does the method already appear in existing papers
-      - Is it only a backbone swap
-      - Is it only a change of dataset or prompt
-      - Is it only the addition of a common module
-      - Does it change the core solving mechanism
-      - Does the method contain a non-obvious new design
-      - Is the new method built for the specific problem of this idea
-      - If it is a combination of methods, does that combination already have precedent
+      - text: Does the method already appear in existing papers or standard toolkits
+        polarity: negative
+      - text: Is it primarily a routine assembly or stitching of standard existing components (e.g. standard models, prompting, off-the-shelf RL/loss)
+        polarity: negative
+      - text: Is it only a backbone swap, hyperparameter tuning, or dataset swap
+        polarity: negative
+      - text: Is it only the addition of a common module without changing the core solving mechanism
+        polarity: negative
+      - text: Does the method introduce a non-obvious algorithmic delta beyond standard module combinations
+        polarity: positive
+      - text: Does it change the core solving mechanism or mathematical/algorithmic formulation
+        polarity: positive
+      - text: Is the new method specifically and non-trivially designed for the bottleneck of this idea
+        polarity: positive
+      - text: If it is a combination of methods, does that combination already have direct precedent or is it a routine pairing
+        polarity: negative
+        note: Answer n/a if the method is not a combination of existing methods.
 
   scenario_novelty:
     index: 7
@@ -187,22 +231,22 @@ dimensions:
       deployment environment, or real-world constraint, and does that give rise
       to a meaningful new research problem?
     scores:
-      "1": The scenario completely follows existing work, or is only renamed
-      "2": Only the dataset, application domain, or input format changes; the research problem is essentially unchanged
-      "3": Introduces a new task, domain, or constraint, but mostly transfers existing methods directly
-      "4": The new scenario creates clear new challenges that require targeted adaptation or method redesign
-      "5": The new scenario itself opens important, non-obvious research questions and creates new method or evaluation requirements
+      "1": "The scenario completely follows existing work, or is only renamed"
+      "2": "Only the dataset, application domain, or input format changes; the core research problem and technical challenges are essentially unchanged"
+      "3": "Introduces a new application domain, task, or constraint, but standard methods can be transferred directly without fundamental adaptations"
+      "4": "The new scenario creates distinct, meaningful challenges that fundamentally require targeted method redesign rather than direct transfer"
+      "5": "The new scenario opens an entirely new research frontier with unprecedented evaluation, modeling, or real-world requirements"
     checklist:
-      - Is it a new domain
-      - Is it a new task
-      - Is it a new modality
-      - Is it a new data distribution
-      - Is it a new deployment environment
-      - Is it a new resource or real-world constraint
-      - Does the new scenario change the research problem
-      - Does the new scenario introduce a challenge unique to it
-      - Does the method need targeted modification
-      - Is it just applying an existing method directly to new data
+      - text: Is it a new domain, task, modality, or deployment environment
+        polarity: positive
+      - text: Is it just applying existing methods directly to a new dataset or domain without unique challenges
+        polarity: negative
+      - text: Does the new scenario introduce unique challenges that prevent standard direct transfer
+        polarity: positive
+      - text: Does the scenario necessitate targeted algorithmic or evaluation redesign
+        polarity: positive
+      - text: Does the new scenario change the underlying research problem
+        polarity: positive
 
   insight_novelty:
     index: 8
@@ -212,21 +256,26 @@ dimensions:
       Does the idea offer a new understanding of a phenomenon, failure mode,
       method behaviour, or causal mechanism?
     scores:
-      "1": No new explanation; only describes a phenomenon or repeats known conclusions
-      "2": Offers a generic, templated, or undifferentiated explanation
-      "3": Some new observation or mechanistic hypothesis, but close to existing explanations
-      "4": Proposes a clear, specific new mechanism, boundary condition, or causal explanation with evidential potential
-      "5": Reveals a non-obvious, important new mechanism or regularity that could change how the field understands the phenomenon
+      "1": "No new explanation; only describes a phenomenon, repeats known conclusions, or provides cosmetic explanations"
+      "2": "Offers a generic, high-level, or templated explanation that does not reveal concrete mechanisms"
+      "3": "Provides a specific empirical observation or preliminary mechanistic hypothesis, but remains close to existing understandings"
+      "4": "Proposes a clear, non-obvious new mechanism, boundary condition, or causal explanation supported by concrete evidence or falsifiable claims"
+      "5": "Reveals a foundational, non-obvious new principle or causal mechanism that alters how the field understands the phenomenon"
     checklist:
-      - Does it propose a new mechanistic explanation
-      - Does it point to specific causal factors
-      - Does it identify a new failure mechanism
-      - Does it disentangle factors previously conflated
-      - Does it propose a new boundary condition
-      - Is it merely renaming an existing phenomenon
-      - Is it substantively different from existing explanations
-      - Can the mechanism be verified experimentally or theoretically
-      - If it holds, would it change how the phenomenon is understood
+      - text: Does it propose a new mechanistic or causal explanation
+        polarity: positive
+      - text: Does it point to specific, verifiable causal factors
+        polarity: positive
+      - text: Does it identify a new failure mechanism or boundary condition
+        polarity: positive
+      - text: Does it disentangle factors previously conflated
+        polarity: positive
+      - text: Is it merely renaming an existing phenomenon or offering a generic explanation
+        polarity: negative
+      - text: Is it substantively different from existing explanations in the literature
+        polarity: positive
+      - text: Can the mechanistic claim be tested experimentally or theoretically
+        polarity: positive
 
   technical_feasibility:
     index: 9
@@ -240,15 +289,24 @@ dimensions:
       "4": The technical path is clear, the required components mostly exist, and it can reasonably be implemented
       "5": The implementation path is mature and complete, technical risk is low, and prototyping could start immediately
     checklist:
-      - Do the required algorithms, models, and components exist
-      - Is the method pipeline complete
-      - Are inputs and outputs clearly defined
-      - Does it depend on unobtainable information
-      - Does it require an oracle
-      - Are the training and inference loops closed
-      - Are there self-contradictory assumptions
-      - Can a prototype be built
-      - Does it require solving an unmentioned core technical challenge
+      - text: Do the required algorithms, models, and components exist
+        polarity: positive
+      - text: Is the method pipeline complete
+        polarity: positive
+      - text: Are inputs and outputs clearly defined
+        polarity: positive
+      - text: Does it depend on unobtainable information
+        polarity: negative
+      - text: Does it require an oracle
+        polarity: negative
+      - text: Are the training and inference loops closed
+        polarity: positive
+      - text: Are there self-contradictory assumptions
+        polarity: negative
+      - text: Can a prototype be built
+        polarity: positive
+      - text: Does it require solving an unmentioned core technical challenge
+        polarity: negative
 
   data_feasibility:
     index: 10
@@ -264,17 +322,28 @@ dimensions:
       "4": The required data is largely obtainable, needing only routine cleaning, processing, or limited annotation
       "5": Data is public, sufficient, of suitable quality, with reliable labels, and can directly support verification
     checklist:
-      - Does the data exist
-      - Is it publicly available
-      - Does new data need to be collected
-      - Is expert annotation required
-      - Is the amount of data sufficient
-      - Is the data quality sufficient
-      - Are there privacy, copyright, or ethical issues
-      - Is there reliable ground truth
-      - Can train, validation, and test splits be constructed
-      - Could train-test leakage occur
-      - Can the data really support the claim being verified
+      - text: Does the data exist
+        polarity: positive
+      - text: Is it publicly available
+        polarity: positive
+      - text: Does new data need to be collected
+        polarity: negative
+      - text: Is expert annotation required
+        polarity: negative
+      - text: Is the amount of data sufficient
+        polarity: positive
+      - text: Is the data quality sufficient
+        polarity: positive
+      - text: Are there privacy, copyright, or ethical issues
+        polarity: negative
+      - text: Is there reliable ground truth
+        polarity: positive
+      - text: Can train, validation, and test splits be constructed
+        polarity: positive
+      - text: Could train-test leakage occur
+        polarity: negative
+      - text: Can the data really support the claim being verified
+        polarity: positive
 
   budget_feasibility:
     index: 11
@@ -290,15 +359,24 @@ dimensions:
       "4": Reasonable experiments can be completed within the given compute, time, and funding
       "5": Resource needs are clearly below budget, the experimental path is clear, and there is ample headroom for baselines, ablations, and repeated runs
     checklist:
-      - Is GPU/CPU capacity sufficient
-      - Is training time sufficient
-      - Is inference cost affordable
-      - Does the number of API calls exceed the budget
-      - Is the human annotation cost affordable
-      - Is there enough time for data collection and processing
-      - Are special devices or a deployment environment required
-      - Is there enough time for baselines, ablations, and repeated runs
-      - Can a "meaningful verification" be completed within budget, not just a working demo
+      - text: Is GPU/CPU capacity sufficient
+        polarity: positive
+      - text: Is training time sufficient
+        polarity: positive
+      - text: Is inference cost affordable
+        polarity: positive
+      - text: Does the number of API calls exceed the budget
+        polarity: negative
+      - text: Is the human annotation cost affordable
+        polarity: positive
+      - text: Is there enough time for data collection and processing
+        polarity: positive
+      - text: Are special devices or a deployment environment required
+        polarity: negative
+      - text: Is there enough time for baselines, ablations, and repeated runs
+        polarity: positive
+      - text: Can a "meaningful verification" be completed within budget, not just a working demo
+        polarity: positive
 
   verification_feasibility:
     index: 12
@@ -314,37 +392,26 @@ dimensions:
       "4": Clear, executable experimental procedure, baselines, metrics, and basic controls
       "5": A rigorous, reproducible verification plan that can distinguish alternative explanations and support falsification
     checklist:
-      - Is there an executable experimental procedure
-      - Is the required data obtainable
-      - Are baselines implemented
-      - Are the evaluation metrics appropriate
-      - Can ablations be carried out
-      - Can key variables be controlled
-      - Can experiments be repeated
-      - Can alternative explanations be ruled out
-      - Can it be completed within the stated budget
-      - Could the results support or refute the core claim
-
-  research_readiness:
-    index: 13
-    group: readiness
-    name: Research Readiness
-    question: >-
-      Is the current research ecosystem mature enough to support reliable
-      research on this idea?
-    scores:
-      "1": Research or verification is essentially impossible today; it depends on key technology, data, or evaluation infrastructure that does not exist
-      "2": Major foundational obstacles; only very indirect or conceptual exploration is possible
-      "3": Some conditions are in place and a scaled-down version is possible, but the full claim cannot be verified
-      "4": Most of the technology, data, tooling, and evaluation conditions are mature, with only routine risk
-      "5": The required technology, data, experimental tooling, and evaluation ecosystem are all mature; reliable research could start immediately
-    checklist:
-      - Does the relevant technical foundation already exist
-      - Do the key dependencies already exist
-      - Can the object of study be observed
-      - Are the data and ground truth mature
-      - Is there a credible evaluation protocol
-      - Is there an existing reproducible baseline
-      - Does the idea depend on technology that does not yet exist
-      - Could a meaningful simplified version be done first
-      - If it cannot be done yet, is the obstacle a resource problem or a foundational one
+      - text: Is there an executable experimental procedure
+        polarity: positive
+      - text: Is the required data obtainable
+        polarity: positive
+      - text: Are baselines implemented
+        polarity: positive
+      - text: Are the evaluation metrics appropriate
+        polarity: positive
+      - text: Can ablations be carried out
+        polarity: positive
+      - text: Can key variables be controlled
+        polarity: positive
+      - text: Can experiments be repeated
+        polarity: positive
+      - text: Can alternative explanations be ruled out
+        polarity: positive
+      - text: Is the resulting evidence strong enough to be credible rather than merely suggestive
+        polarity: positive
+        note: >-
+          Judge evidential strength here. Whether resources fit the budget belongs
+          to budget_feasibility; do not re-penalise the budget in this dimension.
+      - text: Could the results support or refute the core claim
+        polarity: positive

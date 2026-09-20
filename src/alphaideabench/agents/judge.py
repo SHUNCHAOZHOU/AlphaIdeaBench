@@ -48,5 +48,10 @@ class DimensionJudge:
         result = agent.run(user_message)
         if not result.parsed:
             raise RuntimeError(f"Judge `{dimension_id}` returned no JSON.")
-        judgment = DimensionJudgment.from_llm(result.parsed, dimension_id, repeat_index)
+        judgment = DimensionJudgment.from_llm(
+            result.parsed,
+            dimension_id,
+            repeat_index,
+            expected_checklist=dimension.checklist_texts,
+        )
         return judgment, result

@@ -68,7 +68,6 @@ class Agent:
         usage_acc = {"prompt_tokens": 0, "completion_tokens": 0}
         tool_trace: list[dict[str, Any]] = []
         schemas = self.tools.openai_schemas() or None
-        repair_used = False
 
         for round_i in range(1, self.max_rounds + 1):
             result: ChatResult = self.backend.chat(
@@ -83,7 +82,12 @@ class Agent:
 
             if result.tool_calls:
                 messages.append(
-                    Message(role="assistant", content=result.content or "", tool_calls=result.tool_calls)
+                    Message(
+                        role="assistant",
+                        content=result.content or "",
+                        tool_calls=result.tool_calls,
+                        extra=result.extra,
+                    )
                 )
                 for tc in result.tool_calls:
                     output = self.tools.execute(tc.name, tc.arguments, self.ctx)
@@ -96,18 +100,33 @@ class Agent:
 
             content = (result.content or "").strip()
             parsed = extract_json_object(content)
-            if parsed is None and self.require_json and not repair_used:
-                messages.append(Message(role="assistant", content=content))
-                messages.append(
-                    Message(
-                        role="user",
-                        content=(
-                            "Your last reply was not valid JSON. Output a single JSON object only, "
-                            "with no markdown fences and no extra commentary."
-                        ),
-                    )
+
+            # Reasoning models sometimes spend the whole completion budget inside the
+            # reasoning channel and return an empty `content`, with the JSON we asked
+            # for stranded in the reasoning text. Observed on deepseek-v4-flash:
+            # chars=0 with reasoning_chars=626526. The answer is right there, so read
+            # it rather than burning another round or failing the task outright.
+            if parsed is None and result.reasoning:
+                parsed = extract_json_object(result.reasoning)
+                if parsed is not None and not content:
+                    content = result.reasoning.strip()
+
+            if parsed is None and self.require_json and round_i < self.max_rounds:
+                # An empty reply needs a different nudge than a malformed one: repeating
+                # "that was not valid JSON" to a model that said nothing at all tends to
+                # produce another empty turn. Keep asking until max_rounds so reasoning
+                # models that spend the first two turns in an empty content channel can
+                # still emit JSON (GPT-5 mini on OpenRouter).
+                complaint = (
+                    "Your last reply was empty. You may have spent the whole budget "
+                    "reasoning. Answer directly with a single JSON object and keep any "
+                    "deliberation short."
+                    if not content
+                    else "Your last reply was not valid JSON. Output a single JSON object only, "
+                    "with no markdown fences and no extra commentary."
                 )
-                repair_used = True
+                messages.append(Message(role="assistant", content=content))
+                messages.append(Message(role="user", content=complaint))
                 continue
             if parsed is None and self.require_json:
                 raise AgentError(f"Agent `{self.name}` did not return valid JSON after {round_i} rounds.")

@@ -29,7 +29,7 @@ def _settings(config: Optional[Path]) -> Settings:
 
 @app.command("list-dimensions")
 def list_dimensions() -> None:
-    """列出 Track 1 的 13 个评分维度。"""
+    """列出 Track 1 的 12 个评分维度。"""
     catalog = load_catalog()
     table = Table(title="AlphaIdeaBench dimensions")
     table.add_column("#", justify="right")
@@ -55,21 +55,21 @@ def judge(
     repeats: Optional[int] = typer.Option(None, help="每个维度重复打分次数（测一致性，默认 3）"),
     out: Path = typer.Option(Path("outputs"), help="输出根目录"),
     config: Optional[Path] = typer.Option(None, help="YAML 配置"),
-    skip_track1: bool = typer.Option(False, help="跳过 13 维打分"),
+    skip_track1: bool = typer.Option(False, help="跳过 12 维打分"),
     skip_track2: bool = typer.Option(False, help="跳过多样性"),
     dry_run: bool = typer.Option(False, help="使用 mock LLM，不调用真实 API"),
     workers: Optional[int] = typer.Option(
         None,
-        help="Track 1 并行 worker 数（按维度并行；默认 1 串行，13 维可设 --workers 13）",
+        help="Track 1 并行 worker 数（按维度并行；默认 1 串行，12 维可设 --workers 12）",
     ),
 ) -> None:
-    """Track 1（13 维打分）+ Track 2（多样性）。目录内重复 idea 会去重。"""
+    """Track 1（12 维打分）+ Track 2（多样性）。目录内重复 idea 会去重。"""
     settings = _settings(config)
     t = Topic.from_markdown(topic)
     loaded = load_ideas(ideas, t)
-    console.print(f"Loaded {len(loaded)} unique idea(s) from {ideas}")
+    console.print(f"Loaded {len(loaded)} unique idea(s) from {ideas}", markup=False)
     for idea in loaded:
-        console.print(f"  - {idea.idea_id}: {idea.title}")
+        console.print(f"  - {idea.idea_id}: {idea.title}", markup=False)
 
     catalog = load_catalog()
     dim_ids = None if dimension == "all" else [dimension]
@@ -167,3 +167,10 @@ def _print_track1(payload: dict) -> None:
     groups = payload.get("group_means") or {}
     if groups:
         console.print("Group means: " + ", ".join(f"{k}={v:.2f}" for k, v in groups.items()))
+    if payload.get("overall") is not None:
+        console.print(f"Overall (12 dimensions)={payload['overall']:.2f}")
+
+
+if __name__ == "__main__":
+    app()
+
