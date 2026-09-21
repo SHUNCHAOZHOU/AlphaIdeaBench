@@ -2,11 +2,11 @@
 id: survey_05_mechanistic_interpretability
 type: survey
 field: interpretability_and_theory
-title: "A Survey on Mechanistic Interpretability for Large Language Models"
-arxiv_id: "2404.14082"
-authors: "Aryaman Arora et al."
-source_url: "https://arxiv.org/abs/2404.14082"
-pdf_url: "https://arxiv.org/pdf/2404.14082.pdf"
+title: "A Practical Review of Mechanistic Interpretability for Transformer-Based Language Models"
+arxiv_id: "2407.02646"
+authors: "Daking Rai, Yilun Zhou, Shi Feng et al."
+source_url: "https://arxiv.org/abs/2407.02646"
+pdf_url: "https://arxiv.org/pdf/2407.02646.pdf"
 keywords:
   - mechanistic-interpretability
   - sparse-autoencoders
@@ -21,18 +21,17 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
-# A Survey on Mechanistic Interpretability for Large Language Models
+# A Practical Review of Mechanistic Interpretability for Transformer-Based Language Models
 
 ## 1. Verified Paper Identity & Links
-- **Title**: A Survey on Mechanistic Interpretability for Large Language Models
-- **Authors**: Aryaman Arora et al.
-- **arXiv Entry**: [https://arxiv.org/abs/2404.14082](https://arxiv.org/abs/2404.14082)
-- **Full PDF**: [https://arxiv.org/pdf/2404.14082.pdf](https://arxiv.org/pdf/2404.14082.pdf)
+- **Title**: A Practical Review of Mechanistic Interpretability for Transformer-Based Language Models
+- **Authors**: Daking Rai, Yilun Zhou, Shi Feng et al.
+- **arXiv Entry**: [https://arxiv.org/abs/2407.02646](https://arxiv.org/abs/2407.02646)
+- **Full PDF**: [https://arxiv.org/pdf/2407.02646.pdf](https://arxiv.org/pdf/2407.02646.pdf)
 - **Field**: interpretability_and_theory
 
 ## 2. Official Paper Abstract
-Understanding AI systems&#39; inner workings is critical for ensuring value alignment and safety. This review explores mechanistic interpretability: reverse engineering the computational mechanisms and representations learned by neural networks into human-understandable algorithms and concepts to provide a granular, causal understanding. We establish foundational concepts such as features encoding knowledge within neural activations and hypotheses about their representation and computation. We survey methodologies for causally dissecting model behaviors and assess the relevance of mechanistic interpretability to AI safety. We examine benefits in understanding, control, alignment, and risks such as capability gains and dual-use concerns. We investigate challenges surrounding scalability, automation, and comprehensive interpretation. We advocate for clarifying concepts, setting standards, and scaling techniques to handle complex models and behaviors and expand to domains such as vision and reinforcement learning. Mechanistic interpretability could help prevent catastrophic outcomes as AI systems become more powerful and inscrutable.
+Mechanistic interpretability (MI) is an emerging sub-field of interpretability that seeks to understand a neural network model by reverse-engineering its internal computations. Recently, MI has garnered significant attention for interpreting transformer-based language models (LMs), resulting in many novel insights yet introducing new challenges. However, there has not been work that comprehensively reviews these insights and challenges, particularly as a guide for newcomers to this field. To fill this gap, we provide a comprehensive survey from a task-centric perspective, organizing the taxonomy of MI research around specific research questions or tasks. We outline the fundamental objects of study in MI, along with the techniques, evaluation methods, and key findings for each task in the taxonomy. In particular, we present a task-centric taxonomy as a roadmap for beginners to navigate the field by helping them quickly identify impactful problems in which they are most interested and leverage MI for their benefit. Finally, we discuss the current gaps in the field and suggest potential future directions for MI research.
 
 ## 3. Explicit Research Gaps & Open Challenges
 The following core challenges and research gaps are extracted and synthesized directly from the survey's *Open Problems / Challenges / Future Work* sections:

@@ -2,11 +2,11 @@
 id: survey_13_ai_for_drug_discovery
 type: survey
 field: ai_for_science
-title: "Artificial Intelligence in Drug Discovery and Development: A Comprehensive Review"
-arxiv_id: "2308.14115"
-authors: "Jianan Deng et al."
-source_url: "https://arxiv.org/abs/2308.14115"
-pdf_url: "https://arxiv.org/pdf/2308.14115.pdf"
+title: "Artificial Intelligence for Drug Discovery: Are We There Yet?"
+arxiv_id: "2307.06521"
+authors: "Catrin Hasselgren, Tudor I. Oprea"
+source_url: "https://arxiv.org/abs/2307.06521"
+pdf_url: "https://arxiv.org/pdf/2307.06521.pdf"
 keywords:
   - drug-discovery
   - molecular-generation
@@ -21,18 +21,17 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
-# Artificial Intelligence in Drug Discovery and Development: A Comprehensive Review
+# Artificial Intelligence for Drug Discovery: Are We There Yet?
 
 ## 1. Verified Paper Identity & Links
-- **Title**: Artificial Intelligence in Drug Discovery and Development: A Comprehensive Review
-- **Authors**: Jianan Deng et al.
-- **arXiv Entry**: [https://arxiv.org/abs/2308.14115](https://arxiv.org/abs/2308.14115)
-- **Full PDF**: [https://arxiv.org/pdf/2308.14115.pdf](https://arxiv.org/pdf/2308.14115.pdf)
+- **Title**: Artificial Intelligence for Drug Discovery: Are We There Yet?
+- **Authors**: Catrin Hasselgren, Tudor I. Oprea
+- **arXiv Entry**: [https://arxiv.org/abs/2307.06521](https://arxiv.org/abs/2307.06521)
+- **Full PDF**: [https://arxiv.org/pdf/2307.06521.pdf](https://arxiv.org/pdf/2307.06521.pdf)
 - **Field**: ai_for_science
 
 ## 2. Official Paper Abstract
-Natural language is among the most accessible tools for explaining decisions to humans, and large pretrained language models (PLMs) have demonstrated impressive abilities to generate coherent natural language explanations (NLE). The existing NLE research perspectives do not take the audience into account. An NLE can have high textual quality, but it might not accommodate audiences&#39; needs and preference. To address this limitation, we propose an alternative perspective, \textit{situated} NLE. On the evaluation side, we set up automated evaluation scores. These scores describe the properties of NLEs in lexical, semantic, and pragmatic categories. On the generation side, we identify three prompt engineering techniques and assess their applicability on the situations. Situated NLE provides a perspective and facilitates further research on the generation and evaluation of explanations.
+Drug discovery is adapting to novel technologies such as data science, informatics, and artificial intelligence (AI) to accelerate effective treatment development while reducing costs and animal experiments. AI is transforming drug discovery, as indicated by increasing interest from investors, industrial and academic scientists, and legislators. Successful drug discovery requires optimizing properties related to pharmacodynamics, pharmacokinetics, and clinical outcomes. This review discusses the use of AI in the three pillars of drug discovery: diseases, targets, and therapeutic modalities, with a focus on small molecule drugs. AI technologies, such as generative chemistry, machine learning, and multi-property optimization, have enabled several compounds to enter clinical trials. The scientific community must carefully vet known information to address the reproducibility crisis. The full potential of AI in drug discovery can only be realized with sufficient ground truth and appropriate human intervention at later pipeline stages.
 
 ## 3. Explicit Research Gaps & Open Challenges
 The following core challenges and research gaps are extracted and synthesized directly from the survey's *Open Problems / Challenges / Future Work* sections:

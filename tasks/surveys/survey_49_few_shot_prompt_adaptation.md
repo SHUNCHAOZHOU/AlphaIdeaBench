@@ -2,9 +2,9 @@
 id: survey_49_few_shot_prompt_adaptation
 type: survey
 field: llm_and_reasoning
-title: "A Survey on In-Context Learning"
+title: "A Survey on In-context Learning"
 arxiv_id: "2301.00234"
-authors: "Dong et al."
+authors: "Qingxiu Dong, Lei Li, Damai Dai et al."
 source_url: "https://arxiv.org/abs/2301.00234"
 pdf_url: "https://arxiv.org/pdf/2301.00234.pdf"
 keywords:
@@ -21,12 +21,11 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
-# A Survey on In-Context Learning
+# A Survey on In-context Learning
 
 ## 1. Verified Paper Identity & Links
-- **Title**: A Survey on In-Context Learning
-- **Authors**: Dong et al.
+- **Title**: A Survey on In-context Learning
+- **Authors**: Qingxiu Dong, Lei Li, Damai Dai et al.
 - **arXiv Entry**: [https://arxiv.org/abs/2301.00234](https://arxiv.org/abs/2301.00234)
 - **Full PDF**: [https://arxiv.org/pdf/2301.00234.pdf](https://arxiv.org/pdf/2301.00234.pdf)
 - **Field**: llm_and_reasoning

@@ -4,7 +4,7 @@ type: survey
 field: efficiency_and_systems
 title: "A Survey of Deep Active Learning"
 arxiv_id: "2009.00236"
-authors: "Ren et al."
+authors: "Pengzhen Ren, Yun Xiao, Xiaojun Chang et al."
 source_url: "https://arxiv.org/abs/2009.00236"
 pdf_url: "https://arxiv.org/pdf/2009.00236.pdf"
 keywords:
@@ -21,12 +21,11 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
 # A Survey of Deep Active Learning
 
 ## 1. Verified Paper Identity & Links
 - **Title**: A Survey of Deep Active Learning
-- **Authors**: Ren et al.
+- **Authors**: Pengzhen Ren, Yun Xiao, Xiaojun Chang et al.
 - **arXiv Entry**: [https://arxiv.org/abs/2009.00236](https://arxiv.org/abs/2009.00236)
 - **Full PDF**: [https://arxiv.org/pdf/2009.00236.pdf](https://arxiv.org/pdf/2009.00236.pdf)
 - **Field**: efficiency_and_systems

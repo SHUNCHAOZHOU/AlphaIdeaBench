@@ -2,11 +2,11 @@
 id: survey_28_ai_watermarking
 type: survey
 field: trustworthy_and_safety
-title: "A Survey on Watermarking for Generative AI and Foundation Models"
-arxiv_id: "2403.13487"
-authors: "Liu et al."
-source_url: "https://arxiv.org/abs/2403.13487"
-pdf_url: "https://arxiv.org/pdf/2403.13487.pdf"
+title: "SoK: Watermarking for AI-Generated Content"
+arxiv_id: "2411.18479"
+authors: "Xuandong Zhao, Sam Gunn, Miranda Christ et al."
+source_url: "https://arxiv.org/abs/2411.18479"
+pdf_url: "https://arxiv.org/pdf/2411.18479.pdf"
 keywords:
   - ai-watermarking
   - provenance-attribution
@@ -21,18 +21,17 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
-# A Survey on Watermarking for Generative AI and Foundation Models
+# SoK: Watermarking for AI-Generated Content
 
 ## 1. Verified Paper Identity & Links
-- **Title**: A Survey on Watermarking for Generative AI and Foundation Models
-- **Authors**: Liu et al.
-- **arXiv Entry**: [https://arxiv.org/abs/2403.13487](https://arxiv.org/abs/2403.13487)
-- **Full PDF**: [https://arxiv.org/pdf/2403.13487.pdf](https://arxiv.org/pdf/2403.13487.pdf)
+- **Title**: SoK: Watermarking for AI-Generated Content
+- **Authors**: Xuandong Zhao, Sam Gunn, Miranda Christ et al.
+- **arXiv Entry**: [https://arxiv.org/abs/2411.18479](https://arxiv.org/abs/2411.18479)
+- **Full PDF**: [https://arxiv.org/pdf/2411.18479.pdf](https://arxiv.org/pdf/2411.18479.pdf)
 - **Field**: trustworthy_and_safety
 
 ## 2. Official Paper Abstract
-The integration of generative Artificial Intelligence (AI) chatbots in higher education institutions (HEIs) is reshaping the educational landscape, offering opportunities for enhanced student support, and administrative and research efficiency. This study explores the future implications of generative AI chatbots in HEIs, aiming to understand their potential impact on teaching and learning, and research processes. Utilizing a narrative literature review (NLR) methodology, this study synthesizes existing research on generative AI chatbots in higher education from diverse sources, including academic databases and scholarly publications. The findings highlight the transformative potential of generative AI chatbots in streamlining administrative tasks, enhancing student learning experiences, and supporting research activities. However, challenges such as academic integrity concerns, user input understanding, and resource allocation pose significant obstacles to the effective integration of generative AI chatbots in HEIs. This study underscores the importance of proactive measures to address ethical considerations, provide comprehensive training for stakeholders, and establish clear guidelines for the responsible use of generative AI chatbots in higher education. By navigating these challenges, and leveraging the benefits of generative AI technologies, HEIs can harness the full potential of generative AI chatbots to create a more efficient, effective, inclusive, and innovative educational environment.
+As the outputs of generative AI (GenAI) techniques improve in quality, it becomes increasingly challenging to distinguish them from human-created content. Watermarking schemes are a promising approach to address the problem of distinguishing between AI and human-generated content. These schemes embed hidden signals within AI-generated content to enable reliable detection. While watermarking is not a silver bullet for addressing all risks associated with GenAI, it can play a crucial role in enhancing AI safety and trustworthiness by combating misinformation and deception. This paper presents a comprehensive overview of watermarking techniques for GenAI, beginning with the need for watermarking from historical and regulatory perspectives. We formalize the definitions and desired properties of watermarking schemes and examine the key objectives and threat models for existing approaches. Practical evaluation strategies are also explored, providing insights into the development of robust watermarking techniques capable of resisting various attacks. Additionally, we review recent representative works, highlight open challenges, and discuss potential directions for this emerging field. By offering a thorough understanding of watermarking in GenAI, this work aims to guide researchers in advancing watermarking methods and applications, and support policymakers in addressing the broader implications of GenAI.
 
 ## 3. Explicit Research Gaps & Open Challenges
 The following core challenges and research gaps are extracted and synthesized directly from the survey's *Open Problems / Challenges / Future Work* sections:

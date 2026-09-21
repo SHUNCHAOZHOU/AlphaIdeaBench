@@ -3,10 +3,10 @@ id: survey_19_agentic_tool_use
 type: survey
 field: llm_and_reasoning
 title: "Tool Learning with Large Language Models: A Survey"
-arxiv_id: "2304.08354"
-authors: "Changlei Chen, Yaobo Liang et al."
-source_url: "https://arxiv.org/abs/2304.08354"
-pdf_url: "https://arxiv.org/pdf/2304.08354.pdf"
+arxiv_id: "2405.17935"
+authors: "Changle Qu, Sunhao Dai, Xiaochi Wei et al."
+source_url: "https://arxiv.org/abs/2405.17935"
+pdf_url: "https://arxiv.org/pdf/2405.17935.pdf"
 keywords:
   - tool-use
   - function-calling
@@ -21,18 +21,17 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
 # Tool Learning with Large Language Models: A Survey
 
 ## 1. Verified Paper Identity & Links
 - **Title**: Tool Learning with Large Language Models: A Survey
-- **Authors**: Changlei Chen, Yaobo Liang et al.
-- **arXiv Entry**: [https://arxiv.org/abs/2304.08354](https://arxiv.org/abs/2304.08354)
-- **Full PDF**: [https://arxiv.org/pdf/2304.08354.pdf](https://arxiv.org/pdf/2304.08354.pdf)
+- **Authors**: Changle Qu, Sunhao Dai, Xiaochi Wei et al.
+- **arXiv Entry**: [https://arxiv.org/abs/2405.17935](https://arxiv.org/abs/2405.17935)
+- **Full PDF**: [https://arxiv.org/pdf/2405.17935.pdf](https://arxiv.org/pdf/2405.17935.pdf)
 - **Field**: llm_and_reasoning
 
 ## 2. Official Paper Abstract
-Humans possess an extraordinary ability to create and utilize tools, allowing them to overcome physical limitations and explore new frontiers. With the advent of foundation models, AI systems have the potential to be equally adept in tool use as humans. This paradigm, i.e., tool learning with foundation models, combines the strengths of specialized tools and foundation models to achieve enhanced accuracy, efficiency, and automation in problem-solving. Despite its immense potential, there is still a lack of a comprehensive understanding of key challenges, opportunities, and future endeavors in this field. To this end, we present a systematic investigation of tool learning in this paper. We first introduce the background of tool learning, including its cognitive origins, the paradigm shift of foundation models, and the complementary roles of tools and models. Then we recapitulate existing tool learning research into tool-augmented and tool-oriented learning. We formulate a general tool learning framework: starting from understanding the user instruction, models should learn to decompose a complex task into several subtasks, dynamically adjust their plan through reasoning, and effectively conquer each sub-task by selecting appropriate tools. We also discuss how to train models for improved tool-use capabilities and facilitate the generalization in tool learning. Considering the lack of a systematic tool learning evaluation in prior works, we experiment with 18 representative tools and show the potential of current foundation models in skillfully utilizing tools. Finally, we discuss several open problems that require further investigation for tool learning. In general, we hope this paper could inspire future research in integrating tools with foundation models.
+Recently, tool learning with large language models (LLMs) has emerged as a promising paradigm for augmenting the capabilities of LLMs to tackle highly complex problems. Despite growing attention and rapid advancements in this field, the existing literature remains fragmented and lacks systematic organization, posing barriers to entry for newcomers. This gap motivates us to conduct a comprehensive survey of existing works on tool learning with LLMs. In this survey, we focus on reviewing existing literature from the two primary aspects (1) why tool learning is beneficial and (2) how tool learning is implemented, enabling a comprehensive understanding of tool learning with LLMs. We first explore the "why" by reviewing both the benefits of tool integration and the inherent benefits of the tool learning paradigm from six specific aspects. In terms of "how", we systematically review the literature according to a taxonomy of four key stages in the tool learning workflow: task planning, tool selection, tool calling, and response generation. Additionally, we provide a detailed summary of existing benchmarks and evaluation methods, categorizing them according to their relevance to different stages. Finally, we discuss current challenges and outline potential future directions, aiming to inspire both researchers and industrial developers to further explore this emerging and promising area. We also maintain a GitHub repository to continually keep track of the relevant papers and resources in this rising area at https://github.com/quchangle1/LLM-Tool-Survey.
 
 ## 3. Explicit Research Gaps & Open Challenges
 The following core challenges and research gaps are extracted and synthesized directly from the survey's *Open Problems / Challenges / Future Work* sections:

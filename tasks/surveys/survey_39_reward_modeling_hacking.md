@@ -3,10 +3,10 @@ id: survey_39_reward_modeling_hacking
 type: survey
 field: trustworthy_and_safety
 title: "RewardBench: Evaluating Reward Models for Language Modeling"
-arxiv_id: "2403.14809"
-authors: "Lambert et al."
-source_url: "https://arxiv.org/abs/2403.14809"
-pdf_url: "https://arxiv.org/pdf/2403.14809.pdf"
+arxiv_id: "2403.13787"
+authors: "Nathan Lambert, Valentina Pyatkin, Jacob Morrison et al."
+source_url: "https://arxiv.org/abs/2403.13787"
+pdf_url: "https://arxiv.org/pdf/2403.13787.pdf"
 keywords:
   - reward-modeling
   - reward-hacking
@@ -21,18 +21,17 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
 # RewardBench: Evaluating Reward Models for Language Modeling
 
 ## 1. Verified Paper Identity & Links
 - **Title**: RewardBench: Evaluating Reward Models for Language Modeling
-- **Authors**: Lambert et al.
-- **arXiv Entry**: [https://arxiv.org/abs/2403.14809](https://arxiv.org/abs/2403.14809)
-- **Full PDF**: [https://arxiv.org/pdf/2403.14809.pdf](https://arxiv.org/pdf/2403.14809.pdf)
+- **Authors**: Nathan Lambert, Valentina Pyatkin, Jacob Morrison et al.
+- **arXiv Entry**: [https://arxiv.org/abs/2403.13787](https://arxiv.org/abs/2403.13787)
+- **Full PDF**: [https://arxiv.org/pdf/2403.13787.pdf](https://arxiv.org/pdf/2403.13787.pdf)
 - **Field**: trustworthy_and_safety
 
 ## 2. Official Paper Abstract
-The intricate nature of the brain necessitates the application of advanced probing techniques to comprehensively study and understand its working mechanisms. Neurophotonics offers minimally invasive methods to probe the brain using optics at cellular and even molecular levels. However, multiple challenges persist, especially concerning imaging depth, field of view, speed, and biocompatibility. A major hindrance to solving these challenges in optics is the scattering nature of the brain. This perspective highlights the potential of complex media optics, a specialized area of study focused on light propagation in materials with intricate heterogeneous optical properties, in advancing and improving neuronal readouts for structural imaging and optical recordings of neuronal activity. Key strategies include wavefront shaping techniques and computational imaging and sensing techniques that exploit scattering properties for enhanced performance. We discuss the potential merger of the two fields as well as potential challenges and perspectives toward longer term in vivo applications.
+Reward models (RMs) are at the crux of successfully using RLHF to align pretrained models to human preferences, yet there has been relatively little study that focuses on evaluation of those models. Evaluating reward models presents an opportunity to understand the opaque technologies used for alignment of language models and which values are embedded in them. Resources for reward model training and understanding are sparse in the nascent open-source community around them. To enhance scientific understanding of reward models, we present RewardBench, a benchmark dataset and code-base for evaluation. The RewardBench dataset is a collection of prompt-chosen-rejected trios spanning chat, reasoning, and safety, to benchmark how reward models perform on challenging, structured and out-of-distribution queries. We create specific comparison datasets for RMs that have subtle, but verifiable reasons (e.g. bugs, incorrect facts) why one answer should be preferred to another. On the RewardBench leaderboard, we evaluate reward models trained with a variety of methods, such as the direct MLE training of classifiers and the implicit reward modeling of Direct Preference Optimization (DPO). We present many findings on propensity for refusals, reasoning limitations, and instruction following shortcomings of various reward models towards a better understanding of the RLHF process.
 
 ## 3. Explicit Research Gaps & Open Challenges
 The following core challenges and research gaps are extracted and synthesized directly from the survey's *Open Problems / Challenges / Future Work* sections:

@@ -2,11 +2,11 @@
 id: survey_15_pinns_neural_operators
 type: survey
 field: ai_for_science
-title: "Physics-Informed Machine Learning: A Survey on Problems and Methods"
-arxiv_id: "2111.03794"
-authors: "George Em Karniadakis et al."
-source_url: "https://arxiv.org/abs/2111.03794"
-pdf_url: "https://arxiv.org/pdf/2111.03794.pdf"
+title: "Physics-Informed Machine Learning: A Survey on Problems, Methods and Applications"
+arxiv_id: "2211.08064"
+authors: "Zhongkai Hao, Songming Liu, Yichi Zhang et al."
+source_url: "https://arxiv.org/abs/2211.08064"
+pdf_url: "https://arxiv.org/pdf/2211.08064.pdf"
 keywords:
   - physics-informed-neural-networks
   - neural-operators
@@ -21,18 +21,17 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
-# Physics-Informed Machine Learning: A Survey on Problems and Methods
+# Physics-Informed Machine Learning: A Survey on Problems, Methods and Applications
 
 ## 1. Verified Paper Identity & Links
-- **Title**: Physics-Informed Machine Learning: A Survey on Problems and Methods
-- **Authors**: George Em Karniadakis et al.
-- **arXiv Entry**: [https://arxiv.org/abs/2111.03794](https://arxiv.org/abs/2111.03794)
-- **Full PDF**: [https://arxiv.org/pdf/2111.03794.pdf](https://arxiv.org/pdf/2111.03794.pdf)
+- **Title**: Physics-Informed Machine Learning: A Survey on Problems, Methods and Applications
+- **Authors**: Zhongkai Hao, Songming Liu, Yichi Zhang et al.
+- **arXiv Entry**: [https://arxiv.org/abs/2211.08064](https://arxiv.org/abs/2211.08064)
+- **Full PDF**: [https://arxiv.org/pdf/2211.08064.pdf](https://arxiv.org/pdf/2211.08064.pdf)
 - **Field**: ai_for_science
 
 ## 2. Official Paper Abstract
-In this paper, we propose physics-informed neural operators (PINO) that combine training data and physics constraints to learn the solution operator of a given family of parametric Partial Differential Equations (PDE). PINO is the first hybrid approach incorporating data and PDE constraints at different resolutions to learn the operator. Specifically, in PINO, we combine coarse-resolution training data with PDE constraints imposed at a higher resolution. The resulting PINO model can accurately approximate the ground-truth solution operator for many popular PDE families and shows no degradation in accuracy even under zero-shot super-resolution, i.e., being able to predict beyond the resolution of training data. PINO uses the Fourier neural operator (FNO) framework that is guaranteed to be a universal approximator for any continuous operator and discretization-convergent in the limit of mesh refinement. By adding PDE constraints to FNO at a higher resolution, we obtain a high-fidelity reconstruction of the ground-truth operator. Moreover, PINO succeeds in settings where no training data is available and only PDE constraints are imposed, while previous approaches, such as the Physics-Informed Neural Network (PINN), fail due to optimization challenges, e.g., in multi-scale dynamic systems such as Kolmogorov flows.
+Recent advances of data-driven machine learning have revolutionized fields like computer vision, reinforcement learning, and many scientific and engineering domains. In many real-world and scientific problems, systems that generate data are governed by physical laws. Recent work shows that it provides potential benefits for machine learning models by incorporating the physical prior and collected data, which makes the intersection of machine learning and physics become a prevailing paradigm. By integrating the data and mathematical physics models seamlessly, it can guide the machine learning model towards solutions that are physically plausible, improving accuracy and efficiency even in uncertain and high-dimensional contexts. In this survey, we present this learning paradigm called Physics-Informed Machine Learning (PIML) which is to build a model that leverages empirical data and available physical prior knowledge to improve performance on a set of tasks that involve a physical mechanism. We systematically review the recent development of physics-informed machine learning from three perspectives of machine learning tasks, representation of physical prior, and methods for incorporating physical prior. We also propose several important open research problems based on the current trends in the field. We argue that encoding different forms of physical prior into model architectures, optimizers, inference algorithms, and significant domain-specific applications like inverse engineering design and robotic control is far from being fully explored in the field of physics-informed machine learning. We believe that the interdisciplinary research of physics-informed machine learning will significantly propel research progress, foster the creation of more effective machine learning models, and also offer invaluable assistance in addressing long-standing problems in related disciplines.
 
 ## 3. Explicit Research Gaps & Open Challenges
 The following core challenges and research gaps are extracted and synthesized directly from the survey's *Open Problems / Challenges / Future Work* sections:

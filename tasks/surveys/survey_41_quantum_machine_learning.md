@@ -2,9 +2,9 @@
 id: survey_41_quantum_machine_learning
 type: survey
 field: ai_for_science
-title: "Variational Quantum Algorithms: A Review"
+title: "Variational Quantum Algorithms"
 arxiv_id: "2012.09265"
-authors: "Cerezo et al."
+authors: "M. Cerezo, Andrew Arrasmith, Ryan Babbush et al."
 source_url: "https://arxiv.org/abs/2012.09265"
 pdf_url: "https://arxiv.org/pdf/2012.09265.pdf"
 keywords:
@@ -21,12 +21,11 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
-# Variational Quantum Algorithms: A Review
+# Variational Quantum Algorithms
 
 ## 1. Verified Paper Identity & Links
-- **Title**: Variational Quantum Algorithms: A Review
-- **Authors**: Cerezo et al.
+- **Title**: Variational Quantum Algorithms
+- **Authors**: M. Cerezo, Andrew Arrasmith, Ryan Babbush et al.
 - **arXiv Entry**: [https://arxiv.org/abs/2012.09265](https://arxiv.org/abs/2012.09265)
 - **Full PDF**: [https://arxiv.org/pdf/2012.09265.pdf](https://arxiv.org/pdf/2012.09265.pdf)
 - **Field**: ai_for_science

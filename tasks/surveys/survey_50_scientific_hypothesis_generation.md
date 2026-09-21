@@ -2,11 +2,11 @@
 id: survey_50_scientific_hypothesis_generation
 type: survey
 field: ai_for_science
-title: "Scientific Discovery in the Age of Artificial Intelligence"
-arxiv_id: "2304.12210"
-authors: "Wang et al."
-source_url: "https://arxiv.org/abs/2304.12210"
-pdf_url: "https://arxiv.org/pdf/2304.12210.pdf"
+title: "Scientific discovery in the age of artificial intelligence"
+arxiv_id: ""
+authors: "Hanchen Wang, Tianfan Fu, Yuanqi Du et al."
+source_url: "https://www.nature.com/articles/s41586-023-06221-2"
+pdf_url: "https://cs.stanford.edu/~jure/pubs/discovery-nature23.pdf"
 keywords:
   - scientific-discovery
   - hypothesis-generation
@@ -21,18 +21,17 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
-# Scientific Discovery in the Age of Artificial Intelligence
+# Scientific discovery in the age of artificial intelligence
 
 ## 1. Verified Paper Identity & Links
-- **Title**: Scientific Discovery in the Age of Artificial Intelligence
-- **Authors**: Wang et al.
-- **arXiv Entry**: [https://arxiv.org/abs/2304.12210](https://arxiv.org/abs/2304.12210)
-- **Full PDF**: [https://arxiv.org/pdf/2304.12210.pdf](https://arxiv.org/pdf/2304.12210.pdf)
+- **Title**: Scientific discovery in the age of artificial intelligence
+- **Authors**: Hanchen Wang, Tianfan Fu, Yuanqi Du et al.
+- **Nature Article**: [https://www.nature.com/articles/s41586-023-06221-2](https://www.nature.com/articles/s41586-023-06221-2)
+- **Full PDF**: [https://cs.stanford.edu/~jure/pubs/discovery-nature23.pdf](https://cs.stanford.edu/~jure/pubs/discovery-nature23.pdf)
 - **Field**: ai_for_science
 
 ## 2. Official Paper Abstract
-Self-supervised learning, dubbed the dark matter of intelligence, is a promising path to advance machine learning. Yet, much like cooking, training SSL methods is a delicate art with a high barrier to entry. While many components are familiar, successfully training a SSL method involves a dizzying set of choices from the pretext tasks to training hyper-parameters. Our goal is to lower the barrier to entry into SSL research by laying the foundations and latest SSL recipes in the style of a cookbook. We hope to empower the curious researcher to navigate the terrain of methods, understand the role of the various knobs, and gain the know-how required to explore how delicious SSL can be.
+Artificial intelligence (AI) is being increasingly integrated into scientific discovery to augment and accelerate research, helping scientists to generate hypotheses, design experiments, collect and interpret large datasets, and gain insights that might not have been possible using traditional scientific methods alone. Here we examine breakthroughs over the past decade that include self-supervised learning, which allows models to be trained on vast amounts of unlabelled data, and geometric deep learning, which leverages knowledge about the structure of scientific data to enhance model accuracy and efficiency. Generative AI methods can create designs, such as small-molecule drugs and proteins, by analysing diverse data modalities, including images and sequences. We discuss how these methods can help scientists throughout the scientific process and the central issues that remain despite such advances.
 
 ## 3. Explicit Research Gaps & Open Challenges
 The following core challenges and research gaps are extracted and synthesized directly from the survey's *Open Problems / Challenges / Future Work* sections:

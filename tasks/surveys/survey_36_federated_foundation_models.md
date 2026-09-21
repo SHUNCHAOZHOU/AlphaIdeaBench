@@ -2,11 +2,11 @@
 id: survey_36_federated_foundation_models
 type: survey
 field: adaptation_and_continual
-title: "A Survey on Federated Learning in the Era of Foundation Models"
-arxiv_id: "2310.15875"
-authors: "Zhuang et al."
-source_url: "https://arxiv.org/abs/2310.15875"
-pdf_url: "https://arxiv.org/pdf/2310.15875.pdf"
+title: "Synergizing Foundation Models and Federated Learning: A Survey"
+arxiv_id: "2406.12844"
+authors: "Shenghui Li, Fanghua Ye, Meng Fang et al."
+source_url: "https://arxiv.org/abs/2406.12844"
+pdf_url: "https://arxiv.org/pdf/2406.12844.pdf"
 keywords:
   - federated-learning
   - foundation-models
@@ -21,18 +21,17 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
-# A Survey on Federated Learning in the Era of Foundation Models
+# Synergizing Foundation Models and Federated Learning: A Survey
 
 ## 1. Verified Paper Identity & Links
-- **Title**: A Survey on Federated Learning in the Era of Foundation Models
-- **Authors**: Zhuang et al.
-- **arXiv Entry**: [https://arxiv.org/abs/2310.15875](https://arxiv.org/abs/2310.15875)
-- **Full PDF**: [https://arxiv.org/pdf/2310.15875.pdf](https://arxiv.org/pdf/2310.15875.pdf)
+- **Title**: Synergizing Foundation Models and Federated Learning: A Survey
+- **Authors**: Shenghui Li, Fanghua Ye, Meng Fang et al.
+- **arXiv Entry**: [https://arxiv.org/abs/2406.12844](https://arxiv.org/abs/2406.12844)
+- **Full PDF**: [https://arxiv.org/pdf/2406.12844.pdf](https://arxiv.org/pdf/2406.12844.pdf)
 - **Field**: adaptation_and_continual
 
 ## 2. Official Paper Abstract
-Harmonic drive systems (HDS) are high-precision robotic transmissions featuring compact size and high gear ratios. However, issues like kinematic transmission errors hamper their precision performance. This article focuses on data-driven modeling and analysis of an HDS to improve kinematic error compensation. The background introduces HDS mechanics, nonlinear attributes, and modeling approaches from literature. The HDS dynamics are derived using Lagrange equations. Experiments under aggressive conditions provide training data exhibiting deterministic patterns. Various linear and nonlinear models have been developed. The best-performing model, based on a nonlinear neural network, achieves over 98\% accuracy for one-step predictions on both the training and validation data sets. A phenomenological model separates the kinematic error into a periodic pure part and flexible part. Apart from implementation of estimated transmission error injection compensation, novel compensation mechanisms policies for the kinematic error are analyzed and proposed, including nonlinear model predictive control and frequency loop-shaping. The feedback loop is analyzed to select the controller for vibration mitigation. Main contributions include the nonlinear dynamics derivation, data-driven nonlinear modeling of flexible kinematic errors, repeatable experiment design, and proposed novel compensation mechanism and policies. Future work involves using physics-informed neural networks, sensitivity analysis, full life-cycle monitoring, and extracting physical laws directly from data.
+Over the past few years, the landscape of Artificial Intelligence (AI) has been reshaped by the emergence of Foundation Models (FMs). Pre-trained on massive datasets, these models exhibit exceptional performance across diverse downstream tasks through adaptation techniques like fine-tuning and prompt learning. More recently, the synergy of FMs and Federated Learning (FL) has emerged as a promising paradigm, often termed Federated Foundation Models (FedFM), allowing for collaborative model adaptation while preserving data privacy. This survey paper provides a systematic review of the current state of the art in FedFM, offering insights and guidance into the evolving landscape. Specifically, we present a comprehensive multi-tiered taxonomy based on three major dimensions, namely efficiency, adaptability, and trustworthiness. To facilitate practical implementation and experimental research, we undertake a thorough review of existing libraries and benchmarks. Furthermore, we discuss the diverse real-world applications of this paradigm across multiple domains. Finally, we outline promising research directions to foster future advancements in FedFM. Overall, this survey serves as a resource for researchers and practitioners, offering a thorough understanding of FedFM's role in revolutionizing privacy-preserving AI and pointing toward future innovations in this promising area. A periodically updated paper collection on FM-FL is available at https://github.com/lishenghui/awesome-fm-fl.
 
 ## 3. Explicit Research Gaps & Open Challenges
 The following core challenges and research gaps are extracted and synthesized directly from the survey's *Open Problems / Challenges / Future Work* sections:

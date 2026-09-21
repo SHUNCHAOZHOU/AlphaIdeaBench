@@ -380,35 +380,35 @@
   {
     "category": "survey",
     "id": "survey_05_mechanistic_interpretability",
-    "title": "A Survey on Mechanistic Interpretability for Large Language Models",
+    "title": "A Practical Review of Mechanistic Interpretability for Transformer-Based Language Models",
     "field": "interpretability_and_theory",
     "path": "tasks/surveys/survey_05_mechanistic_interpretability.md"
   },
   {
     "category": "survey",
     "id": "survey_06_llm_safety_jailbreak",
-    "title": "A Survey on Recent Advances in Jailbreak Attacks and Defenses of Large Language Models",
+    "title": "Jailbreak Attacks and Defenses Against Large Language Models: A Survey",
     "field": "trustworthy_and_safety",
     "path": "tasks/surveys/survey_06_llm_safety_jailbreak.md"
   },
   {
     "category": "survey",
     "id": "survey_07_test_time_scaling",
-    "title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Parameters",
+    "title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters",
     "field": "llm_and_reasoning",
     "path": "tasks/surveys/survey_07_test_time_scaling.md"
   },
   {
     "category": "survey",
     "id": "survey_08_kv_cache_compression",
-    "title": "SoK: Key-Value Cache Compression for Large Language Models",
+    "title": "Keep the Cost Down: A Review on Methods to Optimize LLM' s KV-Cache Consumption",
     "field": "efficiency_and_systems",
     "path": "tasks/surveys/survey_08_kv_cache_compression.md"
   },
   {
     "category": "survey",
     "id": "survey_09_llm_continual_learning",
-    "title": "A Comprehensive Survey of Continual Learning in the Era of Large Language Models",
+    "title": "Continual Learning of Large Language Models: A Comprehensive Survey",
     "field": "adaptation_and_continual",
     "path": "tasks/surveys/survey_09_llm_continual_learning.md"
   },
@@ -436,42 +436,42 @@
   {
     "category": "survey",
     "id": "survey_13_ai_for_drug_discovery",
-    "title": "Artificial Intelligence in Drug Discovery and Development: A Comprehensive Review",
+    "title": "Artificial Intelligence for Drug Discovery: Are We There Yet?",
     "field": "ai_for_science",
     "path": "tasks/surveys/survey_13_ai_for_drug_discovery.md"
   },
   {
     "category": "survey",
     "id": "survey_14_diffusion_3d_generation",
-    "title": "A Survey on 3D Generative Diffusion Models",
+    "title": "Diffusion Models in 3D Vision: A Survey",
     "field": "multimodal_and_cv",
     "path": "tasks/surveys/survey_14_diffusion_3d_generation.md"
   },
   {
     "category": "survey",
     "id": "survey_15_pinns_neural_operators",
-    "title": "Physics-Informed Machine Learning: A Survey on Problems and Methods",
+    "title": "Physics-Informed Machine Learning: A Survey on Problems, Methods and Applications",
     "field": "ai_for_science",
     "path": "tasks/surveys/survey_15_pinns_neural_operators.md"
   },
   {
     "category": "survey",
     "id": "survey_16_long_context_llms",
-    "title": "A Survey on Long Context Large Language Models",
+    "title": "A Comprehensive Survey on Long Context Language Modeling",
     "field": "llm_and_reasoning",
     "path": "tasks/surveys/survey_16_long_context_llms.md"
   },
   {
     "category": "survey",
     "id": "survey_17_peft_lora_adapters",
-    "title": "Delta Tuning: Comprehensive Methods and Theory of Parameter-Efficient Fine-Tuning",
+    "title": "Delta Tuning: A Comprehensive Study of Parameter Efficient Methods for Pre-trained Language Models",
     "field": "efficiency_and_systems",
     "path": "tasks/surveys/survey_17_peft_lora_adapters.md"
   },
   {
     "category": "survey",
     "id": "survey_18_speculative_decoding",
-    "title": "A Survey on Speculative Decoding: Faster LLM Inference without Quality Loss",
+    "title": "Unlocking Efficiency in Large Language Model Inference: A Comprehensive Survey of Speculative Decoding",
     "field": "efficiency_and_systems",
     "path": "tasks/surveys/survey_18_speculative_decoding.md"
   },
@@ -485,49 +485,49 @@
   {
     "category": "survey",
     "id": "survey_20_model_merging_soups",
-    "title": "Model Merging in the Era of Large Language Models: A Survey",
+    "title": "Model Merging in LLMs, MLLMs, and Beyond: Methods, Theories, Applications and Opportunities",
     "field": "efficiency_and_systems",
     "path": "tasks/surveys/survey_20_model_merging_soups.md"
   },
   {
     "category": "survey",
     "id": "survey_21_code_intelligence_synthesis",
-    "title": "Code Intelligence: A Survey of Foundation Models for Software Engineering",
+    "title": "Unifying the Perspectives of NLP and Software Engineering: A Survey on Language Models for Code",
     "field": "llm_and_reasoning",
     "path": "tasks/surveys/survey_21_code_intelligence_synthesis.md"
   },
   {
     "category": "survey",
     "id": "survey_22_synthetic_data_llms",
-    "title": "A Survey on Synthetic Data for Large Language Models",
+    "title": "Best Practices and Lessons Learned on Synthetic Data",
     "field": "llm_and_reasoning",
     "path": "tasks/surveys/survey_22_synthetic_data_llms.md"
   },
   {
     "category": "survey",
     "id": "survey_23_audio_speech_lm",
-    "title": "Audio Large Language Models: A Survey",
+    "title": "A Survey on Speech Large Language Models for Understanding",
     "field": "multimodal_and_cv",
     "path": "tasks/surveys/survey_23_audio_speech_lm.md"
   },
   {
     "category": "survey",
     "id": "survey_24_graph_foundation_models",
-    "title": "A Survey on Graph Foundation Models",
+    "title": "Graph Foundation Models: Concepts, Opportunities and Challenges",
     "field": "graph_and_geometric_ml",
     "path": "tasks/surveys/survey_24_graph_foundation_models.md"
   },
   {
     "category": "survey",
     "id": "survey_25_video_understanding_reasoning",
-    "title": "A Survey on Video Large Language Models",
+    "title": "Video Understanding with Large Language Models: A Survey",
     "field": "multimodal_and_cv",
     "path": "tasks/surveys/survey_25_video_understanding_reasoning.md"
   },
   {
     "category": "survey",
     "id": "survey_26_knowledge_editing_llms",
-    "title": "A Comprehensive Survey on Knowledge Editing for Large Language Models",
+    "title": "Knowledge Editing for Large Language Models: A Survey",
     "field": "llm_and_reasoning",
     "path": "tasks/surveys/survey_26_knowledge_editing_llms.md"
   },
@@ -541,28 +541,28 @@
   {
     "category": "survey",
     "id": "survey_28_ai_watermarking",
-    "title": "A Survey on Watermarking for Generative AI and Foundation Models",
+    "title": "SoK: Watermarking for AI-Generated Content",
     "field": "trustworthy_and_safety",
     "path": "tasks/surveys/survey_28_ai_watermarking.md"
   },
   {
     "category": "survey",
     "id": "survey_29_time_series_foundation_models",
-    "title": "Time Series Foundation Models: A Comprehensive Survey",
+    "title": "Foundation Models for Time Series Analysis: A Tutorial and Survey",
     "field": "ai_for_science",
     "path": "tasks/surveys/survey_29_time_series_foundation_models.md"
   },
   {
     "category": "survey",
     "id": "survey_30_medical_vlm_healthcare",
-    "title": "Multimodal Foundation Models in Healthcare: A Comprehensive Survey",
+    "title": "Medical Multimodal Foundation Models in Clinical Diagnosis and Treatment: Applications, Challenges, and Future Directions",
     "field": "ai_for_science",
     "path": "tasks/surveys/survey_30_medical_vlm_healthcare.md"
   },
   {
     "category": "survey",
     "id": "survey_31_out_of_distribution_robustness",
-    "title": "Towards Out-of-Distribution Generalization: A Survey",
+    "title": "Towards Out-Of-Distribution Generalization: A Survey",
     "field": "interpretability_and_theory",
     "path": "tasks/surveys/survey_31_out_of_distribution_robustness.md"
   },
@@ -590,14 +590,14 @@
   {
     "category": "survey",
     "id": "survey_35_vision_language_navigation",
-    "title": "A Survey on Vision-Language Navigation",
+    "title": "Vision-and-Language Navigation: A Survey of Tasks, Methods, and Future Directions",
     "field": "robotics_and_rl",
     "path": "tasks/surveys/survey_35_vision_language_navigation.md"
   },
   {
     "category": "survey",
     "id": "survey_36_federated_foundation_models",
-    "title": "A Survey on Federated Learning in the Era of Foundation Models",
+    "title": "Synergizing Foundation Models and Federated Learning: A Survey",
     "field": "adaptation_and_continual",
     "path": "tasks/surveys/survey_36_federated_foundation_models.md"
   },
@@ -625,35 +625,35 @@
   {
     "category": "survey",
     "id": "survey_40_dense_neural_retrieval",
-    "title": "A Survey of Neural Information Retrieval with Large Language Models",
+    "title": "Large Language Models for Information Retrieval: A Survey",
     "field": "llm_and_reasoning",
     "path": "tasks/surveys/survey_40_dense_neural_retrieval.md"
   },
   {
     "category": "survey",
     "id": "survey_41_quantum_machine_learning",
-    "title": "Variational Quantum Algorithms: A Review",
+    "title": "Variational Quantum Algorithms",
     "field": "ai_for_science",
     "path": "tasks/surveys/survey_41_quantum_machine_learning.md"
   },
   {
     "category": "survey",
     "id": "survey_42_molecular_dynamics_genai",
-    "title": "Generative Diffusion Models for Molecular Conformations: A Survey",
+    "title": "A Survey on Graph Diffusion Models: Generative AI in Science for Molecule, Protein and Material",
     "field": "ai_for_science",
     "path": "tasks/surveys/survey_42_molecular_dynamics_genai.md"
   },
   {
     "category": "survey",
     "id": "survey_43_autonomous_driving_foundation_models",
-    "title": "Planning-oriented Autonomous Driving: A Survey",
+    "title": "A Survey for Foundation Models in Autonomous Driving",
     "field": "multimodal_and_cv",
     "path": "tasks/surveys/survey_43_autonomous_driving_foundation_models.md"
   },
   {
     "category": "survey",
     "id": "survey_44_cross_lingual_multilingual_llms",
-    "title": "A Survey on Multilingual Large Language Models",
+    "title": "A Survey on Multilingual Large Language Models: Corpora, Alignment, and Bias",
     "field": "llm_and_reasoning",
     "path": "tasks/surveys/survey_44_cross_lingual_multilingual_llms.md"
   },
@@ -667,14 +667,14 @@
   {
     "category": "survey",
     "id": "survey_46_causal_representation_learning",
-    "title": "Toward Causal Representation Learning",
+    "title": "Towards Causal Representation Learning",
     "field": "interpretability_and_theory",
     "path": "tasks/surveys/survey_46_causal_representation_learning.md"
   },
   {
     "category": "survey",
     "id": "survey_47_state_space_models_mamba",
-    "title": "A Survey on State Space Models for Sequence Modeling",
+    "title": "Mamba-360: Survey of State Space Models as Transformer Alternative for Long Sequence Modelling: Methods, Applications, and Challenges",
     "field": "efficiency_and_systems",
     "path": "tasks/surveys/survey_47_state_space_models_mamba.md"
   },
@@ -688,14 +688,14 @@
   {
     "category": "survey",
     "id": "survey_49_few_shot_prompt_adaptation",
-    "title": "A Survey on In-Context Learning",
+    "title": "A Survey on In-context Learning",
     "field": "llm_and_reasoning",
     "path": "tasks/surveys/survey_49_few_shot_prompt_adaptation.md"
   },
   {
     "category": "survey",
     "id": "survey_50_scientific_hypothesis_generation",
-    "title": "Scientific Discovery in the Age of Artificial Intelligence",
+    "title": "Scientific discovery in the age of artificial intelligence",
     "field": "ai_for_science",
     "path": "tasks/surveys/survey_50_scientific_hypothesis_generation.md"
   }

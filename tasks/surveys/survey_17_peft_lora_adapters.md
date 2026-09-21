@@ -2,9 +2,9 @@
 id: survey_17_peft_lora_adapters
 type: survey
 field: efficiency_and_systems
-title: "Delta Tuning: Comprehensive Methods and Theory of Parameter-Efficient Fine-Tuning"
+title: "Delta Tuning: A Comprehensive Study of Parameter Efficient Methods for Pre-trained Language Models"
 arxiv_id: "2203.06904"
-authors: "Ning Ding et al."
+authors: "Ning Ding, Yujia Qin, Guang Yang et al."
 source_url: "https://arxiv.org/abs/2203.06904"
 pdf_url: "https://arxiv.org/pdf/2203.06904.pdf"
 keywords:
@@ -21,12 +21,11 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
-# Delta Tuning: Comprehensive Methods and Theory of Parameter-Efficient Fine-Tuning
+# Delta Tuning: A Comprehensive Study of Parameter Efficient Methods for Pre-trained Language Models
 
 ## 1. Verified Paper Identity & Links
-- **Title**: Delta Tuning: Comprehensive Methods and Theory of Parameter-Efficient Fine-Tuning
-- **Authors**: Ning Ding et al.
+- **Title**: Delta Tuning: A Comprehensive Study of Parameter Efficient Methods for Pre-trained Language Models
+- **Authors**: Ning Ding, Yujia Qin, Guang Yang et al.
 - **arXiv Entry**: [https://arxiv.org/abs/2203.06904](https://arxiv.org/abs/2203.06904)
 - **Full PDF**: [https://arxiv.org/pdf/2203.06904.pdf](https://arxiv.org/pdf/2203.06904.pdf)
 - **Field**: efficiency_and_systems

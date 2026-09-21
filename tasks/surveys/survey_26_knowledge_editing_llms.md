@@ -2,9 +2,9 @@
 id: survey_26_knowledge_editing_llms
 type: survey
 field: llm_and_reasoning
-title: "A Comprehensive Survey on Knowledge Editing for Large Language Models"
+title: "Knowledge Editing for Large Language Models: A Survey"
 arxiv_id: "2310.16218"
-authors: "Yao et al."
+authors: "Song Wang, Yaochen Zhu, Haochen Liu et al."
 source_url: "https://arxiv.org/abs/2310.16218"
 pdf_url: "https://arxiv.org/pdf/2310.16218.pdf"
 keywords:
@@ -21,12 +21,11 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
-# A Comprehensive Survey on Knowledge Editing for Large Language Models
+# Knowledge Editing for Large Language Models: A Survey
 
 ## 1. Verified Paper Identity & Links
-- **Title**: A Comprehensive Survey on Knowledge Editing for Large Language Models
-- **Authors**: Yao et al.
+- **Title**: Knowledge Editing for Large Language Models: A Survey
+- **Authors**: Song Wang, Yaochen Zhu, Haochen Liu et al.
 - **arXiv Entry**: [https://arxiv.org/abs/2310.16218](https://arxiv.org/abs/2310.16218)
 - **Full PDF**: [https://arxiv.org/pdf/2310.16218.pdf](https://arxiv.org/pdf/2310.16218.pdf)
 - **Field**: llm_and_reasoning

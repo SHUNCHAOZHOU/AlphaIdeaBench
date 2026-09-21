@@ -2,11 +2,11 @@
 id: survey_16_long_context_llms
 type: survey
 field: llm_and_reasoning
-title: "A Survey on Long Context Large Language Models"
-arxiv_id: "2403.11602"
-authors: "Dawei Zhu et al."
-source_url: "https://arxiv.org/abs/2403.11602"
-pdf_url: "https://arxiv.org/pdf/2403.11602.pdf"
+title: "A Comprehensive Survey on Long Context Language Modeling"
+arxiv_id: "2503.17407"
+authors: "Jiaheng Liu, Dawei Zhu, Zhiqi Bai et al."
+source_url: "https://arxiv.org/abs/2503.17407"
+pdf_url: "https://arxiv.org/pdf/2503.17407.pdf"
 keywords:
   - long-context-llm
   - rope-interpolation
@@ -21,18 +21,17 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
-# A Survey on Long Context Large Language Models
+# A Comprehensive Survey on Long Context Language Modeling
 
 ## 1. Verified Paper Identity & Links
-- **Title**: A Survey on Long Context Large Language Models
-- **Authors**: Dawei Zhu et al.
-- **arXiv Entry**: [https://arxiv.org/abs/2403.11602](https://arxiv.org/abs/2403.11602)
-- **Full PDF**: [https://arxiv.org/pdf/2403.11602.pdf](https://arxiv.org/pdf/2403.11602.pdf)
+- **Title**: A Comprehensive Survey on Long Context Language Modeling
+- **Authors**: Jiaheng Liu, Dawei Zhu, Zhiqi Bai et al.
+- **arXiv Entry**: [https://arxiv.org/abs/2503.17407](https://arxiv.org/abs/2503.17407)
+- **Full PDF**: [https://arxiv.org/pdf/2503.17407.pdf](https://arxiv.org/pdf/2503.17407.pdf)
 - **Field**: llm_and_reasoning
 
 ## 2. Official Paper Abstract
-In this manuscript we present how to collapse a manifold equipped with a closed flat regular Riemannian foliation with leaves of positive dimension, while keeping the sectional curvature uniformly bounded from above and below. From this deformation, we show that in the case when the manifold is compact and simply connected the foliation is given by torus actions. This gives a geometric characterization of aspherical regular Riemannian foliations given by torus actions
+Efficient processing of long contexts has been a persistent pursuit in Natural Language Processing. With the growing number of long documents, dialogues, and other textual data, it is important to develop Long Context Language Models (LCLMs) that can process and analyze extensive inputs in an effective and efficient way. In this paper, we present a comprehensive survey on recent advances in long-context modeling for large language models. Our survey is structured around three key aspects: how to obtain effective and efficient LCLMs, how to train and deploy LCLMs efficiently, and how to evaluate and analyze LCLMs comprehensively. For the first aspect, we discuss data strategies, architectural designs, and workflow approaches oriented with long context processing. For the second aspect, we provide a detailed examination of the infrastructure required for LCLM training and inference. For the third aspect, we present evaluation paradigms for long-context comprehension and long-form generation, as well as behavioral analysis and mechanism interpretability of LCLMs. Beyond these three key aspects, we thoroughly explore the diverse application scenarios where existing LCLMs have been deployed and outline promising future development directions. This survey provides an up-to-date review of the literature on long-context LLMs, which we wish to serve as a valuable resource for both researchers and engineers. An associated GitHub repository collecting the latest papers and repos is available at: \href{https://github.com/LCLM-Horizon/A-Comprehensive-Survey-For-Long-Context-Language-Modeling}{\color[RGB]{175,36,67}{LCLM-Horizon}}.
 
 ## 3. Explicit Research Gaps & Open Challenges
 The following core challenges and research gaps are extracted and synthesized directly from the survey's *Open Problems / Challenges / Future Work* sections:

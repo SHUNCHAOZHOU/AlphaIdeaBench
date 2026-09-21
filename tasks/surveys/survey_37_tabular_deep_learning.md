@@ -4,7 +4,7 @@ type: survey
 field: interpretability_and_theory
 title: "Why do tree-based models still outperform deep learning on tabular data?"
 arxiv_id: "2207.08815"
-authors: "Grinsztajn et al."
+authors: "Léo Grinsztajn, Edouard Oyallon, Gaël Varoquaux"
 source_url: "https://arxiv.org/abs/2207.08815"
 pdf_url: "https://arxiv.org/pdf/2207.08815.pdf"
 keywords:
@@ -21,12 +21,11 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
 # Why do tree-based models still outperform deep learning on tabular data?
 
 ## 1. Verified Paper Identity & Links
 - **Title**: Why do tree-based models still outperform deep learning on tabular data?
-- **Authors**: Grinsztajn et al.
+- **Authors**: Léo Grinsztajn, Edouard Oyallon, Gaël Varoquaux
 - **arXiv Entry**: [https://arxiv.org/abs/2207.08815](https://arxiv.org/abs/2207.08815)
 - **Full PDF**: [https://arxiv.org/pdf/2207.08815.pdf](https://arxiv.org/pdf/2207.08815.pdf)
 - **Field**: interpretability_and_theory

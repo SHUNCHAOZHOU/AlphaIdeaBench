@@ -4,7 +4,7 @@ type: survey
 field: trustworthy_and_safety
 title: "A Survey of Machine Unlearning"
 arxiv_id: "2209.02299"
-authors: "Thanh Tam Nguyen, Thanh Trung Huynh et al."
+authors: "Thanh Tam Nguyen, Thanh Trung Huynh, Zhao Ren et al."
 source_url: "https://arxiv.org/abs/2209.02299"
 pdf_url: "https://arxiv.org/pdf/2209.02299.pdf"
 keywords:
@@ -21,18 +21,17 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
 # A Survey of Machine Unlearning
 
 ## 1. Verified Paper Identity & Links
 - **Title**: A Survey of Machine Unlearning
-- **Authors**: Thanh Tam Nguyen, Thanh Trung Huynh et al.
+- **Authors**: Thanh Tam Nguyen, Thanh Trung Huynh, Zhao Ren et al.
 - **arXiv Entry**: [https://arxiv.org/abs/2209.02299](https://arxiv.org/abs/2209.02299)
 - **Full PDF**: [https://arxiv.org/pdf/2209.02299.pdf](https://arxiv.org/pdf/2209.02299.pdf)
 - **Field**: trustworthy_and_safety
 
 ## 2. Official Paper Abstract
-Today, computer systems hold large amounts of personal data. Yet while such an abundance of data allows breakthroughs in artificial intelligence, and especially machine learning (ML), its existence can be a threat to user privacy, and it can weaken the bonds of trust between humans and AI. Recent regulations now require that, on request, private information about a user must be removed from both computer systems and from ML models, i.e. ``the right to be forgotten&#39;&#39;). While removing data from back-end databases should be straightforward, it is not sufficient in the AI context as ML models often `remember&#39; the old data. Contemporary adversarial attacks on trained models have proven that we can learn whether an instance or an attribute belonged to the training data. This phenomenon calls for a new paradigm, namely machine unlearning, to make ML models forget about particular data. It turns out that recent works on machine unlearning have not been able to completely solve the problem due to the lack of common frameworks and resources. Therefore, this paper aspires to present a comprehensive examination of machine unlearning&#39;s concepts, scenarios, methods, and applications. Specifically, as a category collection of cutting-edge studies, the intention behind this article is to serve as a comprehensive resource for researchers and practitioners seeking an introduction to machine unlearning and its formulations, design criteria, removal requests, algorithms, and applications. In addition, we aim to highlight the key findings, current trends, and new research areas that have not yet featured the use of machine unlearning but could benefit greatly from it. We hope this survey serves as a valuable resource for ML researchers and those seeking to innovate privacy technologies. Our resources are publicly available at <a href="https://github.com/tamlhp/awesome-machine-unlearning" rel="external noopener nofollow" class="link-external link-https">this https URL</a>.
+Today, computer systems hold large amounts of personal data. Yet while such an abundance of data allows breakthroughs in artificial intelligence, and especially machine learning (ML), its existence can be a threat to user privacy, and it can weaken the bonds of trust between humans and AI. Recent regulations now require that, on request, private information about a user must be removed from both computer systems and from ML models, i.e. ``the right to be forgotten''). While removing data from back-end databases should be straightforward, it is not sufficient in the AI context as ML models often `remember' the old data. Contemporary adversarial attacks on trained models have proven that we can learn whether an instance or an attribute belonged to the training data. This phenomenon calls for a new paradigm, namely machine unlearning, to make ML models forget about particular data. It turns out that recent works on machine unlearning have not been able to completely solve the problem due to the lack of common frameworks and resources. Therefore, this paper aspires to present a comprehensive examination of machine unlearning's concepts, scenarios, methods, and applications. Specifically, as a category collection of cutting-edge studies, the intention behind this article is to serve as a comprehensive resource for researchers and practitioners seeking an introduction to machine unlearning and its formulations, design criteria, removal requests, algorithms, and applications. In addition, we aim to highlight the key findings, current trends, and new research areas that have not yet featured the use of machine unlearning but could benefit greatly from it. We hope this survey serves as a valuable resource for ML researchers and those seeking to innovate privacy technologies. Our resources are publicly available at https://github.com/tamlhp/awesome-machine-unlearning.
 
 ## 3. Explicit Research Gaps & Open Challenges
 The following core challenges and research gaps are extracted and synthesized directly from the survey's *Open Problems / Challenges / Future Work* sections:

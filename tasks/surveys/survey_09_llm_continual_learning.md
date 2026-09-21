@@ -2,11 +2,11 @@
 id: survey_09_llm_continual_learning
 type: survey
 field: adaptation_and_continual
-title: "A Comprehensive Survey of Continual Learning in the Era of Large Language Models"
-arxiv_id: "2401.16386"
-authors: "Liyuan Wang et al."
-source_url: "https://arxiv.org/abs/2401.16386"
-pdf_url: "https://arxiv.org/pdf/2401.16386.pdf"
+title: "Continual Learning of Large Language Models: A Comprehensive Survey"
+arxiv_id: "2404.16789"
+authors: "Haizhou Shi, Zihao Xu, Hengyi Wang et al."
+source_url: "https://arxiv.org/abs/2404.16789"
+pdf_url: "https://arxiv.org/pdf/2404.16789.pdf"
 keywords:
   - continual-learning
   - catastrophic-forgetting
@@ -21,18 +21,17 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
-# A Comprehensive Survey of Continual Learning in the Era of Large Language Models
+# Continual Learning of Large Language Models: A Comprehensive Survey
 
 ## 1. Verified Paper Identity & Links
-- **Title**: A Comprehensive Survey of Continual Learning in the Era of Large Language Models
-- **Authors**: Liyuan Wang et al.
-- **arXiv Entry**: [https://arxiv.org/abs/2401.16386](https://arxiv.org/abs/2401.16386)
-- **Full PDF**: [https://arxiv.org/pdf/2401.16386.pdf](https://arxiv.org/pdf/2401.16386.pdf)
+- **Title**: Continual Learning of Large Language Models: A Comprehensive Survey
+- **Authors**: Haizhou Shi, Zihao Xu, Hengyi Wang et al.
+- **arXiv Entry**: [https://arxiv.org/abs/2404.16789](https://arxiv.org/abs/2404.16789)
+- **Full PDF**: [https://arxiv.org/pdf/2404.16789.pdf](https://arxiv.org/pdf/2404.16789.pdf)
 - **Field**: adaptation_and_continual
 
 ## 2. Official Paper Abstract
-Nowadays, real-world applications often face streaming data, which requires the learning system to absorb new knowledge as data evolves. Continual Learning (CL) aims to achieve this goal and meanwhile overcome the catastrophic forgetting of former knowledge when learning new ones. Typical CL methods build the model from scratch to grow with incoming data. However, the advent of the pre-trained model (PTM) era has sparked immense research interest, particularly in leveraging PTMs&#39; robust representational capabilities. This paper presents a comprehensive survey of the latest advancements in PTM-based CL. We categorize existing methodologies into three distinct groups, providing a comparative analysis of their similarities, differences, and respective advantages and disadvantages. Additionally, we offer an empirical study contrasting various state-of-the-art methods to highlight concerns regarding fairness in comparisons. The source code to reproduce these evaluations is available at: <a href="https://github.com/sun-hailong/LAMDA-PILOT" rel="external noopener nofollow" class="link-external link-https">this https URL</a>
+The recent success of large language models (LLMs) trained on static, pre-collected, general datasets has sparked numerous research directions and applications. One such direction addresses the non-trivial challenge of integrating pre-trained LLMs into dynamic data distributions, task structures, and user preferences. Pre-trained LLMs, when tailored for specific needs, often experience significant performance degradation in previous knowledge domains -- a phenomenon known as "catastrophic forgetting". While extensively studied in the continual learning (CL) community, it presents new manifestations in the realm of LLMs. In this survey, we provide a comprehensive overview of the current research progress on LLMs within the context of CL. This survey is structured into four main sections: we first describe an overview of continually learning LLMs, consisting of two directions of continuity: vertical continuity (or vertical continual learning), i.e., continual adaptation from general to specific capabilities, and horizontal continuity (or horizontal continual learning), i.e., continual adaptation across time and domains (Section 3). We then summarize three stages of learning LLMs in the context of modern CL: Continual Pre-Training (CPT), Domain-Adaptive Pre-training (DAP), and Continual Fine-Tuning (CFT) (Section 4). Then we provide an overview of evaluation protocols for continual learning with LLMs, along with the current available data sources (Section 5). Finally, we discuss intriguing questions pertaining to continual learning for LLMs (Section 6). The full list of papers examined in this survey is available at https://github.com/Wang-ML-Lab/llm-continual-learning-survey.
 
 ## 3. Explicit Research Gaps & Open Challenges
 The following core challenges and research gaps are extracted and synthesized directly from the survey's *Open Problems / Challenges / Future Work* sections:

@@ -21,7 +21,6 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
 # Direct Preference Optimization: Your Language Model is Secretly a Reward Model
 
 ## 1. Verified Paper Identity & Links

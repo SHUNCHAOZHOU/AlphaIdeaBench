@@ -2,11 +2,11 @@
 id: survey_44_cross_lingual_multilingual_llms
 type: survey
 field: llm_and_reasoning
-title: "A Survey on Multilingual Large Language Models"
-arxiv_id: "2304.06815"
-authors: "Pfeiffer et al."
-source_url: "https://arxiv.org/abs/2304.06815"
-pdf_url: "https://arxiv.org/pdf/2304.06815.pdf"
+title: "A Survey on Multilingual Large Language Models: Corpora, Alignment, and Bias"
+arxiv_id: "2404.00929"
+authors: "Yuemei Xu, Ling Hu, Jiayi Zhao et al."
+source_url: "https://arxiv.org/abs/2404.00929"
+pdf_url: "https://arxiv.org/pdf/2404.00929.pdf"
 keywords:
   - multilingual-llm
   - low-resource-languages
@@ -21,18 +21,17 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
-# A Survey on Multilingual Large Language Models
+# A Survey on Multilingual Large Language Models: Corpora, Alignment, and Bias
 
 ## 1. Verified Paper Identity & Links
-- **Title**: A Survey on Multilingual Large Language Models
-- **Authors**: Pfeiffer et al.
-- **arXiv Entry**: [https://arxiv.org/abs/2304.06815](https://arxiv.org/abs/2304.06815)
-- **Full PDF**: [https://arxiv.org/pdf/2304.06815.pdf](https://arxiv.org/pdf/2304.06815.pdf)
+- **Title**: A Survey on Multilingual Large Language Models: Corpora, Alignment, and Bias
+- **Authors**: Yuemei Xu, Ling Hu, Jiayi Zhao et al.
+- **arXiv Entry**: [https://arxiv.org/abs/2404.00929](https://arxiv.org/abs/2404.00929)
+- **Full PDF**: [https://arxiv.org/pdf/2404.00929.pdf](https://arxiv.org/pdf/2404.00929.pdf)
 - **Field**: llm_and_reasoning
 
 ## 2. Official Paper Abstract
-Large Language Models (LLM) are a new class of computation engines, &#34;programmed&#34; via prompt engineering. We are still learning how to best &#34;program&#34; these LLMs to help developers. We start with the intuition that developers tend to consciously and unconsciously have a collection of semantics facts in mind when working on coding tasks. Mostly these are shallow, simple facts arising from a quick read. For a function, examples of facts might include parameter and local variable names, return expressions, simple pre- and post-conditions, and basic control and data flow, etc. <br>One might assume that the powerful multi-layer architecture of transformer-style LLMs makes them inherently capable of doing this simple level of &#34;code analysis&#34; and extracting such information, implicitly, while processing code: but are they, really? If they aren&#39;t, could explicitly adding this information help? Our goal here is to investigate this question, using the code summarization task and evaluate whether automatically augmenting an LLM&#39;s prompt with semantic facts explicitly, actually helps. <br>Prior work shows that LLM performance on code summarization benefits from few-shot samples drawn either from the same-project or from examples found via information retrieval methods (such as BM25). While summarization performance has steadily increased since the early days, there is still room for improvement: LLM performance on code summarization still lags its performance on natural-language tasks like translation and text summarization. <br>We find that adding semantic facts actually does help! This approach improves performance in several different settings suggested by prior work, including for two different Large Language Models. In most cases, improvement nears or exceeds 2 BLEU; for the PHP language in the challenging CodeSearchNet dataset, this augmentation actually yields performance surpassing 30 BLEU.
+Based on the foundation of Large Language Models (LLMs), Multilingual LLMs (MLLMs) have been developed to address the challenges faced in multilingual natural language processing, hoping to achieve knowledge transfer from high-resource languages to low-resource languages. However, significant limitations and challenges still exist, such as language imbalance, multilingual alignment, and inherent bias. In this paper, we aim to provide a comprehensive analysis of MLLMs, delving deeply into discussions surrounding these critical issues. First of all, we start by presenting an overview of MLLMs, covering their evolutions, key techniques, and multilingual capacities. Secondly, we explore the multilingual training corpora of MLLMs and the multilingual datasets oriented for downstream tasks that are crucial to enhance the cross-lingual capability of MLLMs. Thirdly, we survey the state-of-the-art studies of multilingual representations and investigate whether the current MLLMs can learn a universal language representation. Fourthly, we discuss bias on MLLMs, including its categories, evaluation metrics, and debiasing techniques. Finally, we discuss existing challenges and point out promising research directions of MLLMs.
 
 ## 3. Explicit Research Gaps & Open Challenges
 The following core challenges and research gaps are extracted and synthesized directly from the survey's *Open Problems / Challenges / Future Work* sections:

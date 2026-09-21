@@ -4,7 +4,7 @@ type: survey
 field: llm_and_reasoning
 title: "Large Language Models Cannot Self-Correct Reasoning Yet"
 arxiv_id: "2310.01798"
-authors: "Huang et al."
+authors: "Jie Huang, Xinyun Chen, Swaroop Mishra et al."
 source_url: "https://arxiv.org/abs/2310.01798"
 pdf_url: "https://arxiv.org/pdf/2310.01798.pdf"
 keywords:
@@ -21,12 +21,11 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
 # Large Language Models Cannot Self-Correct Reasoning Yet
 
 ## 1. Verified Paper Identity & Links
 - **Title**: Large Language Models Cannot Self-Correct Reasoning Yet
-- **Authors**: Huang et al.
+- **Authors**: Jie Huang, Xinyun Chen, Swaroop Mishra et al.
 - **arXiv Entry**: [https://arxiv.org/abs/2310.01798](https://arxiv.org/abs/2310.01798)
 - **Full PDF**: [https://arxiv.org/pdf/2310.01798.pdf](https://arxiv.org/pdf/2310.01798.pdf)
 - **Field**: llm_and_reasoning

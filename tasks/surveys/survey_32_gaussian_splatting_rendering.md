@@ -4,7 +4,7 @@ type: survey
 field: multimodal_and_cv
 title: "A Survey on 3D Gaussian Splatting"
 arxiv_id: "2401.03890"
-authors: "Chen et al."
+authors: "Guikun Chen, Wenguan Wang"
 source_url: "https://arxiv.org/abs/2401.03890"
 pdf_url: "https://arxiv.org/pdf/2401.03890.pdf"
 keywords:
@@ -21,12 +21,11 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
 # A Survey on 3D Gaussian Splatting
 
 ## 1. Verified Paper Identity & Links
 - **Title**: A Survey on 3D Gaussian Splatting
-- **Authors**: Chen et al.
+- **Authors**: Guikun Chen, Wenguan Wang
 - **arXiv Entry**: [https://arxiv.org/abs/2401.03890](https://arxiv.org/abs/2401.03890)
 - **Full PDF**: [https://arxiv.org/pdf/2401.03890.pdf](https://arxiv.org/pdf/2401.03890.pdf)
 - **Field**: multimodal_and_cv

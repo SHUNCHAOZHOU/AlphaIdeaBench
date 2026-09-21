@@ -2,11 +2,11 @@
 id: survey_24_graph_foundation_models
 type: survey
 field: graph_and_geometric_ml
-title: "A Survey on Graph Foundation Models"
-arxiv_id: "2402.02216"
-authors: "Mao et al."
-source_url: "https://arxiv.org/abs/2402.02216"
-pdf_url: "https://arxiv.org/pdf/2402.02216.pdf"
+title: "Graph Foundation Models: Concepts, Opportunities and Challenges"
+arxiv_id: "2310.11829"
+authors: "Jiawei Liu, Cheng Yang, Zhiyuan Lu et al."
+source_url: "https://arxiv.org/abs/2310.11829"
+pdf_url: "https://arxiv.org/pdf/2310.11829.pdf"
 keywords:
   - graph-foundation-models
   - graph-tokenization
@@ -21,18 +21,17 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
-# A Survey on Graph Foundation Models
+# Graph Foundation Models: Concepts, Opportunities and Challenges
 
 ## 1. Verified Paper Identity & Links
-- **Title**: A Survey on Graph Foundation Models
-- **Authors**: Mao et al.
-- **arXiv Entry**: [https://arxiv.org/abs/2402.02216](https://arxiv.org/abs/2402.02216)
-- **Full PDF**: [https://arxiv.org/pdf/2402.02216.pdf](https://arxiv.org/pdf/2402.02216.pdf)
+- **Title**: Graph Foundation Models: Concepts, Opportunities and Challenges
+- **Authors**: Jiawei Liu, Cheng Yang, Zhiyuan Lu et al.
+- **arXiv Entry**: [https://arxiv.org/abs/2310.11829](https://arxiv.org/abs/2310.11829)
+- **Full PDF**: [https://arxiv.org/pdf/2310.11829.pdf](https://arxiv.org/pdf/2310.11829.pdf)
 - **Field**: graph_and_geometric_ml
 
 ## 2. Official Paper Abstract
-Graph Foundation Models (GFMs) are emerging as a significant research topic in the graph domain, aiming to develop graph models trained on extensive and diverse data to enhance their applicability across various tasks and domains. Developing GFMs presents unique challenges over traditional Graph Neural Networks (GNNs), which are typically trained from scratch for specific tasks on particular datasets. The primary challenge in constructing GFMs lies in effectively leveraging vast and diverse graph data to achieve positive transfer. Drawing inspiration from existing foundation models in the CV and NLP domains, we propose a novel perspective for the GFM development by advocating for a ``graph vocabulary&#39;&#39;, in which the basic transferable units underlying graphs encode the invariance on graphs. We ground the graph vocabulary construction from essential aspects including network analysis, expressiveness, and stability. Such a vocabulary perspective can potentially advance the future GFM design in line with the neural scaling laws. All relevant resources with GFM design can be found here.
+Foundation models have emerged as critical components in a variety of artificial intelligence applications, and showcase significant success in natural language processing and several other domains. Meanwhile, the field of graph machine learning is witnessing a paradigm transition from shallow methods to more sophisticated deep learning approaches. The capabilities of foundation models in generalization and adaptation motivate graph machine learning researchers to discuss the potential of developing a new graph learning paradigm. This paradigm envisions models that are pre-trained on extensive graph data and can be adapted for various graph tasks. Despite this burgeoning interest, there is a noticeable lack of clear definitions and systematic analyses pertaining to this new domain. To this end, this article introduces the concept of Graph Foundation Models (GFMs), and offers an exhaustive explanation of their key characteristics and underlying technologies. We proceed to classify the existing work related to GFMs into three distinct categories, based on their dependence on graph neural networks and large language models. In addition to providing a thorough review of the current state of GFMs, this article also outlooks potential avenues for future research in this rapidly evolving domain.
 
 ## 3. Explicit Research Gaps & Open Challenges
 The following core challenges and research gaps are extracted and synthesized directly from the survey's *Open Problems / Challenges / Future Work* sections:

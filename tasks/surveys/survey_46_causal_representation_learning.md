@@ -2,9 +2,9 @@
 id: survey_46_causal_representation_learning
 type: survey
 field: interpretability_and_theory
-title: "Toward Causal Representation Learning"
+title: "Towards Causal Representation Learning"
 arxiv_id: "2102.11107"
-authors: "Schölkopf et al."
+authors: "Bernhard Schölkopf, Francesco Locatello, Stefan Bauer et al."
 source_url: "https://arxiv.org/abs/2102.11107"
 pdf_url: "https://arxiv.org/pdf/2102.11107.pdf"
 keywords:
@@ -21,12 +21,11 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
-# Toward Causal Representation Learning
+# Towards Causal Representation Learning
 
 ## 1. Verified Paper Identity & Links
-- **Title**: Toward Causal Representation Learning
-- **Authors**: Schölkopf et al.
+- **Title**: Towards Causal Representation Learning
+- **Authors**: Bernhard Schölkopf, Francesco Locatello, Stefan Bauer et al.
 - **arXiv Entry**: [https://arxiv.org/abs/2102.11107](https://arxiv.org/abs/2102.11107)
 - **Full PDF**: [https://arxiv.org/pdf/2102.11107.pdf](https://arxiv.org/pdf/2102.11107.pdf)
 - **Field**: interpretability_and_theory

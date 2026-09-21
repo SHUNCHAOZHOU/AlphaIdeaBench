@@ -2,11 +2,11 @@
 id: survey_42_molecular_dynamics_genai
 type: survey
 field: ai_for_science
-title: "Generative Diffusion Models for Molecular Conformations: A Survey"
-arxiv_id: "2305.01401"
-authors: "Arts et al."
-source_url: "https://arxiv.org/abs/2305.01401"
-pdf_url: "https://arxiv.org/pdf/2305.01401.pdf"
+title: "A Survey on Graph Diffusion Models: Generative AI in Science for Molecule, Protein and Material"
+arxiv_id: "2304.01565"
+authors: "Mengchun Zhang, Maryam Qamar, Taegoo Kang et al."
+source_url: "https://arxiv.org/abs/2304.01565"
+pdf_url: "https://arxiv.org/pdf/2304.01565.pdf"
 keywords:
   - molecular-dynamics
   - conformational-sampling
@@ -21,18 +21,17 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
-# Generative Diffusion Models for Molecular Conformations: A Survey
+# A Survey on Graph Diffusion Models: Generative AI in Science for Molecule, Protein and Material
 
 ## 1. Verified Paper Identity & Links
-- **Title**: Generative Diffusion Models for Molecular Conformations: A Survey
-- **Authors**: Arts et al.
-- **arXiv Entry**: [https://arxiv.org/abs/2305.01401](https://arxiv.org/abs/2305.01401)
-- **Full PDF**: [https://arxiv.org/pdf/2305.01401.pdf](https://arxiv.org/pdf/2305.01401.pdf)
+- **Title**: A Survey on Graph Diffusion Models: Generative AI in Science for Molecule, Protein and Material
+- **Authors**: Mengchun Zhang, Maryam Qamar, Taegoo Kang et al.
+- **arXiv Entry**: [https://arxiv.org/abs/2304.01565](https://arxiv.org/abs/2304.01565)
+- **Full PDF**: [https://arxiv.org/pdf/2304.01565.pdf](https://arxiv.org/pdf/2304.01565.pdf)
 - **Field**: ai_for_science
 
 ## 2. Official Paper Abstract
-Machine-learning potentials provide computationally efficient and accurate approximations of the Born-Oppenheimer potential energy surface. This potential determines many materials properties and simulation techniques usually require its gradients, in particular forces and stress for molecular dynamics, and heat flux for thermal transport properties. Recently developed potentials feature high body order and can include equivariant semi-local interactions through message-passing mechanisms. Due to their complex functional forms, they rely on automatic differentiation (AD), overcoming the need for manual implementations or finite-difference schemes to evaluate gradients. This study demonstrates a unified AD approach to obtain forces, stress, and heat flux for such potentials, and provides a model-independent implementation. The method is tested on the Lennard-Jones potential, and then applied to predict cohesive properties and thermal conductivity of tin selenide using an equivariant message-passing neural network potential.
+Diffusion models have become a new SOTA generative modeling method in various fields, for which there are multiple survey works that provide an overall survey. With the number of articles on diffusion models increasing exponentially in the past few years, there is an increasing need for surveys of diffusion models on specific fields. In this work, we are committed to conducting a survey on the graph diffusion models. Even though our focus is to cover the progress of diffusion models in graphs, we first briefly summarize how other generative modeling methods are used for graphs. After that, we introduce the mechanism of diffusion models in various forms, which facilitates the discussion on the graph diffusion models. The applications of graph diffusion models mainly fall into the category of AI-generated content (AIGC) in science, for which we mainly focus on how graph diffusion models are utilized for generating molecules and proteins but also cover other cases, including materials design. Moreover, we discuss the issue of evaluating diffusion models in the graph domain and the existing challenges.
 
 ## 3. Explicit Research Gaps & Open Challenges
 The following core challenges and research gaps are extracted and synthesized directly from the survey's *Open Problems / Challenges / Future Work* sections:

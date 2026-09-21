@@ -2,9 +2,9 @@
 id: survey_35_vision_language_navigation
 type: survey
 field: robotics_and_rl
-title: "A Survey on Vision-Language Navigation"
+title: "Vision-and-Language Navigation: A Survey of Tasks, Methods, and Future Directions"
 arxiv_id: "2203.12667"
-authors: "Guhur et al."
+authors: "Jing Gu, Eliana Stefani, Qi Wu et al."
 source_url: "https://arxiv.org/abs/2203.12667"
 pdf_url: "https://arxiv.org/pdf/2203.12667.pdf"
 keywords:
@@ -21,12 +21,11 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
-# A Survey on Vision-Language Navigation
+# Vision-and-Language Navigation: A Survey of Tasks, Methods, and Future Directions
 
 ## 1. Verified Paper Identity & Links
-- **Title**: A Survey on Vision-Language Navigation
-- **Authors**: Guhur et al.
+- **Title**: Vision-and-Language Navigation: A Survey of Tasks, Methods, and Future Directions
+- **Authors**: Jing Gu, Eliana Stefani, Qi Wu et al.
 - **arXiv Entry**: [https://arxiv.org/abs/2203.12667](https://arxiv.org/abs/2203.12667)
 - **Full PDF**: [https://arxiv.org/pdf/2203.12667.pdf](https://arxiv.org/pdf/2203.12667.pdf)
 - **Field**: robotics_and_rl

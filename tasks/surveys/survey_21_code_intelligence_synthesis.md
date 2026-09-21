@@ -2,9 +2,9 @@
 id: survey_21_code_intelligence_synthesis
 type: survey
 field: llm_and_reasoning
-title: "Code Intelligence: A Survey of Foundation Models for Software Engineering"
+title: "Unifying the Perspectives of NLP and Software Engineering: A Survey on Language Models for Code"
 arxiv_id: "2311.07989"
-authors: "Zheng et al."
+authors: "Ziyin Zhang, Chaoyu Chen, Bingchang Liu et al."
 source_url: "https://arxiv.org/abs/2311.07989"
 pdf_url: "https://arxiv.org/pdf/2311.07989.pdf"
 keywords:
@@ -21,18 +21,17 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
-# Code Intelligence: A Survey of Foundation Models for Software Engineering
+# Unifying the Perspectives of NLP and Software Engineering: A Survey on Language Models for Code
 
 ## 1. Verified Paper Identity & Links
-- **Title**: Code Intelligence: A Survey of Foundation Models for Software Engineering
-- **Authors**: Zheng et al.
+- **Title**: Unifying the Perspectives of NLP and Software Engineering: A Survey on Language Models for Code
+- **Authors**: Ziyin Zhang, Chaoyu Chen, Bingchang Liu et al.
 - **arXiv Entry**: [https://arxiv.org/abs/2311.07989](https://arxiv.org/abs/2311.07989)
 - **Full PDF**: [https://arxiv.org/pdf/2311.07989.pdf](https://arxiv.org/pdf/2311.07989.pdf)
 - **Field**: llm_and_reasoning
 
 ## 2. Official Paper Abstract
-In this work we systematically review the recent advancements in software engineering with language models, covering 70+ models, 40+ evaluation tasks, 180+ datasets, and 900 related works. Unlike previous works, we integrate software engineering (SE) with natural language processing (NLP) by discussing the perspectives of both sides: SE applies language models for development automation, while NLP adopts SE tasks for language model evaluation. We break down code processing models into general language models represented by the GPT family and specialized models that are specifically pretrained on code, often with tailored objectives. We discuss the relations and differences between these models, and highlight the historical transition of code modeling from statistical models and RNNs to pretrained Transformers and LLMs, which is exactly the same course that had been taken by NLP. We also go beyond programming and review LLMs&#39; application in other software engineering activities including requirement engineering, testing, deployment, and operations in an endeavor to provide a global view of NLP in SE, and identify key challenges and potential future directions in this domain. We keep the survey open and updated on GitHub at <a href="https://github.com/codefuse-ai/Awesome-Code-LLM" rel="external noopener nofollow" class="link-external link-https">this https URL</a>.
+In this work we systematically review the recent advancements in software engineering with language models, covering 70+ models, 40+ evaluation tasks, 180+ datasets, and 900 related works. Unlike previous works, we integrate software engineering (SE) with natural language processing (NLP) by discussing the perspectives of both sides: SE applies language models for development automation, while NLP adopts SE tasks for language model evaluation. We break down code processing models into general language models represented by the GPT family and specialized models that are specifically pretrained on code, often with tailored objectives. We discuss the relations and differences between these models, and highlight the historical transition of code modeling from statistical models and RNNs to pretrained Transformers and LLMs, which is exactly the same course that had been taken by NLP. We also go beyond programming and review LLMs' application in other software engineering activities including requirement engineering, testing, deployment, and operations in an endeavor to provide a global view of NLP in SE, and identify key challenges and potential future directions in this domain. We keep the survey open and updated on GitHub at https://github.com/codefuse-ai/Awesome-Code-LLM.
 
 ## 3. Explicit Research Gaps & Open Challenges
 The following core challenges and research gaps are extracted and synthesized directly from the survey's *Open Problems / Challenges / Future Work* sections:

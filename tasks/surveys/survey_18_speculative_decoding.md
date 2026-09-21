@@ -2,9 +2,9 @@
 id: survey_18_speculative_decoding
 type: survey
 field: efficiency_and_systems
-title: "A Survey on Speculative Decoding: Faster LLM Inference without Quality Loss"
+title: "Unlocking Efficiency in Large Language Model Inference: A Comprehensive Survey of Speculative Decoding"
 arxiv_id: "2401.07851"
-authors: "Heming Xia et al."
+authors: "Heming Xia, Zhe Yang, Qingxiu Dong et al."
 source_url: "https://arxiv.org/abs/2401.07851"
 pdf_url: "https://arxiv.org/pdf/2401.07851.pdf"
 keywords:
@@ -21,12 +21,11 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
-# A Survey on Speculative Decoding: Faster LLM Inference without Quality Loss
+# Unlocking Efficiency in Large Language Model Inference: A Comprehensive Survey of Speculative Decoding
 
 ## 1. Verified Paper Identity & Links
-- **Title**: A Survey on Speculative Decoding: Faster LLM Inference without Quality Loss
-- **Authors**: Heming Xia et al.
+- **Title**: Unlocking Efficiency in Large Language Model Inference: A Comprehensive Survey of Speculative Decoding
+- **Authors**: Heming Xia, Zhe Yang, Qingxiu Dong et al.
 - **arXiv Entry**: [https://arxiv.org/abs/2401.07851](https://arxiv.org/abs/2401.07851)
 - **Full PDF**: [https://arxiv.org/pdf/2401.07851.pdf](https://arxiv.org/pdf/2401.07851.pdf)
 - **Field**: efficiency_and_systems

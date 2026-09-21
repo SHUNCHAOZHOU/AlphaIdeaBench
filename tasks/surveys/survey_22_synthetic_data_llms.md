@@ -2,9 +2,9 @@
 id: survey_22_synthetic_data_llms
 type: survey
 field: llm_and_reasoning
-title: "A Survey on Synthetic Data for Large Language Models"
+title: "Best Practices and Lessons Learned on Synthetic Data"
 arxiv_id: "2404.07503"
-authors: "Lu et al."
+authors: "Ruibo Liu, Jerry Wei, Fangyu Liu et al."
 source_url: "https://arxiv.org/abs/2404.07503"
 pdf_url: "https://arxiv.org/pdf/2404.07503.pdf"
 keywords:
@@ -21,12 +21,11 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
-# A Survey on Synthetic Data for Large Language Models
+# Best Practices and Lessons Learned on Synthetic Data
 
 ## 1. Verified Paper Identity & Links
-- **Title**: A Survey on Synthetic Data for Large Language Models
-- **Authors**: Lu et al.
+- **Title**: Best Practices and Lessons Learned on Synthetic Data
+- **Authors**: Ruibo Liu, Jerry Wei, Fangyu Liu et al.
 - **arXiv Entry**: [https://arxiv.org/abs/2404.07503](https://arxiv.org/abs/2404.07503)
 - **Full PDF**: [https://arxiv.org/pdf/2404.07503.pdf](https://arxiv.org/pdf/2404.07503.pdf)
 - **Field**: llm_and_reasoning

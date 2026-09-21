@@ -2,11 +2,11 @@
 id: survey_23_audio_speech_lm
 type: survey
 field: multimodal_and_cv
-title: "Audio Large Language Models: A Survey"
-arxiv_id: "2403.17834"
-authors: "Latif et al."
-source_url: "https://arxiv.org/abs/2403.17834"
-pdf_url: "https://arxiv.org/pdf/2403.17834.pdf"
+title: "A Survey on Speech Large Language Models for Understanding"
+arxiv_id: "2410.18908"
+authors: "Jing Peng, Yucheng Wang, Bohan Li et al."
+source_url: "https://arxiv.org/abs/2410.18908"
+pdf_url: "https://arxiv.org/pdf/2410.18908.pdf"
 keywords:
   - audio-llm
   - speech-language-models
@@ -21,18 +21,17 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
-# Audio Large Language Models: A Survey
+# A Survey on Speech Large Language Models for Understanding
 
 ## 1. Verified Paper Identity & Links
-- **Title**: Audio Large Language Models: A Survey
-- **Authors**: Latif et al.
-- **arXiv Entry**: [https://arxiv.org/abs/2403.17834](https://arxiv.org/abs/2403.17834)
-- **Full PDF**: [https://arxiv.org/pdf/2403.17834.pdf](https://arxiv.org/pdf/2403.17834.pdf)
+- **Title**: A Survey on Speech Large Language Models for Understanding
+- **Authors**: Jing Peng, Yucheng Wang, Bohan Li et al.
+- **arXiv Entry**: [https://arxiv.org/abs/2410.18908](https://arxiv.org/abs/2410.18908)
+- **Full PDF**: [https://arxiv.org/pdf/2410.18908.pdf](https://arxiv.org/pdf/2410.18908.pdf)
 - **Field**: multimodal_and_cv
 
 ## 2. Official Paper Abstract
-Advancements in medical imaging AI, particularly in 3D imaging, have been limited due to the scarcity of comprehensive datasets. We introduce CT-RATE, a public dataset that pairs 3D medical images with corresponding textual reports. CT-RATE comprises 25,692 non-contrast 3D chest CT scans from 21,304 unique patients. Each scan is accompanied by its corresponding radiology report. Leveraging CT-RATE, we develop CT-CLIP, a CT-focused contrastive language-image pretraining framework designed for broad applications without the need for task-specific training. We demonstrate how CT-CLIP can be used in multi-abnormality detection and case retrieval, and outperforms state-of-the-art fully supervised models across all key metrics. By combining CT-CLIP&#39;s vision encoder with a pretrained large language model, we create CT-CHAT, a vision-language foundational chat model for 3D chest CT volumes. Finetuned on over 2.7 million question-answer pairs derived from the CT-RATE dataset, CT-CHAT underscores the necessity for specialized methods in 3D medical imaging. Collectively, the open-source release of CT-RATE, CT-CLIP, and CT-CHAT not only addresses critical challenges in 3D medical imaging but also lays the groundwork for future innovations in medical AI and improved patient care.
+Speech understanding is essential for interpreting the diverse forms of information embedded in spoken language, including linguistic, paralinguistic, and non-linguistic cues that are vital for effective human-computer interaction. The rapid advancement of large language models (LLMs) has catalyzed the emergence of Speech Large Language Models (Speech LLMs), which marks a transformative shift toward general-purpose speech understanding systems. To further clarify and systematically delineate task objectives, in this paper, we formally define the concept of speech understanding and introduce a structured taxonomy encompassing its informational, functional, and format dimensions. Within this scope of definition, we present a comprehensive review of current Speech LLMs, analyzing their architectures through a three-stage abstraction: Modality Feature Extraction, Modality Information Fusion, and LLM Inference. In addition, we examine training strategies, discuss representative datasets, and review evaluation methodologies adopted in the field. Based on empirical analyses and experimental evidence, we identify two key challenges currently facing Speech LLMs: instruction sensitivity and degradation in semantic reasoning and propose concrete directions for addressing these issues. Through this systematic and detailed survey, we aim to offer a foundational reference for researchers and practitioners working toward more robust, generalizable, and human-aligned Speech LLMs.
 
 ## 3. Explicit Research Gaps & Open Challenges
 The following core challenges and research gaps are extracted and synthesized directly from the survey's *Open Problems / Challenges / Future Work* sections:

@@ -2,11 +2,11 @@
 id: survey_47_state_space_models_mamba
 type: survey
 field: efficiency_and_systems
-title: "A Survey on State Space Models for Sequence Modeling"
-arxiv_id: "2403.07638"
-authors: "Gu et al."
-source_url: "https://arxiv.org/abs/2403.07638"
-pdf_url: "https://arxiv.org/pdf/2403.07638.pdf"
+title: "Mamba-360: Survey of State Space Models as Transformer Alternative for Long Sequence Modelling: Methods, Applications, and Challenges"
+arxiv_id: "2404.16112"
+authors: "Badri Narayana Patro, Vijay Srinivas Agneeswaran"
+source_url: "https://arxiv.org/abs/2404.16112"
+pdf_url: "https://arxiv.org/pdf/2404.16112.pdf"
 keywords:
   - state-space-models
   - mamba
@@ -21,18 +21,17 @@ budget:
   annotator_hours: 40
   notes: "Typical academic-lab compute & budget. Proposed solution must target one or more of the authentic open challenges identified in this survey paper, including official baselines and ablations." 
 ---
-
-# A Survey on State Space Models for Sequence Modeling
+# Mamba-360: Survey of State Space Models as Transformer Alternative for Long Sequence Modelling: Methods, Applications, and Challenges
 
 ## 1. Verified Paper Identity & Links
-- **Title**: A Survey on State Space Models for Sequence Modeling
-- **Authors**: Gu et al.
-- **arXiv Entry**: [https://arxiv.org/abs/2403.07638](https://arxiv.org/abs/2403.07638)
-- **Full PDF**: [https://arxiv.org/pdf/2403.07638.pdf](https://arxiv.org/pdf/2403.07638.pdf)
+- **Title**: Mamba-360: Survey of State Space Models as Transformer Alternative for Long Sequence Modelling: Methods, Applications, and Challenges
+- **Authors**: Badri Narayana Patro, Vijay Srinivas Agneeswaran
+- **arXiv Entry**: [https://arxiv.org/abs/2404.16112](https://arxiv.org/abs/2404.16112)
+- **Full PDF**: [https://arxiv.org/pdf/2404.16112.pdf](https://arxiv.org/pdf/2404.16112.pdf)
 - **Field**: efficiency_and_systems
 
 ## 2. Official Paper Abstract
-Robotic manipulation relies on analytical or learned models to simulate the system dynamics. These models are often inaccurate and based on offline information, so that the robot planner is unable to cope with mismatches between the expected and the actual behavior of the system (e.g., the presence of an unexpected obstacle). In these situations, the robot should use information gathered online to correct its planning strategy and adapt to the actual system response. We propose a sampling-based motion planning approach that uses an estimate of the model error and online observations to correct the planning strategy at each new replanning. Our approach adapts the cost function and the sampling bias of a kinodynamic motion planner when the outcome of the executed transitions is different from the expected one (e.g., when the robot unexpectedly collides with an obstacle) so that future trajectories will avoid unreliable motions. To infer the properties of a new transition, we introduce the notion of context-awareness, i.e., we store local environment information for each executed transition and avoid new transitions with context similar to previous unreliable ones. This is helpful for leveraging online information even if the simulated transitions are far (in the state-and-action space) from the executed ones. Simulation and experimental results show that the proposed approach increases the success rate in execution and reduces the number of replannings needed to reach the goal.
+Sequence modeling is a crucial area across various domains, including Natural Language Processing (NLP), speech recognition, time series forecasting, music generation, and bioinformatics. Recurrent Neural Networks (RNNs) and Long Short Term Memory Networks (LSTMs) have historically dominated sequence modeling tasks like Machine Translation, Named Entity Recognition (NER), etc. However, the advancement of transformers has led to a shift in this paradigm, given their superior performance. Yet, transformers suffer from $O(N^2)$ attention complexity and challenges in handling inductive bias. Several variations have been proposed to address these issues which use spectral networks or convolutions and have performed well on a range of tasks. However, they still have difficulty in dealing with long sequences. State Space Models(SSMs) have emerged as promising alternatives for sequence modeling paradigms in this context, especially with the advent of S4 and its variants, such as S4nd, Hippo, Hyena, Diagnol State Spaces (DSS), Gated State Spaces (GSS), Linear Recurrent Unit (LRU), Liquid-S4, Mamba, etc. In this survey, we categorize the foundational SSMs based on three paradigms namely, Gating architectures, Structural architectures, and Recurrent architectures. This survey also highlights diverse applications of SSMs across domains such as vision, video, audio, speech, language (especially long sequence modeling), medical (including genomics), chemical (like drug design), recommendation systems, and time series analysis, including tabular data. Moreover, we consolidate the performance of SSMs on benchmark datasets like Long Range Arena (LRA), WikiText, Glue, Pile, ImageNet, Kinetics-400, sstv2, as well as video datasets such as Breakfast, COIN, LVU, and various time series datasets. The project page for Mamba-360 work is available on this webpage.\url{https://github.com/badripatro/mamba360}.
 
 ## 3. Explicit Research Gaps & Open Challenges
 The following core challenges and research gaps are extracted and synthesized directly from the survey's *Open Problems / Challenges / Future Work* sections:
