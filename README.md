@@ -4,6 +4,13 @@ LLM-as-judge code for scoring research ideas on **twelve dimensions**. The human
 
 This repository is judge-only. It does not generate ideas.
 
+<p align="center">
+  <img src="docs/framework.png" alt="Overview of AlphaIdeaBench" width="100%">
+</p>
+<p align="center">
+  <em>Overview of AlphaIdeaBench. This repo releases the 12-dimension judge (left and step 3), the 100-task suite (step 1), and the novelty alignment track (A). The eight harnesses in step 2 are external systems.</em>
+</p>
+
 ## Twelve dimensions
 
 | Group | Dimensions |
@@ -137,6 +144,7 @@ pytest
 ## Layout
 
 ```
+docs/                 paper figures used in this README
 src/alphaideabench/   judge agent, 12-dimension rubric loader, Track 1/2
 prompts/              judge and novelty-mapping prompts; dimensions.yaml
 scripts/
