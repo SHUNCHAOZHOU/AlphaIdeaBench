@@ -64,7 +64,13 @@ figcaption{font-size:14px;color:var(--mute);margin-top:10px}
 .bar:first-child .t i{background:var(--gold)}
 .bar .val{font-variant-numeric:tabular-nums;text-align:right;font-weight:600}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
-@media(max-width:760px){.split{grid-template-columns:1fr}}
+.split.pair{align-items:stretch}
+.split.pair>.card,.split.pair>figure{display:flex;flex-direction:column;height:100%;margin:0}
+.split.pair #dom{flex:1;display:flex;flex-direction:column;justify-content:space-between}
+.split.pair .dom{flex:1}
+.split.pair .dom .t{height:22px}
+.split.pair>figure img{flex:1;width:100%;height:100%;object-fit:contain}
+@media(max-width:760px){.split{grid-template-columns:1fr}.split.pair>.card,.split.pair>figure{height:auto}}
 .res{align-items:stretch}
 .barcard{display:flex;flex-direction:column}
 .barcard #bars{flex:1;display:flex;flex-direction:column;justify-content:space-between}
@@ -182,9 +188,10 @@ footer{padding:36px 0 60px;text-align:center;color:var(--mute);font-size:14px;bo
 </tbody></table></div>
 
 <h3>Task distribution</h3>
-<div class="split">
-<div class="card"><div id="dom"></div><div class="key"><span><i style="background:var(--c0)"></i>Workshop</span><span><i style="background:var(--c1)"></i>Survey</span></div></div>
-<figure style="margin:0"><img src="assets/domain_cloud.png" alt="Keyword cloud of task titles" loading="lazy"><figcaption>Task titles and curated keywords.</figcaption></figure>
+<div class="split pair">
+<div class="card"><div id="dom"></div><div class="key"><span><i style="background:var(--c0)"></i>Workshop</span><span><i style="background:var(--c1)"></i>Survey</span></div>
+<figcaption>Domain mix on the 100-task release.</figcaption></div>
+<figure><img src="assets/domain_cloud.png" alt="Keyword cloud of task titles" loading="lazy"><figcaption>Task titles and curated keywords.</figcaption></figure>
 </div>
 </section>
 
