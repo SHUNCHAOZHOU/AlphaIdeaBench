@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AlphaIdeaBench: Benchmarking Automated Research Idea Generation under Feasibility Constraints</title>
+<meta name="description" content="AlphaIdeaBench: 100 ideation tasks with explicit resource budgets, a 12-dimension rubric, and an LLM judge validated against peer review on 600 papers.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AlphaIdeaBench">
+<meta property="og:description" content="Benchmarking automated research idea generation under feasibility constraints, with peer review alignment.">
+<meta property="og:image" content="assets/framework.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231d3f7a'/%3E%3Ctext x='16' y='23' font-size='20' font-family='Georgia' font-weight='700' text-anchor='middle' fill='%23e0b35a'%3E%CE%B1%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#fbfaf7;--card:#fff;--ink:#1c2230;--mute:#5d6678;--line:#e4e1d8;--blue:#1d3f7a;--blue2:#e8eef9;--gold:#b8892b;--gold2:#fbf3e0;--shadow:0 1px 2px rgba(20,30,50,.06),0 8px 24px rgba(20,30,50,.06);--grid:#d9d6cc;
+--c0:#2f6fd6;--c1:#e8803a;--c2:#2e9e63;--c3:#8e5bd0;--c4:#d6453d;--c5:#14a0b3;--c6:#c49a14;--c7:#7b8494}
+@media (prefers-color-scheme:dark){:root{--bg:#10141c;--card:#171c27;--ink:#e8ebf2;--mute:#9aa4b8;--line:#2a3243;--blue:#8fb2f2;--blue2:#1b2740;--gold:#e0b35a;--gold2:#2a2414;--shadow:none;--grid:#323b50;
+--c0:#6ea0ff;--c1:#ff9d5c;--c2:#52c487;--c3:#b48cf0;--c4:#ff7a70;--c5:#3fc3d6;--c6:#e4bb3a;--c7:#9aa4b8}}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:56px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--blue)}
+p,li,figcaption,.hint,.find p,.tldr{text-wrap:pretty;orphans:3;widows:3}
+h1,h2,h3,.sub,.lead,.take{text-wrap:balance}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:18px;overflow-x:auto;padding-top:11px;padding-bottom:11px;font-size:14px;white-space:nowrap}
+nav a{text-decoration:none;color:var(--mute);padding-bottom:2px;border-bottom:2px solid transparent}nav a:hover{color:var(--blue)}
+nav a.on{color:var(--blue);border-color:var(--gold);font-weight:600}
+header{padding:60px 0 34px;text-align:center;background:radial-gradient(ellipse 70% 60% at 50% 0%,var(--blue2),transparent 70%)}
+.venue{display:inline-block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);border-radius:99px;padding:3px 12px;margin-bottom:18px;text-decoration:none}
+h1{font-size:clamp(34px,6vw,54px);line-height:1.1;margin:0 0 6px;letter-spacing:-.02em;color:var(--blue)}
+.sub{font-size:clamp(17px,2.4vw,22px);color:var(--mute);margin:8px auto 24px;max-width:760px}
+.authors{font-size:17px}.authors span{white-space:nowrap}.authors sup{color:var(--mute);font-size:12px}
+.affs{font-size:14px;color:var(--mute);margin-top:10px}
+.btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:26px}
+.btn{display:inline-flex;gap:8px;align-items:center;padding:10px 18px;border-radius:10px;background:var(--blue);color:#fff;text-decoration:none;font-weight:600;font-size:15px}
+@media (prefers-color-scheme:dark){.btn{color:#0b1220}}
+.btn.o{background:transparent;color:var(--blue);border:1px solid var(--blue)}
+.tldr{max-width:760px;margin:30px auto 0;text-align:left;border-left:4px solid var(--gold);background:var(--card);border-radius:0 12px 12px 0;padding:14px 18px;box-shadow:var(--shadow);font-size:16px}
+.tldr b{color:var(--gold);letter-spacing:.05em;font-size:13px;display:block}
+section{padding:44px 0;border-top:1px solid var(--line)}
+h2{font-size:28px;margin:0 0 6px;letter-spacing:-.01em}
+.lead{color:var(--mute);margin:0 0 24px}
+h3{font-size:19px;margin:28px 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;box-shadow:var(--shadow)}
+.grid{display:grid;gap:14px}
+.g4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.stat{text-align:center}.stat b{display:block;font-size:34px;line-height:1.1;color:var(--blue);letter-spacing:-.02em}.stat span{font-size:14px;color:var(--mute);line-height:1.4;display:block;margin-top:4px}
+figure{margin:20px 0;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:var(--shadow)}
+figure img{width:100%;height:auto;display:block;border-radius:6px;background:#fff;cursor:zoom-in}
+figcaption{font-size:14px;color:var(--mute);margin-top:10px}
+.pill{display:inline-block;font-size:12px;padding:2px 9px;border-radius:99px;font-weight:600;margin-right:6px}
+.v{background:#e5f3ea;color:#1c6b3a}.n{background:var(--gold2);color:var(--gold)}.f{background:var(--blue2);color:var(--blue)}
+@media (prefers-color-scheme:dark){.v{background:#16301f;color:#7fd4a0}}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.chips span{font-size:13px;background:var(--blue2);color:var(--blue);border-radius:6px;padding:2px 8px;font-family:ui-monospace,Menlo,Consolas,monospace}
+.tabs{display:flex;gap:8px;margin:0 0 14px;flex-wrap:wrap}
+.tab{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:7px 14px;border-radius:99px;cursor:pointer;font:inherit;font-size:14px}
+.tab[aria-selected=true]{background:var(--blue);color:#fff;border-color:var(--blue)}
+@media (prefers-color-scheme:dark){.tab[aria-selected=true]{color:#0b1220}}
+.bar{display:grid;grid-template-columns:150px 1fr 48px;gap:10px;align-items:center;padding:5px 0;font-size:15px}
+.bar .t{height:22px;background:var(--blue2);border-radius:6px;overflow:hidden}
+.bar .t i{display:block;height:100%;background:var(--blue);border-radius:6px;transition:width .5s}
+.bar:first-child .t i{background:var(--gold)}
+.bar .val{font-variant-numeric:tabular-nums;text-align:right;font-weight:600}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+@media(max-width:760px){.split{grid-template-columns:1fr}}
+.res{align-items:stretch}
+.barcard{display:flex;flex-direction:column}
+.barcard #bars{flex:1;display:flex;flex-direction:column;justify-content:space-between}
+.barcard .bar{flex:1}
+.barcard .bar .t{height:30px;border-radius:8px}
+.barcard .bar .t i{border-radius:8px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.howto p{font-size:15px;margin:8px 0 0}
+.howto .gain{color:var(--mute)}
+.howto .gain b{color:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.lg{display:inline-flex;align-items:center;gap:6px;font-size:13px;padding:3px 10px;border:1px solid var(--line);border-radius:99px;cursor:pointer;background:var(--card);color:var(--ink);font-family:inherit}
+.lg i{width:10px;height:10px;border-radius:50%}
+.lg.off{opacity:.4}.lg.off i{background:var(--mute)!important}
+.hint{font-size:13px;color:var(--mute);margin:8px 0 0}
+svg text{fill:var(--mute);font-family:inherit}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{padding:6px 9px;text-align:center;border-bottom:1px solid var(--line);white-space:nowrap}
+th:first-child,td:first-child{text-align:left;position:sticky;left:0;background:var(--card);z-index:1}
+thead th{font-weight:600;color:var(--mute);font-size:13px}
+tbody tr:not(.sep):hover td{outline:1px solid var(--gold);outline-offset:-1px}
+tr.sep td{background:var(--bg)!important;font-weight:600;font-size:12px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em;text-align:left}
+tr.tot td{font-weight:700;border-top:2px solid var(--ink)}
+.small td,.small th{font-size:13.5px}
+.take{border-left:4px solid var(--gold);background:var(--gold2);padding:14px 18px;border-radius:0 12px 12px 0;margin:14px 0}
+.find{display:grid;grid-template-columns:44px 1fr;gap:14px;margin:0 0 16px}
+.find .k{width:44px;height:44px;border-radius:12px;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:700}
+@media (prefers-color-scheme:dark){.find .k{color:#0b1220}}
+.find h3{margin:0 0 2px}.find p{margin:0;color:var(--mute)}
+.dom{display:grid;grid-template-columns:150px 1fr 30px;gap:10px;align-items:center;font-size:14px;padding:3px 0}
+.dom .t{display:flex;height:18px;border-radius:5px;overflow:hidden}
+.dom .t i:first-child{background:var(--c0)}.dom .t i:last-child{background:var(--c1)}
+.key{display:flex;gap:14px;font-size:13px;color:var(--mute);margin-top:8px}.key i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px}
+details{margin-top:14px}summary{cursor:pointer;color:var(--blue);font-weight:600}
+details p{color:var(--ink)}
+pre{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;overflow-x:auto;font-size:13.5px;line-height:1.5}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.copy{float:right;font-size:13px;margin:-4px 0 0 8px;cursor:pointer;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:4px 10px}
+footer{padding:36px 0 60px;text-align:center;color:var(--mute);font-size:14px;border-top:1px solid var(--line)}
+#lb{position:fixed;inset:0;background:rgba(8,12,20,.88);display:none;align-items:center;justify-content:center;z-index:50;padding:20px;cursor:zoom-out}
+#lb.on{display:flex}#lb img{max-width:100%;max-height:100%;background:#fff;border-radius:8px}
+#top{position:fixed;right:18px;bottom:18px;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--blue);font-size:18px;cursor:pointer;box-shadow:var(--shadow);display:none}
+#top.on{display:block}
+@media(max-width:600px){.bar{grid-template-columns:110px 1fr 40px;font-size:13px}.dom{grid-template-columns:110px 1fr 26px}body{font-size:16px}}
+@media print{nav,#top{display:none}}
+</style>
+</head>
+<body>
+<nav><div class="wrap" id="nav">
+<a href="#abstract">Abstract</a><a href="#benchmark">Benchmark</a><a href="#validation">Judge validation</a><a href="#results">Results</a><a href="#findings">Findings</a><a href="#budget">Budget study</a><a href="#case">Case study</a><a href="#resources">Resources</a><a href="#cite">BibTeX</a>
+</div></nav>
+
+<header><div class="wrap">
+<a class="venue" href="https://arxiv.org/abs/2610.33644v1">arXiv 2610.33644</a>
+<h1>AlphaIdeaBench</h1>
+<p class="sub">Benchmarking Automated Research Idea Generation under Feasibility Constraints with Peer Review Alignment</p>
+<div class="authors">
+<span>Shunchao Zhou<sup>1</sup></span> · <span>Chang Yang<sup>2</sup></span> · <span>Jingrui Wang<sup>1,3</sup></span> · <span>Shuxin Zhuang<sup>4</sup></span> · <span>Rundong Wang<sup>5</sup></span> · <span>Runsheng Yu<sup>6</sup></span> · <span>Xinrun Wang<sup>1,*</sup></span>
+</div>
+<div class="affs">
+<sup>1</sup>Singapore Management University · <sup>2</sup>The Hong Kong Polytechnic University · <sup>3</sup>Hangzhou Dianzi University<br>
+<sup>4</sup>City University of Hong Kong · <sup>5</sup>NetEase, Inc. · <sup>6</sup>The Hong Kong University of Science and Technology<br>
+<sup>*</sup>Corresponding author
+</div>
+<div class="btns">
+<a class="btn" href="https://arxiv.org/abs/2610.33644v1">📄 arXiv</a>
+<a class="btn" href="https://github.com/SHUNCHAOZHOU/AlphaIdeaBench">⌥ Code &amp; Data</a>
+<a class="btn o" href="#results">Leaderboard</a>
+</div>
+<div class="tldr"><b>TL;DR</b>A good research idea has to fit the budget, not just sound novel. AlphaIdeaBench gives every ideation agent the same task, the same compute/API/time envelope and the same output schema, then scores the proposal on 12 dimensions with an LLM judge checked against real peer reviews.</div>
+</div></header>
+
+<main class="wrap">
+
+<section id="abstract" style="border-top:0">
+<div class="grid g4" style="margin-bottom:30px">
+<div class="card stat"><b data-n="100">100</b><span>ideation tasks<br>50 workshop CFPs + 50 survey open problems</span></div>
+<div class="card stat"><b data-n="12">12</b><span>scoring dimensions<br>validity · novelty · feasibility</span></div>
+<div class="card stat"><b data-n="600">600</b><span>ICLR / NeurIPS / ICML papers<br>used to validate the judge</span></div>
+<div class="card stat"><b>8 × 8</b><span>8 harnesses on one backbone,<br>8 backbones under one harness</span></div>
+</div>
+<h2>Abstract</h2>
+<p>Research ideas are always proposed under resource constraints: a plan must fit the available compute, API credit, and time. Yet evaluations of research-ideation agents mostly score unconstrained novelty or overlap with a published paper, and their LLM judges are rarely checked against peer review.</p>
+<p>We introduce <b>AlphaIdeaBench</b>, a benchmark of 100 ideation tasks, each paired with an explicit resource budget and a shared proposal schema. An LLM judge scores each proposal on 12 dimensions. To validate the judge, we compare its scores on four novelty axes (problem, method, scenario, insight) with scores derived from reviewer comments on 600 papers. We evaluate eight published harnesses on a shared backbone and, within one harness, eight backbone LLMs.</p>
+<p>The backbone largely determines <i>which</i> open problem a proposal targets, whereas the harness determines whether a proposal addresses one problem or <i>combines several</i>. All harnesses score low on scenario novelty. When only the budget is varied, a larger budget changes the experimental setting on compute-intensive topics but only adds tests on an inexpensive one.</p>
+</section>
+
+<section id="benchmark">
+<h2>The benchmark</h2>
+<p class="lead">Every harness gets the same context, the same resource envelope, and the same output schema. Only the final written proposal is scored. <span style="white-space:nowrap">(Click any figure to zoom.)</span></p>
+<figure><img src="assets/framework.png" alt="AlphaIdeaBench overview" loading="lazy">
+<figcaption><b>Overview.</b> Task suite → eight agent harnesses → evaluation suite, plus an Alignment Verification track that maps reviewer comments on 600 papers onto the four novelty axes before they are used on agent writes.</figcaption></figure>
+
+<div class="grid g3">
+<div class="card"><h3 style="margin-top:0">📚 Two routes to an idea</h3><p style="margin:0;color:var(--mute)">50 workshop calls for papers (NeurIPS / ICML / ICLR, 2023–25) keep the question partly open; 50 surveys supply author-stated open problems.</p></div>
+<div class="card"><h3 style="margin-top:0">💰 Explicit resource envelope</h3><p style="margin:0;color:var(--mute)">Feasibility is scored against a stated budget <i>B</i> = ⟨GPU, API, calendar, human hours⟩, which the agent and the judge both see.</p></div>
+<div class="card"><h3 style="margin-top:0">🧾 One JSON schema</h3><p style="margin:0;color:var(--mute)">Internal retrieval, debate or rewrite loops are free; only the returned JSON is judged.</p>
+<div class="chips"><span>title</span><span>question</span><span>hypothesis</span><span>method</span><span>experiments</span><span>baselines</span><span>success criteria</span><span>related work</span><span>limitations</span><span>resource plan</span></div></div>
+</div>
+
+<h3>Twelve dimensions, three pillars</h3>
+<div class="grid g3">
+<div class="card"><span class="pill v">Validity</span><p style="margin:8px 0 0;color:var(--mute)">Context grounding · Problem formulation · Motivation–method consistency · Testability</p></div>
+<div class="card"><span class="pill n">Novelty</span><p style="margin:8px 0 0;color:var(--mute)">Problem · Method · Scenario · Insight — four separate axes, not one overall label</p></div>
+<div class="card"><span class="pill f">Feasibility</span><p style="margin:8px 0 0;color:var(--mute)">Technical · Data · Budget · Verification, checked against the declared envelope</p></div>
+</div>
+<p style="margin-top:14px;color:var(--mute);font-size:15px">Each dimension is scored 1–5 with a public descriptor and checklist. A proposal cannot offset hallucinated grounding with algorithmic novelty, nor bypass resource bounds with an ambitious formulation.</p>
+
+<h3>Resource envelopes</h3>
+<div class="card scroll" style="padding:8px"><table class="small"><thead><tr><th>Setting</th><th>GPUs</th><th>GPU-hours</th><th>API credit</th><th>Calendar</th><th>Annotation</th></tr></thead><tbody>
+<tr><td>Student</td><td>1 × A100</td><td>20</td><td>$20</td><td>2 weeks</td><td>8 h</td></tr>
+<tr style="font-weight:700"><td>Academic (main study)</td><td>4 × A100 40GB</td><td>200</td><td>$200</td><td>8 weeks</td><td>40 h</td></tr>
+<tr><td>Lab</td><td>8 × A100</td><td>2000</td><td>$2000</td><td>16 weeks</td><td>80 h</td></tr>
+</tbody></table></div>
+
+<h3>Task distribution</h3>
+<div class="split">
+<div class="card"><div id="dom"></div><div class="key"><span><i style="background:var(--c0)"></i>Workshop</span><span><i style="background:var(--c1)"></i>Survey</span></div></div>
+<figure style="margin:0"><img src="assets/domain_cloud.png" alt="Keyword cloud of task titles" loading="lazy"><figcaption>Task titles and curated keywords.</figcaption></figure>
+</div>
+</section>
+
+<section id="validation">
+<h2>Is the judge trustworthy?</h2>
+<p class="lead">Before reading any agent score, we check the four novelty axes against reviewer text from 600 papers (200 each from ICLR 2026, NeurIPS 2025, ICML 2025, stratified to each venue's score mix).</p>
+<div class="grid g4">
+<div class="card stat"><b>94–97%</b><span>problem &amp; method novelty within ±1 of reviewer-mapped score</span></div>
+<div class="card stat"><b>&gt;91%</b><span>problem-novelty DistAcc<br>(best NovBench zero-shot: 71.6%)</span></div>
+<div class="card stat"><b>82–84%</b><span>insight-novelty DistAcc</span></div>
+<div class="card stat"><b>≈80%</b><span>scenario within ±1; judge is stricter than reviewers (gap −0.27 to −0.58)</span></div>
+</div>
+<div class="card" style="margin-top:14px"><b>Judge agreement (within ±1, %) — Gemini 3.7 Flash</b>
+<div id="align" style="margin-top:10px"></div>
+<div class="key" id="alignkey"></div>
+<p class="hint">Dashed line = 90%. A second judge (GPT-5 mini) re-scores all agent writes as a stability check; the harness ranking holds (Spearman ρ = 0.81).</p></div>
+</section>
+
+<section id="results">
+<h2>Results</h2>
+<p class="lead">Overall = unweighted mean of the 12 dimension means (1–5). Switch the chart view, toggle systems in the radar, and compare both tables below.</p>
+<div class="tabs" role="tablist">
+<button class="tab" role="tab" aria-selected="true" data-view="h">Eight harnesses · Gemini 3.7 Flash backbone</button>
+<button class="tab" role="tab" aria-selected="false" data-view="m">CoI-Agent · eight backbone LLMs</button>
+</div>
+<div class="split res">
+<div class="card barcard"><div id="bars"></div></div>
+<div class="card"><div id="radar"></div><div class="legend" id="rlegend"></div><p class="hint">Click a name to show or hide it. Center = 1, outer ring = 5.</p></div>
+</div>
+<div class="take" id="take"></div>
+<h3>Table 1 · Eight harnesses, shared Gemini 3.7 Flash backbone</h3>
+<div class="card scroll" style="padding:8px 8px"><table id="tbl_h"></table></div>
+<h3>Table 2 · CoI-Agent harness, eight ideation backbones</h3>
+<div class="card scroll" style="padding:8px 8px"><table id="tbl_m"></table></div>
+<p class="hint">Both tables: mean score (1–5) over the 100 tasks, judged by Gemini 3.7 Flash. Bold = best in row; shading deepens with score.</p>
+<figure><img src="assets/macro_triplet.png" alt="Radar, PCA and novelty bars" loading="lazy">
+<figcaption>(a) Twelve-dimension radar of eight harnesses. (b) PCA of the z-scored four novelty axes, one point per task. (c) Mean scores on the four novelty axes.</figcaption></figure>
+</section>
+
+<section id="findings">
+<h2>Key findings</h2>
+<p class="lead">&nbsp;</p>
+<div class="find"><div class="k">1</div><div><h3>With a strong backbone, harness rank is a novelty rank</h3><p>Validity and feasibility sit near the ceiling for all eight harnesses (overall 4.02–4.31). CoI-Agent is best overall (4.31), narrowly ahead of SciMON (4.29), which leads method (3.95) and insight (3.78) novelty through inspiration collision.</p></div></div>
+<div class="find"><div class="k">2</div><div><h3>Scenario novelty is the shared blind spot</h3><p>No harness exceeds 1.87 on scenario novelty. Systems rarely change the problem setting; they mostly re-solve the stated one.</p></div></div>
+<div class="find"><div class="k">3</div><div><h3>The backbone picks the problem; the harness picks the strategy</h3><p>On the 50 surveys, eight harnesses sharing one backbone pile 59.4% of votes on the locally majority challenge. Swapping the backbone under CoI-Agent spreads that mass (40.4%). Meanwhile CoI-Agent fuses several challenges on 84% of surveys, whereas SciMON and AI-Scientist-V2 stay on a single one on 88%.</p></div></div>
+<div class="find"><div class="k">4</div><div><h3>Weak models cannot execute the harness</h3><p>Swapping only the backbone drops CoI-Agent from 4.31 to 1.84 (Llama 4 Scout). Llama 4 Scout fails literature grounding (1.95) and the budget (2.80), and collapses to a single challenge on 86% of surveys despite an explicit multi-challenge scaffold.</p></div></div>
+<figure><img src="assets/harness_vs_llm.png" alt="Harness versus LLM challenge choice" loading="lazy">
+<figcaption>Challenge choice on the 50 surveys. (a) Same Gemini, eight harnesses. (b) Same CoI-Agent, eight models. (c) Single vs. fused writes, same Gemini. (d) CoI-Agent with eight models.</figcaption></figure>
+<div class="card howto">
+<b>How to read this figure</b>
+<p class="hint" style="margin-top:4px">Each survey lists several open problems ("challenges"). For every proposal we record which listed challenge(s) it writes about. Top row asks <i>which</i> challenge gets picked; bottom row asks <i>how many</i> are combined.</p>
+<div class="grid g2" style="margin-top:12px">
+<div><span class="pill n">Top row (a, b)</span><p><b>Crowding.</b> Each x position is one survey. For that survey we pool the writes (8 harnesses in a, 8 models in b), rank its challenges by votes, and stack the vote shares: red = most-voted challenge, orange = 2nd, blue = 3rd, grey = 4th. Surveys are sorted from most to least crowded. A big red band means everyone writes about the same problem.</p>
+<p class="gain">(a) Changing the harness barely helps: red still holds 59.4% and the 4th challenge only 4.6%. (b) Changing the model spreads the votes: red drops to 40.4% and the 4th challenge rises to 12.7%. <b>→ The backbone decides which problem gets picked.</b></p></div>
+<div><span class="pill f">Bottom row (c, d)</span><p><b>Single vs. fused.</b> Each bar is one system over the 50 surveys. Grey = share of surveys where its proposal stays on a single challenge; blue/green = share where it combines two or more. Abbreviations: Col = CoI-Agent, AI-R = AI-Researcher, VS = Virtual-Scientists, RA = ResearchAgent, V1/V2 = AI-Scientist-V1/V2, ALab = AgentLaboratory.</p>
+<p class="gain">(c) With one backbone, harnesses differ sharply: CoI-Agent fuses on 84% of surveys, SciMON and AI-Scientist-V2 stay single on 88%. (d) Keeping CoI-Agent, most backbones still fuse (88–98%), but Llama 4 Scout stays single on 86%. <b>→ The harness decides one problem vs. several, if the model can follow it.</b></p></div>
+</div></div>
+</section>
+
+<section id="budget">
+<h2>What does more budget buy?</h2>
+<p class="lead">Holding CoI-Agent and the judge fixed, we replace the whole envelope on three surveys that differ in cost: tool use, vision-language-action, and mechanistic interpretability.</p>
+<div class="grid g3">
+<div class="card"><b>Vision-language-action</b><p style="margin:6px 0 0;color:var(--mute)">LIBERO tabletop in simulation → contact &amp; impedance → simulation plus 240 real-robot trials. <b>The world changes.</b> (1400 / 2000 GPU-h at lab cap)</p></div>
+<div class="card"><b>Interpretability</b><p style="margin:6px 0 0;color:var(--mute)">Frozen sparse autoencoders → 2B dictionaries → 8B/9B chain-of-thought circuits. <b>The trained object scales.</b> (1850 / 2000 GPU-h)</p></div>
+<div class="card"><b>Tool use</b><p style="margin:6px 0 0;color:var(--mute)">Stays in prompt injection plus public benchmarks. <b>More tests, same world.</b> (only 740 / 2000 GPU-h)</p></div>
+</div>
+<figure><img src="assets/budget_ablation_three_topics.png" alt="Budget ablation" loading="lazy">
+<figcaption>CoI-Agent under three budgets. (a) Scenario novelty. (b) What the write is about. (c) Claimed GPU hours versus the cap. Every cell stays inside its own cap.</figcaption></figure>
+<div class="take"><b>Takeaway:</b> a larger budget alters the experimental world only when compute is the binding constraint; otherwise it accumulates as additional tests of the same baseline setting.</div>
+</section>
+
+<section id="case">
+<h2>Case study: one task, eight proposals</h2>
+<p class="lead"><code>survey_19</code> — agentic tool use, four listed challenges: C1 API retrieval, C2 nested schema generation, C3 prompt injection / safety, C4 asynchronous orchestration.</p>
+<figure><img src="assets/casestudy.png" alt="Case study on survey_19" loading="lazy">
+<figcaption>Five of eight harnesses write only C3 (scenario ≤ 2). CoI-Agent's <i>AsyncTx-Agent</i> fuses C3+C4 and reaches scenario novelty 4 with method novelty 4.</figcaption></figure>
+</section>
+
+<section id="limits">
+<h2>Limitations</h2>
+<p>The 100 tasks are drawn from machine learning, so findings on challenge crowding and scenario ceilings may behave differently in wet-lab fields where experiments cannot be simulated. The comparison separates backbone priors from search policies across eight harnesses, but it is not an exhaustive model zoo, and newer models may change the rankings.</p>
+</section>
+
+<section id="resources">
+<h2>Resources</h2>
+<p class="lead">Everything needed to compare a new agent under the same envelope and the same judge is released.</p>
+<div class="grid g4">
+<div class="card"><b>100 task files</b><p style="margin:6px 0 0;color:var(--mute);font-size:15px">50 workshop + 50 survey contexts, each with the shared budget and schema.</p></div>
+<div class="card"><b>Scoring rubric</b><p style="margin:6px 0 0;color:var(--mute);font-size:15px">12 dimensions with 1–5 descriptors and judge checklists.</p></div>
+<div class="card"><b>Reviewer-mapped scores</b><p style="margin:6px 0 0;color:var(--mute);font-size:15px">Four novelty axes for 600 ICLR / NeurIPS / ICML papers.</p></div>
+<div class="card"><b>Pipelines &amp; scripts</b><p style="margin:6px 0 0;color:var(--mute);font-size:15px">Evaluation and execution code for reproducing every table.</p></div>
+</div>
+</section>
+
+<section id="cite">
+<h2>Citation</h2>
+<button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('bib').innerText);this.textContent='Copied ✓'">Copy</button>
+<pre><code id="bib">@misc{zhou2026alphaideabench,
+  title         = {AlphaIdeaBench: Benchmarking Automated Research Idea Generation
+                   under Feasibility Constraints with Peer Review Alignment},
+  author        = {Zhou, Shunchao and Yang, Chang and Wang, Jingrui and Zhuang, Shuxin
+                   and Wang, Rundong and Yu, Runsheng and Wang, Xinrun},
+  year          = {2026},
+  eprint        = {2610.33644},
+  archivePrefix = {arXiv},
+  url           = {https://arxiv.org/abs/2610.33644}
+}</code></pre>
+<p style="color:var(--mute);font-size:14px">Contact: <a href="mailto:xrwang@smu.edu.sg">xrwang@smu.edu.sg</a> (corresponding author) · <a href="mailto:sc.zhou.2025@phdcs.smu.edu.sg">sc.zhou.2025@phdcs.smu.edu.sg</a></p>
+</section>
+</main>
+
+<footer><div class="wrap">AlphaIdeaBench · Singapore Management University et al.<br>Tasks, rubrics and scores released at <a href="https://github.com/SHUNCHAOZHOU/AlphaIdeaBench">github.com/SHUNCHAOZHOU/AlphaIdeaBench</a></div></footer>
+<div id="lb"><img alt=""></div>
+<button id="top" aria-label="Back to top">↑</button>
+
+<script>
+// Always start at the top on reload (unless the URL has a #section)
+if('scrollRestoration' in history)history.scrollRestoration='manual';
+if(!location.hash){document.documentElement.style.scrollBehavior='auto';scrollTo(0,0);addEventListener('load',()=>{scrollTo(0,0);document.documentElement.style.scrollBehavior=''})}
+const DIMS=["Context grounding","Problem formulation","Motivation consistency","Testability","Problem novelty","Method novelty","Scenario novelty","Insight novelty","Technical feasibility","Data feasibility","Budget feasibility","Verification feasibility"];
+const SHORT=["Grounding","Formulation","Consistency","Testability","Problem nov.","Method nov.","Scenario nov.","Insight nov.","Technical","Data","Budget","Verification"];
+const VIEWS={
+h:{names:["CoI-Agent","SciMON","AI-Researcher","Virtual-Scientists","ResearchAgent","AI-Scientist-V1","AgentLaboratory","AI-Scientist-V2"],
+overall:[4.31,4.29,4.18,4.17,4.12,4.05,4.04,4.02],
+d:[[4.95,4.98,4.99,4.82,5.00,4.74,4.91,4.71],[5.00,5.00,4.99,4.97,5.00,4.46,4.97,4.98],[5.00,4.98,5.00,5.00,5.00,4.79,4.91,4.99],[4.99,5.00,5.00,4.35,4.34,4.71,4.87,4.14],[3.34,3.43,3.05,3.24,3.02,3.12,2.97,3.27],[3.38,3.95,3.35,3.05,3.14,3.45,2.87,3.17],[1.87,1.47,1.25,1.80,1.38,1.39,1.25,1.42],[3.40,3.78,3.22,3.30,2.95,3.19,2.82,3.39],[4.98,4.69,4.94,4.77,4.91,4.50,4.65,3.83],[4.96,4.98,4.99,4.99,4.98,4.94,4.95,4.98],[4.86,4.27,4.35,4.79,4.88,4.51,4.55,4.73],[4.99,5.00,5.00,5.00,4.88,4.76,4.78,4.64]],
+on:[0,1],
+take:""},
+m:{names:["Gemini 3.7 Flash","GPT-5.4 mini","Qwen 3.7 Flash","GPT-OSS-120B","Tencent HY3","DeepSeek-V4 Flash","Grok 4.3","Llama 4 Scout"],
+overall:[4.31,4.13,4.05,3.93,3.88,3.87,3.59,1.84],
+d:[[4.95,4.94,4.59,4.40,4.61,4.54,3.54,1.95],[5.00,5.00,4.93,4.88,4.74,4.56,4.51,1.51],[5.00,5.00,4.99,4.97,4.93,4.60,4.58,1.78],[4.99,5.00,4.92,5.00,4.69,4.23,4.39,2.19],[3.34,2.97,2.92,2.82,2.51,3.00,2.52,1.48],[3.38,2.59,2.92,2.75,2.20,2.67,2.21,1.12],[1.87,1.28,1.28,1.45,1.47,1.78,1.39,1.04],[3.40,2.91,2.57,2.30,2.12,2.89,2.06,1.01],[4.98,4.98,4.76,4.63,4.75,4.41,4.11,1.93],[4.96,4.91,4.89,4.75,4.82,4.69,4.73,3.57],[4.86,4.93,4.81,4.20,4.78,4.73,4.68,2.80],[4.99,5.00,4.97,4.98,4.90,4.30,4.37,1.70]],
+on:[0,7],
+take:"<b>Takeaway:</b> the same harness is only as good as the model running it. Overall falls from 4.31 to 1.84; weak models fail grounding, testability and budget, not just novelty."}
+};
+const GROUP=[0,0,0,0,1,1,1,1,2,2,2,2];
+let cur='h';
+function heat(v){const t=Math.max(0,Math.min(1,(v-1)/4));return `color-mix(in srgb, var(--blue) ${Math.round(t*34)}%, transparent)`}
+function radar(){
+ const V=VIEWS[cur],S=420,c=S/2,R=140,n=12;
+ const pt=(i,v)=>{const a=-Math.PI/2+i*2*Math.PI/n,r=(v-1)/4*R;return [c+r*Math.cos(a),c+r*Math.sin(a)]};
+ let s=`<svg viewBox="0 0 ${S} ${S}" width="100%" role="img" aria-label="Twelve-dimension radar">`;
+ for(let k=1;k<=4;k++){s+=`<polygon points="${[...Array(n)].map((_,i)=>pt(i,1+k).join(',')).join(' ')}" fill="none" stroke="var(--grid)" stroke-width="1"/>`}
+ for(let i=0;i<n;i++){const [x,y]=pt(i,5);s+=`<line x1="${c}" y1="${c}" x2="${x}" y2="${y}" stroke="var(--grid)"/>`;
+  const a=-Math.PI/2+i*2*Math.PI/n,lx=c+(R+16)*Math.cos(a),ly=c+(R+16)*Math.sin(a),an=Math.cos(a)>.3?'start':Math.cos(a)<-.3?'end':'middle';
+  s+=`<text x="${lx}" y="${ly+4}" font-size="11" text-anchor="${an}">${SHORT[i]}</text>`}
+ V.names.forEach((nm,j)=>{ if(!V.on.includes(j))return;
+  const p=[...Array(n)].map((_,i)=>pt(i,V.d[i][j]).join(',')).join(' ');
+  s+=`<polygon points="${p}" fill="var(--c${j})" fill-opacity=".12" stroke="var(--c${j})" stroke-width="2.2" stroke-linejoin="round"/>`});
+ s+='</svg>';
+ document.getElementById('radar').innerHTML=s;
+ document.getElementById('rlegend').innerHTML=V.names.map((nm,j)=>`<button class="lg ${V.on.includes(j)?'':'off'}" data-j="${j}"><i style="background:var(--c${j})"></i>${nm}</button>`).join('');
+ document.querySelectorAll('.lg').forEach(b=>b.onclick=()=>{const j=+b.dataset.j,o=V.on,k=o.indexOf(j);k>=0?o.splice(k,1):o.push(j);radar()});
+}
+function render(){
+ const V=VIEWS[cur];
+ document.getElementById('bars').innerHTML=V.names.map((n,i)=>`<div class="bar"><div>${n}</div><div class="t"><i style="width:${(V.overall[i]-1)/4*100}%"></i></div><div class="val">${V.overall[i].toFixed(2)}</div></div>`).join('');
+ const tk=document.getElementById('take');tk.innerHTML=V.take;tk.style.display=V.take?'':'none';
+ radar();
+}
+function table(V,id){
+ let h='<thead><tr><th>Dimension</th>'+V.names.map(n=>`<th>${n}</th>`).join('')+'</tr></thead><tbody>';
+ const G=["Validity","Novelty","Feasibility"];
+ DIMS.forEach((d,r)=>{
+  if(r%4==0)h+=`<tr class="sep"><td colspan="${V.names.length+1}">${G[GROUP[r]]}</td></tr>`;
+  const row=V.d[r],mx=Math.max(...row);
+  h+=`<tr><td>${d}</td>`+row.map(v=>`<td style="background:${heat(v)};${v===mx?'font-weight:700':''}">${v.toFixed(2)}</td>`).join('')+'</tr>';
+ });
+ h+='<tr class="tot"><td>Overall</td>'+V.overall.map(v=>`<td>${v.toFixed(2)}</td>`).join('')+'</tr></tbody>';
+ document.getElementById(id).innerHTML=h;
+}
+table(VIEWS.h,'tbl_h');table(VIEWS.m,'tbl_m');
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected',x===b));cur=b.dataset.view;render()});
+render();
+
+// Domain mix
+const DOM=[["LLMs and reasoning",7,15],["AI for science",6,7],["Efficiency and systems",6,7],["Multimodal and vision",6,6],["Trustworthy ML and safety",6,6],["Robotics and RL",6,2],["Interpretability and theory",4,4],["Graphs and geometry",5,1],["Continual learning",4,2]];
+document.getElementById('dom').innerHTML=DOM.map(([n,w,s])=>`<div class="dom"><div>${n}</div><div class="t" style="width:${(w+s)/22*100}%" title="Workshop ${w} · Survey ${s}"><i style="flex:${w}"></i><i style="flex:${s}"></i></div><div>${w+s}</div></div>`).join('');
+
+// Judge alignment (within ±1, Gemini 3.7 Flash)
+const AL={"ICLR 2026":[97.4,96.3,87.5,87.4],"NeurIPS 2025":[94.5,95.9,80.6,90.5],"ICML 2025":[97.3,96.8,80.7,75.0]};
+const AX=["Problem","Method","Scenario","Insight"];
+(function(){const W=640,H=230,l=34,b=28,t=10,bw=26,g=8;const keys=Object.keys(AL);
+ let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Within ±1 agreement by venue and axis">`;
+ const y=v=>t+(H-t-b)*(1-v/100);
+ [0,25,50,75,100].forEach(v=>s+=`<line x1="${l}" x2="${W}" y1="${y(v)}" y2="${y(v)}" stroke="var(--grid)"/><text x="${l-6}" y="${y(v)+4}" font-size="11" text-anchor="end">${v}</text>`);
+ s+=`<line x1="${l}" x2="${W}" y1="${y(90)}" y2="${y(90)}" stroke="var(--mute)" stroke-dasharray="4 4"/>`;
+ const gw=(W-l)/4;
+ AX.forEach((a,i)=>{const x0=l+i*gw+(gw-(keys.length*bw+(keys.length-1)*g))/2;
+  keys.forEach((k,j)=>{const v=AL[k][i],x=x0+j*(bw+g);s+=`<rect x="${x}" y="${y(v)}" width="${bw}" height="${y(0)-y(v)}" rx="3" fill="var(--c${j})"><title>${k} · ${a}: ${v}%</title></rect><text x="${x+bw/2}" y="${y(v)-4}" font-size="10.5" text-anchor="middle">${Math.round(v)}</text>`});
+  s+=`<text x="${l+i*gw+gw/2}" y="${H-8}" font-size="13" text-anchor="middle">${a}</text>`});
+ document.getElementById('align').innerHTML=s+'</svg>';
+ document.getElementById('alignkey').innerHTML=keys.map((k,j)=>`<span><i style="background:var(--c${j})"></i>${k}</span>`).join('');
+})();
+
+// Lightbox
+const lb=document.getElementById('lb'),lbi=lb.querySelector('img');
+document.querySelectorAll('figure img').forEach(i=>i.onclick=()=>{lbi.src=i.src;lb.classList.add('on')});
+lb.onclick=()=>lb.classList.remove('on');
+addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on')});
+// Scroll-spy + back to top
+const links=[...document.querySelectorAll('#nav a')];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}}),{rootMargin:'-40% 0px -55% 0px'});
+document.querySelectorAll('section[id]').forEach(s=>io.observe(s));
+const topBtn=document.getElementById('top');
+addEventListener('scroll',()=>topBtn.classList.toggle('on',scrollY>900),{passive:true});
+topBtn.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+</script>
+</body>
+</html>

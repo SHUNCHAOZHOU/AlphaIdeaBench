@@ -1,5 +1,7 @@
 # AlphaIdeaBench
 
+**Project page:** https://shunchaozhou.github.io/AlphaIdeaBench/ · **Paper:** https://arxiv.org/abs/2610.33644
+
 LLM-as-judge code for scoring research ideas on **twelve dimensions**. The human check in the paper is only on the **four novelty axes**: reviewer comments are turned into 1-5 targets, then compared with a blinded judge.
 
 This repository is judge-only. It does not generate ideas.
@@ -144,7 +146,7 @@ pytest
 ## Layout
 
 ```
-docs/                 paper figures used in this README
+docs/                 project page (GitHub Pages) and paper figures
 src/alphaideabench/   judge agent, 12-dimension rubric loader, Track 1/2
 prompts/              judge and novelty-mapping prompts; dimensions.yaml
 scripts/
